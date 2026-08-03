@@ -11,8 +11,8 @@ This plugin provides support for four SCALE calculation types:
 ## Features
 
 ### Input Syntax
-- **Variable syntax**: `&{variable_name}`
-- **Formula syntax**: `@{formula}`
+- **Variable syntax**: `&(variable_name)` or `&(variable_name~default_value)` for variables with defaults, delimited with `()`
+- **Formula syntax**: `@{formula}`, delimited with `{}` (distinct from the variable delimiter, so variables and formulas can be nested/mixed unambiguously)
 - **Comment character**: `'` (single quote)
 
 ### Supported Output Variables
@@ -119,7 +119,7 @@ read composition
 end composition
 read geometry
 global unit 1
- sphere 10    &{r}
+ sphere 10    &(r)
  media 1 1 10
  boundary 10
 end geometry
@@ -128,7 +128,7 @@ end
 ```
 
 In this example:
-- `&{r}` is a variable parameter that will be substituted by fz
+- `&(r)` is a variable parameter that will be substituted by fz
 - The comment character `'` is used for the header line
 - The calculation type is `=csas6` (KENO-VI)
 
@@ -149,7 +149,7 @@ read composition
 end composition
 read geometry
 global unit 1
- sphere 10    &{r}
+ sphere 10    &(r)
  media 1 1 10
  boundary 10
 end geometry
@@ -206,14 +206,20 @@ The model JSON files define variable syntax and output parsing:
     "id": "Scale-keno",
     "varprefix": "&",
     "formulaprefix": "@",
-    "delim": "{}",
+    "var_delim": "()",
+    "formula_delim": "{}",
     "commentline": "'",
     "output": {
-        "mean_keff": "grep 'best estimate system k-eff' *.out | ...",
-        "sigma_keff": "grep 'best estimate system k-eff' *.out | ..."
+        "mean_keff": "python://grep(r'best estimate system k-eff\\s+(\\S+)\\s+\\+\\s+or\\s+-\\s+(\\S+)', next(base_dir.glob('*.out')).name, group=1)",
+        "sigma_keff": "python://grep(r'best estimate system k-eff\\s+(\\S+)\\s+\\+\\s+or\\s+-\\s+(\\S+)', next(base_dir.glob('*.out')).name, group=2)"
     }
 }
 ```
+
+`var_delim` and `formula_delim` set independent delimiters for variables
+(`&(...)`) and formulas (`@{...}`), so the two constructs never collide in
+the same input file. If only a single `delim` field is given, it applies to
+both variables and formulas.
 
 ## Remote Execution
 

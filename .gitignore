@@ -1,6 +1,7 @@
 # Results and temporary files
 results/
 *.out
+!tests/fixtures/**/*.out
 *.msg
 *.html
 PID

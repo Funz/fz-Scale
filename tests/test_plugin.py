@@ -8,10 +8,19 @@ They test:
 - Variable parsing
 - Input file compilation
 - Calculator configuration
+- Output parsing (python:// expressions) on a real KENO output sample
+
+The KENO output sample in tests/fixtures/Scale-keno/godiva.out is a genuine
+SCALE/KENO-V.a result excerpt (csas5_example.out from idaholab/raven's
+CodeInterfaceTests, https://github.com/idaholab/raven), used here only to
+validate that the Scale-keno model's "python://" output expressions parse a
+real "final results table" correctly, on any OS (no bash/grep/awk required).
 """
 
 import os
 import json
+import math
+import shutil
 import tempfile
 import sys
 
@@ -27,7 +36,7 @@ def test_model_files():
         ".fz/models/Scale-shift.json"
     ]
     
-    required_fields = ["id", "varprefix", "delim", "commentline", "output"]
+    required_fields = ["id", "varprefix", "commentline", "output"]
     
     for model_file in models:
         print(f"  Checking {model_file}...", end=" ")
@@ -42,6 +51,12 @@ def test_model_files():
         # Check required fields
         for field in required_fields:
             assert field in model, f"Missing field '{field}' in {model_file}"
+
+        # Delimiters: either a single shared 'delim', or the separate
+        # 'var_delim' (for variables) / 'formula_delim' (for formulas)
+        assert "delim" in model or "var_delim" in model or "formula_delim" in model, (
+            f"Missing delimiter field ('delim', 'var_delim' or 'formula_delim') in {model_file}"
+        )
         
         # Check output section has at least one variable
         assert len(model["output"]) > 0, f"No output variables in {model_file}"
@@ -120,6 +135,93 @@ def test_example_files():
     print("  All example files present!\n")
 
 
+def test_keno_output_parsing():
+    """Test that the Scale-keno model's python:// output expressions
+    correctly parse a real KENO "final results table" (see module docstring
+    for the fixture's origin)."""
+    print("Testing Scale-keno output parsing...")
+
+    try:
+        import fz
+    except ImportError:
+        print("  fz module not installed - skipping output parsing test")
+        print("  (Install with: pip install git+https://github.com/Funz/fz.git)\n")
+        return
+
+    expected = {
+        "mean_keff": 0.952,
+        "sigma_keff": 0.020,
+        "mean_E_lethargy": 0.280003,
+        "sigma_E_lethargy": 0.00358169,
+        "mean_free_path": 1.23628,
+        "sigma_free_path": 0.00823879,
+        "mean_nubar": 2.44645,
+        "sigma_nubar": 0.000111459,
+    }
+
+    with tempfile.TemporaryDirectory() as tmpdir:
+        shutil.copy(
+            os.path.join("tests", "fixtures", "Scale-keno", "godiva.out"),
+            os.path.join(tmpdir, "godiva.out"),
+        )
+        print("  Running fz.fzo() on sample output...", end=" ")
+        result = fz.fzo(tmpdir, "Scale-keno")
+        row = result.iloc[0]
+        for key, value in expected.items():
+            assert key in row, f"Missing output '{key}' in parsed result"
+            assert math.isclose(row[key], value, rel_tol=1e-6), (
+                f"Output '{key}': expected {value}, got {row[key]}"
+            )
+        print("✓")
+
+    print("  Scale-keno output parsing test passed!\n")
+
+
+def test_dual_delimiters():
+    """Test that the plugin supports two distinct delimiters at once:
+    "()" for variables (varprefix "&") and "{}" for formulas (formulaprefix
+    "@"), as configured via the model's "var_delim"/"formula_delim" fields."""
+    print("Testing dual delimiters (variables '()' / formulas '{}')...")
+
+    try:
+        import fz
+    except ImportError:
+        print("  fz module not installed - skipping dual delimiter test")
+        print("  (Install with: pip install git+https://github.com/Funz/fz.git)\n")
+        return
+
+    content = (
+        "'test\n"
+        " sphere 10    &(r)\n"
+        " diameter     @{2*r}\n"
+    )
+
+    with tempfile.TemporaryDirectory() as tmpdir:
+        inp = os.path.join(tmpdir, "test.inp")
+        with open(inp, "w") as f:
+            f.write(content)
+
+        print("  Testing fz.fzi() picks up variable 'r'...", end=" ")
+        variables = fz.fzi(inp, "Scale-keno")
+        assert "r" in variables, "Variable 'r' (delimiter '()') not found"
+        print("✓")
+
+        print("  Testing fz.fzc() substitutes '()' and evaluates '{}'...", end=" ")
+        with tempfile.TemporaryDirectory() as outdir:
+            fz.fzc(inp, {"r": 5.0}, "Scale-keno", output_dir=outdir)
+            compiled = os.path.join(outdir, "r=5.0", "test.inp")
+            assert os.path.exists(compiled), "Compiled file not created"
+            with open(compiled) as f:
+                out_content = f.read()
+                assert "5.0" in out_content, "Variable '&(r)' not substituted"
+                assert "&(r)" not in out_content, "Variable marker still present"
+                assert "10.0" in out_content, "Formula '@{2*r}' not evaluated"
+                assert "@{2*r}" not in out_content, "Formula marker still present"
+        print("✓")
+
+    print("  Dual delimiter test passed!\n")
+
+
 def test_with_fz():
     """Test integration with fz framework (if available)."""
     print("Testing fz framework integration...")
@@ -183,6 +285,8 @@ def main():
         test_calculator_files()
         test_calculator_scripts()
         test_example_files()
+        test_keno_output_parsing()
+        test_dual_delimiters()
         test_with_fz()
         
         print("=" * 70)

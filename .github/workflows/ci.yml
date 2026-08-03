@@ -8,9 +8,17 @@ on:
 
 jobs:
   test:
-    name: Test Plugin Structure
-    runs-on: ubuntu-latest
-    
+    name: Test Plugin Structure (${{ matrix.os }})
+    runs-on: ${{ matrix.os }}
+    strategy:
+      fail-fast: false
+      matrix:
+        os: [ubuntu-latest, windows-latest, macos-latest]
+
+    defaults:
+      run:
+        shell: bash
+
     steps:
     - name: Checkout repository
       uses: actions/checkout@v3
@@ -38,6 +46,7 @@ jobs:
         done
     
     - name: Check shell script syntax
+      if: runner.os != 'Windows'
       run: |
         echo "Checking shell scripts..."
         for f in .fz/calculators/*.sh; do
@@ -70,6 +79,38 @@ jobs:
                 assert '8.741' in content, 'Variable not substituted'
                 assert '&(r)' not in content, 'Variable marker still present'
         print('✓ fzc test passed')
+        "
+
+    - name: Test fzo (parse Scale-keno output, python:// expressions)
+      run: |
+        python -c "
+        import fz
+        import math
+        import shutil
+        import tempfile
+        import os
+
+        expected = {
+            'mean_keff': 0.952,
+            'sigma_keff': 0.020,
+            'mean_E_lethargy': 0.280003,
+            'sigma_E_lethargy': 0.00358169,
+            'mean_free_path': 1.23628,
+            'sigma_free_path': 0.00823879,
+            'mean_nubar': 2.44645,
+            'sigma_nubar': 0.000111459,
+        }
+        with tempfile.TemporaryDirectory() as tmpdir:
+            shutil.copy(
+                os.path.join('tests', 'fixtures', 'Scale-keno', 'godiva.out'),
+                os.path.join(tmpdir, 'godiva.out'),
+            )
+            result = fz.fzo(tmpdir, 'Scale-keno')
+            row = result.iloc[0]
+            for key, value in expected.items():
+                assert key in row, f'Missing output {key!r}'
+                assert math.isclose(row[key], value, rel_tol=1e-6), f'{key}: expected {value}, got {row[key]}'
+        print('✓ fzo test passed')
         "
 
     - name: Run plugin tests

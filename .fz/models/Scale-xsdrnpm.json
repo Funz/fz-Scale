@@ -2,9 +2,10 @@
     "id": "Scale-xsdrnpm",
     "varprefix": "&",
     "formulaprefix": "@",
-    "delim": "{}",
+    "var_delim": "()",
+    "formula_delim": "{}",
     "commentline": "'",
     "output": {
-        "lambda": "grep 'lambda' out.txt | head -1 | awk '{for(i=1;i<=NF;i++) if($i==\"lambda\") print $(i+1)}' 2>/dev/null"
+        "lambda": "python://grep(r'\\blambda\\b\\s+(\\S+)', 'out.txt')"
     }
 }

@@ -10,7 +10,7 @@ read composition
 end composition
 read geometry
 global unit 1
- sphere 10    &{r}
+ sphere 10    &(r)
  media 1 1 10
  boundary 10
 end geometry
