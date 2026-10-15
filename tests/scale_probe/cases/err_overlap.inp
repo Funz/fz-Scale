@@ -1,0 +1,20 @@
+' Hypothesis: H22 (SCALE-skill v0.2) overlapping KENO-VI regions: k6-106 multiply defined space, repeated per source point
+=csas6
+godiva - overlapping regions
+v7-238
+read composition
+ uranium 1 den=18.742 1 293 92234 1.0202 92235 93.7112 92238 5.2686 end
+end composition
+read parameters
+ gen=110 npg=1000 nsk=10
+end parameters
+read geometry
+global unit 1
+ sphere 10 8.741
+ cuboid 20 6p8.741
+ media 1 1 10
+ media 0 1 20
+ boundary 20
+end geometry
+end data
+end

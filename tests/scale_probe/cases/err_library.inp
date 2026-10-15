@@ -1,0 +1,12 @@
+' Hypothesis: H11 unknown library name: where is the error reported, exit code
+=csas5
+godiva - unknown library
+v7-999zz
+read composition
+ uranium 1 den=18.742 1 293 92234 1.0202 92235 93.7112 92238 5.2686 end
+end composition
+read geometry
+ sphere 1 1 8.741
+end geometry
+end data
+end

@@ -1,0 +1,16 @@
+' Godiva (HEU-MET-FAST-001): k-eff sensitivity coefficients, TSUNAMI-3D (KENO V.a, multigroup)
+' r = &(r~8.741) cm
+=tsunami-3d-k5
+godiva bare HEU sphere
+v7-238
+read composition
+ uranium 1 den=18.742 1 293 92234 1.0202 92235 93.7112 92238 5.2686 end
+end composition
+read parameters
+ gen=200 npg=2000 nsk=20 apg=20000 agn=200 ask=20 htm=no
+end parameters
+read geometry
+ sphere 1 1 &(r)
+end geometry
+end data
+end

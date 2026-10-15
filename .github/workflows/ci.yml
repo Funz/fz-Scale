@@ -8,154 +8,37 @@ on:
 
 jobs:
   test:
-    name: Test Plugin Structure (${{ matrix.os }})
+    name: Tests (${{ matrix.os }}, Python ${{ matrix.python }})
     runs-on: ${{ matrix.os }}
     strategy:
       fail-fast: false
       matrix:
         os: [ubuntu-latest, windows-latest, macos-latest]
+        python: ['3.10', '3.12']
 
     defaults:
       run:
         shell: bash
 
     steps:
-    - name: Checkout repository
-      uses: actions/checkout@v3
-    
-    - name: Set up Python
-      uses: actions/setup-python@v4
+    - uses: actions/checkout@v4
+
+    - uses: actions/setup-python@v5
       with:
-        python-version: '3.10'
-    
-    - name: Install fz framework
-      run: |
-        pip install git+https://github.com/Funz/fz.git
-     
-    - name: Validate JSON files
-      run: |
-        echo "Validating model files..."
-        for f in .fz/models/*.json; do
-          echo "  Checking $f"
-          python -m json.tool "$f" > /dev/null
-        done
-        echo "Validating calculator config files..."
-        for f in .fz/calculators/*.json; do
-          echo "  Checking $f"
-          python -m json.tool "$f" > /dev/null
-        done
-    
-    - name: Check shell script syntax
+        python-version: ${{ matrix.python }}
+
+    - name: Install fz and pytest
+      run: pip install git+https://github.com/Funz/fz.git pytest
+
+    - name: Check shell scripts
       if: runner.os != 'Windows'
       run: |
-        echo "Checking shell scripts..."
-        for f in .fz/calculators/*.sh; do
-          echo "  Checking $f"
+        for f in .fz/calculators/*.sh tests/fake/scalerte tests/scale_probe/run_probe.sh; do
           bash -n "$f"
-        done
-    
-    - name: Test fzi (parse variables)
-      run: |
-        python -c "
-        import fz
-        variables = fz.fzi('examples/Scale-keno/godiva.inp', 'Scale-keno')
-        print(f'Variables found: {list(variables.keys())}')
-        assert 'r' in variables, 'Variable r not found'
-        print('✓ fzi test passed')
-        "
-    
-    - name: Test fzc (compile input)
-      run: |
-        python -c "
-        import fz
-        import tempfile
-        import os
-        with tempfile.TemporaryDirectory() as tmpdir:
-            fz.fzc('examples/Scale-keno/godiva.inp', {'r': 8.741}, 'Scale-keno', output_dir=tmpdir)
-            compiled = os.path.join(tmpdir, 'r=8.741', 'godiva.inp')
-            assert os.path.exists(compiled), 'Compiled file not created'
-            with open(compiled) as f:
-                content = f.read()
-                assert '8.741' in content, 'Variable not substituted'
-                assert '&(r)' not in content, 'Variable marker still present'
-        print('✓ fzc test passed')
-        "
-
-    - name: Test fzo (parse Scale-keno output, python:// expressions)
-      run: |
-        python -c "
-        import fz
-        import math
-        import shutil
-        import tempfile
-        import os
-
-        expected = {
-            'mean_keff': 0.952,
-            'sigma_keff': 0.020,
-            'mean_E_lethargy': 0.280003,
-            'sigma_E_lethargy': 0.00358169,
-            'mean_free_path': 1.23628,
-            'sigma_free_path': 0.00823879,
-            'mean_nubar': 2.44645,
-            'sigma_nubar': 0.000111459,
-        }
-        with tempfile.TemporaryDirectory() as tmpdir:
-            shutil.copy(
-                os.path.join('tests', 'fixtures', 'Scale-keno', 'godiva.out'),
-                os.path.join(tmpdir, 'godiva.out'),
-            )
-            result = fz.fzo(tmpdir, 'Scale-keno')
-            row = result.iloc[0]
-            for key, value in expected.items():
-                assert key in row, f'Missing output {key!r}'
-                assert math.isclose(row[key], value, rel_tol=1e-6), f'{key}: expected {value}, got {row[key]}'
-        print('✓ fzo test passed')
-        "
-
-    - name: Run plugin tests
-      run: |
-        python tests/test_plugin.py
-    
-  lint:
-    name: Lint
-    runs-on: ubuntu-latest
-    
-    steps:
-    - name: Checkout repository
-      uses: actions/checkout@v3
-    
-    - name: Check shell scripts are executable
-      run: |
-        for f in .fz/calculators/*.sh; do
-          if [ ! -x "$f" ]; then
-            echo "Error: $f is not executable"
-            exit 1
-          fi
+          [ -x "$f" ] || { echo "$f is not executable"; exit 1; }
         done
 
-  docs:
-    name: Check Documentation
-    runs-on: ubuntu-latest
-    
-    steps:
-    - name: Checkout repository
-      uses: actions/checkout@v3
-    
-    - name: Check required documentation files
-      run: |
-        for f in README.md LICENSE; do
-          if [ ! -f "$f" ]; then
-            echo "Error: Missing $f"
-            exit 1
-          fi
-          echo "✓ $f exists"
-        done
-    
-    - name: Check example files
-      run: |
-        if [ ! -f "examples/Scale-keno/godiva.inp" ]; then
-          echo "Error: Missing example input file"
-          exit 1
-        fi
-        echo "✓ Example files present"
+    # No SCALE on the runners: tests/test_scale_real.py is skipped; the
+    # calculator tests (bash) are skipped on Windows.
+    - name: Run tests
+      run: pytest tests/ -v

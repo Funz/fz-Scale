@@ -1,0 +1,1332 @@
+ *******************************************************************************
+ *                                                                             *
+ *                                 SCALE 6.2.4                                 *
+ *                                -------------                                *
+ *                                octobre 2026                                 *
+ *                                                                             *
+ *           SCALE:  A Comprehensive Modeling and Simulation Suite             *
+ *                   for Nuclear Safety Analysis and Design                    *
+ *                                                                             *
+ *                      Reactor and Nuclear Systems Division                   *
+ *                        Oak Ridge National Laboratory                        *
+ *                                                                             *
+ *                           http://scale.ornl.gov                             *
+ *                            scalehelp@ornl.gov                               *
+ *                                                                             *
+ *******************************************************************************
+ *******************************************************************************
+      
+                  Job Information
+                  ---------------
+      Job started on host on jeu. 15/10/2026 11:47:36
+      Working directory: /tmp/scale.user.47411
+      Input file name  : /work/var_short_run/var_short_run.inp
+      Output file name : /work/var_short_run/var_short_run.out
+      SCALE executable : /opt/scale/bin/scale
+      
+ *******************************************************************************
+The following data cards precede an = card
+      ' Hypothesis: H15 very short run (few generations): chi**2 / source convergence messages variants
+
+
+    module csas5 will be called on Thu Oct 15 11:47:37 2026.
+    sequence specification record:=csas5
+Input Data:
+
+      godiva - short run
+      v7-238
+      read composition
+       uranium 1 den=18.742 1 293 92234 1.0202 92235 93.7112 92238 5.2686 end
+      end composition
+      read parameters
+       gen=20 npg=200 nsk=5
+      end parameters
+      read geometry
+       sphere 1 1 8.741
+      end geometry
+      end data
+end
+
+No cell data found in input.
+
+
+
+************************************************************************************************************************************
+************************************************************************************************************************************
+************************************************************************************************************************************
+*****                                                                                                                          *****
+*****                                             program verification information                                             *****
+*****                                                                                                                          *****
+*****                                           code system: SCALE   version: 6.2.0                                            *****
+*****                                                                                                                          *****
+************************************************************************************************************************************
+************************************************************************************************************************************
+*****                                                                                                                          *****
+*****                                                                                                                          *****
+*****                      program:  csas5                                                                                     *****
+*****                                                                                                                          *****
+*****                      version:  6.2.4 (602004)                                                                            *****
+*****                                                                                                                          *****
+*****                     username:  user                                                                                *****
+*****                                                                                                                          *****
+*****                     hostname:  host.example.org                                                            *****
+*****                                                                                                                          *****
+*****                                                                                                                          *****
+*****            date of execution:  2026-10-15                                                                                *****
+*****                                                                                                                          *****
+*****            time of execution:  11:47:37                                                                                  *****
+*****                                                                                                                          *****
+************************************************************************************************************************************
+************************************************************************************************************************************
+************************************************************************************************************************************
+
+
+
+------------------------------------------------------------------------------------
+ Mixture table for component comps at line:5, column:1
+------------------------------------------------------------------------------------
+Mixture = 1 with density(g/cc) = 18.7420 and temperature(K) = 293.00
+        Entry      Mixture      Nuclide     Density (atoms/b-cm)     Temperature (K)
+------------------------------------------------------------------------------------
+            1            1        92234             4.919947e-04              293.00
+            2            1        92235             4.499968e-02              293.00
+            3            1        92238             2.498000e-03              293.00
+------------------------------------------------------------------------------------
+        Entry      Mixture      Nuclide     Density (atoms/b-cm)     Temperature (K)
+------------------------------------------------------------------------------------
+ End of mixture table for component comps at line:5, column:1
+------------------------------------------------------------------------------------
+
+Csas56 built mixture pool in: 0.06 seconds.
+Csas56 built celldata pool in: 0.00 seconds.
+Loaded MG Library: /opt/scale/data/scale.rev07.xn238v7.0
+Csas56 loaded ampx library in: 2.15 seconds.
+
+----------------------------------------------------------------------------------------------------
+ Cross section processing summary of the cells: 
+----------------------------------------------------------------------------------------------------
+
+ Total 1 cells are being processed:
+
+      1 *default cells* (fissionable) processed with CENTRM (sequence default option).
+
+ NOTE: *default cells* are the cells not specified in CELLDATA block (They are processed as
+       infinite homogeneous cells).
+
+----------------------------------------------------------------------------------------------------
+
+Csas56 prepared 1 unit cells in 0.02 seconds.
+Csas56 wrote mixing table to .mixtures7657 in 0.00 seconds.
+
+                                ........ finished before reading keno data    ........
+
+                                ........ finished reading the keno parameter data    ........
+
+
+                               *************** data reading completed ***************
+
+                                ........ finished preparing the keno input data    ........
+
+                                ........ finished loading the data    ........
+ 
+  ***** warning ***** csas message number cs-316 follows:
+  No mesh provided for Source Convergence Diagnostics (SCD). Continue with default mesh.
+ 
+
+                                ........ finished loading the keno data    ........
+
+                                ........ finished checking the keno geometry data    ........
+                                *****  restart data has been written on unit 35  *****
+
+                                ........ finished writing the keno data    ........
+
+     0$ array      4 entries read
+
+     1$ array     10 entries read
+
+     1* array     10 entries read
+
+     1t
+ 
+  MG Library Source: endf Revision: 7 Mod: 0
+  Determined CE Library XML file to be: ce_v7.0_endf.xml
+
+
+   CE-KENO xsdir XML file:   /opt/scale/data/ce_v7.0_endf.xml
+
+
+   A new centrm library has been written on unit number:   81
+   The number of input nuclides was:                        3
+   Number of Nuclides on output PW library:                 3
+
+
+                  Description of Output CENTRM Library 
+
+ Entry    ZA   Data Src  Vers No.  Mod No.  MT-Optn  Thermal ID    XS temperatures 
+ -----  -----  --------  --------  -------  -------  ----------    --------------- 
+    1    92234    endf       7         0        1             0        293.00
+    2    92235    endf       7         0        1             0        293.00
+    3    92238    endf       7         0        1             0        293.00
+XSProc starting module Dancoff.
+
+ Dancoff Module Problem Description
+ ige--geometry type(0/1/2/3--inf med/slab/cyl/sphere)                         0
+ izm--number of zones or material regions                                     1
+ igo--celltype                                                                1
+ ibr--right boundary condition (0/1/2/3--vacuum/reflected/periodic/white)     0
+ ibl--left  boundary condition (0/1/2/3--vacuum/reflected/periodic/white)     0
+XSProc execution of module Dancoff completed.
+XSProc starting module Bonami.
+XSProc execution of module Bonami completed.
+XSProc starting module MixMacros.
+XSProc execution of module MixMacros completed.
+XSProc starting module CentrmPmc.
+
+ >>>> BEGIN CENTRM CALCULATION >>>>
+
+
+                         ***** Program CENTRM: Continuous ENergy TRansport Module
+
+     CENTRM MATERIALS
+
+        nuclides on                                                   Mixing Table
+        multi-grp lib.  composition                mixture   component   atom density      small
+     1     92234            1                         1        92234     4.91995E-04         1                
+     2     92235            1                         1        92235     4.49997E-02         1                
+     3     92238            1                         1        92238     2.49800E-03         1                
+ *** WARNING! Use of bound thermal scattering kernels is requested, but no kernel file is provided.
+               Free-gas thermal kernels will be used for all materials
+     ft81f001            =   pointwise XS library from Crawdad
+
+      MULTIGROUP STRUCTURE
+
+     igm      =      238      number of energy groups
+     mmt      =      238      number of neutron groups
+     mcr      =        0      number of gamma groups
+     iftg     =      149      first thermal group number
+
+
+     GENERAL PROBLEM DATA
+
+     ige      =        0     problem geometry
+                               0/1/2/3 = inf. hom. medium/plane/cylinder/sphere
+     izm      =        1     number of zones
+     im       =        1     number of spatial intervals
+     ibl      =        1     left boundary condition:
+                               0/1/2/3 = vacuum/reflected/periodic/albedo
+     ibr      =        1     right boundary condition:
+                               0/1/2/3 = vacuum/reflected/periodic/albedo
+     mxx      =        1     number of mixtures
+     ms       =        3     mixing table length
+     isn      =        2     SN quadrature order (not used for npxs=6)
+     isct     =        0     order of elastic scattering
+     isrc     =        1     type of source spectrum:
+                               0/1/2 = multigroup input spectrum/fission spectrum/both (1)
+     iim      =       10     inner iterations maximum (10)
+     iup      =        3     upscatter outer iterations in thermal range (3)
+     nfst     =        3     multigroup calculation option in upper energy range [option nfst=5 is deprecated]:
+                               0/1/2/3/4/6 = sn/diffusion/homogeneous/zonewise homogeneous/BN/2D MoC cell (0)
+     nthr     =        3     multigroup calculation option in lower energy range [option nthr=5 is deprecated]:
+                               0/1/2/3/4/6 = sn/diffusion/homogeneous/zonewise homogeneous/BN/2D MoC cell (0)
+     npxs     =        4     pointwise calculation option:
+                               <=0/1/2/3/4/5/6 = no pointwise: do multigroup as in nfst/sn/coll. prob./
+                                 homogeneous/zonewise homogeneous/zonewise two-region/2D MoC cell (1)
+     isvar    =        3     multigroup source & cross section linearization option :
+                               0/1/2/3 = none/linearize source/linearize group cross sections/both (3)
+     mocMesh  =        0     meshing options for MoC calculation; npxs=6 only:
+                               0/1/2   = coarse/regular/fine mesh/input by zone (0)
+     mocPol   =        0     number of polar angles for MoC quadrature; npxs=6 only:
+                               2/3/4 = allowable values        (3)
+     mocAzi   =        0     number of azimuthal angles for MoC quadrature; npxs=6 only:
+                               1 -> 16 = allowable values      (8)
+     kern     =        0     thermal neutron scattering treatment:
+                               0/1 = all free-gas thermal kernels/use bound S(alpha, beta) data if available (0)
+     iscti    =        0     inelastic scattering order (0)
+     nmf6     =       -1     inelastic scattering option:
+                               -1/0/1 = no inelastic/discrete level only/discrete+continuum (0)
+
+
+     EDITTING AND OTHER OPTIONS
+
+     iprt     =       -3     -3/-2/-1/n = mixture cross sections print options: 
+                               none/write P.W. energy & macro x-sections to output file/print 1-D M.G. x-sections
+                               /print nth p (p0,p1..) M.G. x-section matrix (-3)
+     id1      =       -1     -1/0/1/2 = flux print options:
+                                none/print M.G flux/also print M.G moments/save PW zone flux in ascii file
+     ipbt     =        0     0/1 = none/group summary table print (0)
+     iqm      =        0     input multigrp volumetric sources (0/n=no/yes)
+     ipm      =        0     input multigrp boundary angular sources (0/n=no/yes)
+     ipn      =        2     0/1/2 diff. coef. param (2)
+     idfm     =        1     0/1 = none/density factors (0)
+     ixprt    =        0     0/1 = minimum print/regular print (0)
+     mlim     =        0     0/m = no effect/restrict nuclides with mass >= m to have PW scatter order <= nlim  (100)
+     nlim     =        0     restrictive scatter order (1)
+
+
+
+     FLOATING POINT VALUES
+
+     eps      =     0.10000E-02    upscatter integral convergence (0.001)
+     ptc      =     0.10000E-03    inner iteration convergence (0.001)
+     xnf      =     0.10000E+01    source normalization factor (1.0)
+     b2       =     0.00000E+00    buckling value ( cm**(-2) )
+     demin    =     0.10000E-02    lowest energy of pointwise calculation in (eV)
+     demax    =     0.20000E+05    highest energy of pointwise calculation in (eV)
+     tole     =     0.10000E-02    tolerance used in thinning the pointwise cross sections (0.001)
+     mocRay   =     0.00000E+00    distance between MoC rays; npxs=6 only. (0.02)
+     flet     =     0.10000E+00    fractional lethargy used in construction of flux energy mesh (0.1)
+     alump    =     0.20000E+00    mass-lumping criterion (0)
+
+
+ .........................................................................................................
+
+  Input DEMIN and DEMAX values may be modified to lie on multigroup boundaries.
+    Min and Max energies (eV) defining range for pointwise flux calculation  =     1.000E-03    2.500E+04
+ .........................................................................................................
+
+
+                              *******  Nuclide Lumping Summary **********
+
+                                Lumping tolerance on mass    =   0.2000
+                                Original number of Materials =    3
+                                Number of lumped materials   =    1
+
+                              ********************************************
+
+
+
+
+          kern is input as 0 or no file supplied for bound thermal kernel data.
+          => All PW thermal scatter kernels are treated as Free Gas
+
+
+
+  ***Thermal Outer Iteration Limit Reached!
+
+  ***Worst Inner Convergence For Epithermal Groups Was 0.00000E+00
+  ***Worst Inner Convergence For Thermal Flux Was      0.00000E+00
+  ***Outer Convergence of Thermal Flux (MG/PW) Was     6.79530E+01 7.36459E+02
+  ***Max. Scale Factor For Thermal Band Was            9.98248E-01
+  ***Outer Integral Convergence of Thermal Balance Was-1.92096E-07
+
+
+
+   elapsed time .01 min.
+   =time at end of centrm_Execute.
+  
+ <<<< CENTRM CALCULATION COMPLETED <<<<
+
+ >>>> BEGIN PMC CALCULATION >>>>
+
+
+                         ***** Program PMC: Process Multigroup Cross sections
+
+     PMC LOGICAL UNITS 
+
+     libx  = 81    Input Pointwise XS Library
+     libsc = 18    Scratch Unit 1
+     libsx = 19    Scratch Unit 2
+     libsm = 17    scratch unit (master library)
+
+
+
+     PMC INPUT PARAMETERS
+
+     mrange =  2   Option for choosing energy range     0   Averaging over pointwise xs limits
+                                                        1   Averaging over resolved resonance range
+                                                        2   Averaging over pointwise flux limits
+
+     n2d    = -1   Option for 2-D scat. calculation    -2   Apply elastic removal correction to P0 matrix and 
+                                                             apply consistent PN correction to Legendre moments
+                                                       -1   Apply elastic removal correction to P0 matrix
+                                                        0   Normalize 2-D elastic data to shielded 1-D value
+                                                        1   Recompute 2-D elastic using flux and s-wave kernel
+                                                        2   Apply consistent PN correction to Legendre moments
+
+     nprt   = -1   Option for PMC print output         -1   Minimum data printed 
+                                                        0   Standard printed output
+                                                        1   Print 1-D XSs
+                                                        2   Print both 1-D and 2-D XSs 
+
+     nwt    =  0   Option for XS averaging              0   Zone average
+                                                        1   Cell average
+
+     mtt    =  1   Option for total XS calculation      0   Average independently
+                                                        1   As sum of partial XS 
+
+    pmc_omit=  0   Option for Processing PW Materials   0   Process all Pointwise Materials Used in CENTRM
+                                                        1   Process only nuclides in fissionable (fuel) regions
+                                                        N   Process all materials except N nuclides in 2$$
+
+     ixtr(2)=  0   Option for calculation sequence      0   CSAS Standard Sequence
+                                                        1   Independant (stand-alone) Execution
+                                                        2   CSAS Doubly-Heterogeneous Cell Sequence
+
+     ixtr(3)=  5   Legendre expansion order            -1   Process all Legendre expansion moments found on AMPX LIB.
+                                                  =0,...N   Process new values only up through PN moments 
+
+     n1d    =  0   Option for 1-D cross-sections        0   Weight using using scalar flux
+                                                        1   Weight using using abs value of current (1st moment)
+
+
+     XS_dilute =  1.0E+10   min background XS considered infinitely dilute
+
+   elapsed time .00 min.
+
+   elapsed time .00 min.
+
+ <<<< PMC CALCULATION COMPLETED <<<<
+
+XSProc execution of module CentrmPmc completed.
+XSProc starting module MixMacros.
+XSProc execution of module MixMacros completed.
+Csas56 executed XSProc with 1 unit cells in 2.71 seconds.
+1
+
+
+
+
+
+
+        ************************************************************************************************************************
+        ************************************************************************************************************************
+        ************************************************************************************************************************
+        *****                                                                                                              *****
+        *****                                       program verification information                                       *****
+        *****                                                                                                              *****
+        *****                                   code system:  SCALE    version:  6.2                                       *****
+        *****                                                                                                              *****
+        ************************************************************************************************************************
+        ************************************************************************************************************************
+        *****                                                                                                              *****
+        *****                                                                                                              *****
+        *****              program:  kenova                                                                                *****
+        *****                                                                                                              *****
+        *****        creation date:  06_aug_2026                                                                           *****
+        *****                                                                                                              *****
+        *****              library:  /opt/scale/bin                                                      *****
+        *****                                                                                                              *****
+        *****                                                                                                              *****
+        *****            prod code:  kenova                                                                                *****
+        *****                                                                                                              *****
+        *****              version:  6.2.4                                                                                 *****
+        *****                                                                                                              *****
+        *****              jobname:  user                                                                              *****
+        *****                                                                                                              *****
+        *****         machine name:  host.example.org                                                        *****
+        *****                                                                                                              *****
+        *****    date of execution:  15_oct_2026                                                                           *****
+        *****                                                                                                              *****
+        *****    time of execution:  11:47:43.18                                                                           *****
+        *****                                                                                                              *****
+        *****                                                                                                              *****
+        ************************************************************************************************************************
+        ************************************************************************************************************************
+        ************************************************************************************************************************
+
+          ********************************************************************************************************************
+          ***                                                                                                              ***
+          ***                              godiva - short run                                                              ***
+          ***                                                                                                              ***
+          ********************************************************************************************************************
+          ***                                 ******       numeric parameters       ******                                 ***
+          ***                                                                                                              ***
+          ***                                                                                                              ***
+          ***                   tme         maximum problem time (min)                          0.00                       ***
+          ***                                                                                                              ***
+          ***                   tba         time per generation (min)                          10.00                       ***
+          ***                                                                                                              ***
+          ***                   gen         number of generations                                 20                       ***
+          ***                                                                                                              ***
+          ***                   npg         number per generation                                200                       ***
+          ***                                                                                                              ***
+          ***                   nsk         number of generations to be skipped                    5                       ***
+          ***                                                                                                              ***
+          ***                   beg         beginning generation number                            1                       ***
+          ***                                                                                                              ***
+          ***                   res         generations between checkpoints                        0                       ***
+          ***                                                                                                              ***
+          ***                   x1d         number of extra 1-d cross sections                     1                       ***
+          ***                                                                                                              ***
+          ***                   nbk         neutron bank size                                    225                       ***
+          ***                                                                                                              ***
+          ***                   xnb         extra positions in neutron bank                        0                       ***
+          ***                                                                                                              ***
+          ***                   nfb         fission bank size                                    200                       ***
+          ***                                                                                                              ***
+          ***                   xfb         extra positions in fission bank                        0                       ***
+          ***                                                                                                              ***
+          ***                   sig         cut off standard deviation                        0.0000                       ***
+          ***                                                                                                              ***
+          ***                   wta         default value of weight average                   0.5000                       ***
+          ***                                                                                                              ***
+          ***                   wth         weight high for splitting                         3.0000                       ***
+          ***                                                                                                              ***
+          ***                   wtl         weight low for russian roulette                   0.3333                       ***
+          ***                                                                                                              ***
+          ***                   rnd         starting random number                  000015714D98EE96                       ***
+          ***                                                                                                              ***
+          ***                   nb8         number of d.a. blocks on unit  8                    1000                       ***
+          ***                                                                                                              ***
+          ***                   nl8         length of d.a. blocks on unit  8                     512                       ***
+          ***                                                                                                              ***
+          ***                   nqd         quadrature order for angular fluxes                    0                       ***
+          ***                                                                                                              ***
+          ***                   pnm         highest order of flux moments                          0                       ***
+          ***                                                                                                              ***
+          ***                   msh         mesh size for mesh flux tally                     0.0000                       ***
+          ***                                                                                                              ***
+          ***                   adj         mode of calculation                              forward                       ***
+          ***                                                                                                              ***
+          ***                   tps         sampling sites per track length                        5                       ***
+          ***                                                                                                              ***
+          ***                   cgs         number of secondary groups to sampl                    0                       ***
+          ***                                                                                                              ***
+          ***                   cas         number of secondary angles to sampl                    0                       ***
+          ***                                                                                                              ***
+          ***                   wtc         Woodcock tracking cut-off value                     0.90                       ***
+          ***                                                                                                              ***
+          ***                   ttl         temperature tolerance for CE xsecs                 -1.00                       ***
+          ***                                                                                                              ***
+          ***                               input data written on restart unit                    no                       ***
+          ***                                                                                                              ***
+          ***                   dbl         Low Energy Cutoff (in eV) for DBRC                  0.40                       ***
+          ***                                                                                                              ***
+          ***                   dbh         High Energy Cutoff (in eV) for DBRC               210.00                       ***
+          ***                                                                                                              ***
+          ***                   cet         CE-TSUNAMI sensitivity method                       NONE                       ***
+          ***                                                                                                              ***
+          ***                   cfp         Number of latent gens in CE-TSUNAMI                    5                       ***
+          ***                                                                                                              ***
+          ***                   dbr         DBRC isotope selection                                 0                       ***
+          ***                                                                                                              ***
+          ***                   dbx         Doppler Broadening Method                              2                       ***
+          ***                                                                                                              ***
+          ***                                                                                                              ***
+          ********************************************************************************************************************
+          ********************************************************************************************************************
+1         ********************************************************************************************************************
+          ********************************************************************************************************************
+          ***                                                                                                              ***
+          ***                              godiva - short run                                                              ***
+          ***                                                                                                              ***
+          ********************************************************************************************************************
+          ***                                 ******      logical parameters        ******                                 ***
+          ***                                                                                                              ***
+          ***  run  execute problem after checking data  yes            plt  plot picture map(s)                     yes   ***
+          ***                                                                                                              ***
+          ***       compute fluxes (cfx, flx, cfe or mfp  no            fdn  compute fission densities               yes   ***
+          ***                                                                                                              ***
+          ***  smu  compute avg unit self-multiplication  no            nub  compute nu-bar & avg fission group      yes   ***
+          ***                                                                                                              ***
+          ***  mku  compute matrix k-eff by unit number   no            mkp  compute matrix k-eff by unit location    no   ***
+          ***                                                                                                              ***
+          ***  cku  compute cofactor k-eff by unit numbe  no            ckp  compute cofactor k-eff by unit location  no   ***
+          ***                                                                                                              ***
+          ***  fmu  print fiss prod matrix by unit numbe  no            fmp  print fiss prod matrix by unit location  no   ***
+          ***                                                                                                              ***
+          ***  mkh  compute matrix k-eff by hole number   no            mka  compute matrix k-eff by array number     no   ***
+          ***                                                                                                              ***
+          ***  ckh  compute cofactor k-eff by hole numbe  no            cka  compute cofactor k-eff by array number   no   ***
+          ***                                                                                                              ***
+          ***  fmh  print fiss prod matrix by hole numbe  no            fma  print fiss prod matrix by array number   no   ***
+          ***                                                                                                              ***
+          ***  hhl  collect matrix by highest hole level  no            hal  collect matrix by highest array level    no   ***
+          ***                                                                                                              ***
+          ***  amx  print all mixed cross sections        no            far  print fis. and abs. by region            no   ***
+          ***                                                                                                              ***
+          ***  xs1  print 1-d mixture x-sections          no            gas  print far by group                       no   ***
+          ***                                                                                                              ***
+          ***  xs2  print 2-d mixture x-sections          no            pax  print xsec-albedo correlation tables     no   ***
+          ***                                                                                                              ***
+          ***  xsl  print 2-d mixture Pl arrays           no            pwt  print weight average array               no   ***
+          ***                                                                                                              ***
+          ***  xap  print mixture angles & probabilities  no            pgm  print input geometry                     no   ***
+          ***                                                                                                              ***
+          ***  pki  print fission spectrum                no            bug  print debug information                  no   ***
+          ***                                                                                                              ***
+          ***  p1d  print extra 1-d cross sections        no            trk  print tracking information               no   ***
+          ***                                                                                                              ***
+          ***  tfm  coordinate transform for fluxes       no            pmf  print angular fluxes and flux moments    no   ***
+          ***                                                                                                              ***
+          ***       print fluxes (flx)                    no            app  append, not overwrite, restart data      no   ***
+          ***                                                                                                              ***
+          ***  mfx  compute mesh fluxes                   no            pms  print mesh fluxes if calculated          no   ***
+          ***                                                                                                              ***
+          ***  mfp  compute region mean free paths        no            pmm  print mesh flux moments if calculated    no   ***
+          ***                                                                                                              ***
+          ***  sen  compute derivative sensitivites       no            pmv  print mesh volumes                       no   ***
+          ***                                                                                                              ***
+          ***  cep  continuous energy calculation         no            ptb  use probability tables                  yes   ***
+          ***                                                                                                              ***
+          ***  fre  use analytic free gas kernel         yes            pnu  use prompt neutron spectrum only         no   ***
+          ***                                                                                                              ***
+          ***  udi  use double indexing                   no            cbt  compute contributons                     no   ***
+          ***                                                                                                              ***
+          ***  pct  print contributons                    no            cds  collect CADIS fissions                   no   ***
+          ***                                                                                                              ***
+          ***  cfe  use collision flux estimator          no            wdk  use woodcock tracking                    no   ***
+          ***                                                                                                              ***
+          ***  scx  save CE cross sections in restart     no            uum  use unionized mixture cross sections     no   ***
+          ***                                                                                                              ***
+          ***  htm  produce HTML output                  yes            scd  mesh based source convergence diag.     yes   ***
+          ***                                                                                                              ***
+          ***  cgd  use F*(r) Mesh                        no            m2u  use unionized nuclide cross sections     no   ***
+          ***                                                                                                              ***
+          ***  gfx  grid flux, averaged over voxel volum  no            fst  print F*(r) mesh values                  no   ***
+          ***                                                                                                              ***
+          ***                                                                                                              ***
+          ********************************************************************************************************************
+          ********************************************************************************************************************
+          ********************************************************************************************************************
+                                              parameter input completed
+
+
+                                ........ finished reading the parameter data      ........
+
+
+                               *************** data reading completed ***************
+1       ********************************************************************************************************************
+        ***                                                                                                              ***
+        ***                              godiva - short run                                                              ***
+        ***                                                                                                              ***
+        ********************************************************************************************************************
+        ********************************************************************************************************************
+        ***                                                                                                              ***
+        ***          unit                                                volume                                          ***
+        ***         number               data set name                    name        unit function                      ***
+        ***         ------               -------------                    ----        -------------                      ***
+        ***                                                                                                              ***
+        ***      xsc  14     /tmp/scale.user.47411/ft14f001                     mixed cross sections               ***
+        ***                                                                                                              ***
+        ***      alb  79      unknown                                                 input albedos                      ***
+        ***                                                                                                              ***
+        ***      wts  80      unknown                                                 input weights                      ***
+        ***                                                                                                              ***
+        ***      skt  16      unknown                                                 write scratch data                 ***
+        ***                                                                                                              ***
+        ***      rst  35     ->/scale.user.47411/restart.keno_input             read restart data                  ***
+        ***                                                                                                              ***
+        ***      lib   4     /tmp/scale.user.47411/ft04f001                     input ampx working library         ***
+        ***                                                                                                              ***
+        ***            8     /tmp/scale.user.47411/xfile008                     input data direct access           ***
+        ***                                                                                                              ***
+        ***           10      unknown                                                 xsec mixing direct access          ***
+        ***                                                                                                              ***
+        ********************************************************************************************************************
+
+                                ........ finished preparing input data    ........
+1                ***************************************************************************************************
+                 ***                                                                                             ***
+                 ***          godiva - short run                                                                 ***
+                 ***                                                                                             ***
+                 ***************************************************************************************************
+                 ***************************************************************************************************
+                 ***                                                                                             ***
+                 ***                               ****** additional information ******                          ***
+                 ***                                                                                             ***
+                 ***  use a global unit                      yes    use lattice geometry                     no  ***
+                 ***                                                                                             ***
+                 ***  no. of scattering angles in xsecs        3    global array number                       0  ***
+                 ***                                                                                             ***
+                 ***  number of mixtures used                  1    number of units in the global x dir.      0  ***
+                 ***                                                                                             ***
+                 ***  number of bias id's used                 1    number of units in the global y dir.      0  ***
+                 ***                                                                                             ***
+                 ***  number of differential albedos used      0    number of units in the global z dir.      0  ***
+                 ***                                                                                             ***
+                 ***  total input geometry regions             1    number of energy groups                 238  ***
+                 ***                                                                                             ***
+                 ***  number of geometry regions used          1    no. of fission spectrum source grps.      1  ***
+                 ***                                                                                             ***
+                 ***  use nested arrays                       no    use nested holes                         no  ***
+                 ***                                                                                             ***
+                 ***  number of arrays used                    0    number of holes                           0  ***
+                 ***                                                                                             ***
+                 ***  maximum array nesting level              0    maximum hole nesting level                0  ***
+                 ***                                                                                             ***
+                 ***  largest array number                     0    largest geometry unit number              1  ***
+                 ***                                                                                             ***
+                 ***                                                                                             ***
+                 ***  +x boundary condition            vacuum       -x boundary condition                vacuum  ***
+                 ***                                                                                             ***
+                 ***  +y boundary condition            vacuum       -y boundary condition                vacuum  ***
+                 ***                                                                                             ***
+                 ***  +z boundary condition            vacuum       -z boundary condition                vacuum  ***
+                 ***                                                                                             ***
+                 ***************************************************************************************************
+
+
+
+                                 cross sections read from the ampx working library on unit    4
+
+1                                        godiva - short run                                                              
+
+                                                   mixing table
+
+                                          number of scattering angles =  3
+                                      cross section message threshold = 1.0E+00
+
+
+ mixture =     1          density(g/cc) =  18.742              temperature(K) =    293.00
+    nuclide    nucmix   atom-dens.   wgt. frac.     za      awt          temp               nuclide title
+      92234       1    4.91995E-04  1.02020E-02   92234   234.0410       293.00     u234 9225 endf/b7 rel5 rev7 mod2                 12/17/09
+      92235       1    4.49997E-02  9.37112E-01   92235   235.0439       293.00     u235 9228 endf/b7 rel0 rev7 mod7                 12/17/09
+      92238       1    2.49800E-03  5.26860E-02   92238   238.0508       293.00     u238 9237 endf/b7 rel6 rev7 mod5                 12/17/09
+
+
+
+ 
+  ***** warning ***** keno message number k5-222 follows:
+  41 transfers for mixture 1 were corrected for bad moments.
+
+                                ........ finished mixing cross-sections       ........
+
+                                 1-d cross section array id numbers
+
+                                            neutron
+                                reaction name    reaction id
+                                        total              1
+                               non-absorption           2002
+                                   nu-fission           1452
+                                   absorption             27
+                                      fission             18
+                                          chi           1018
+
+                                ........ finished preparing the cross sections    ........
+
+                                ........ finished loading the data    ........
+1                                        godiva - short run                                                              
+
+                  media bias      geometry description for those units utilized in this problem
+ region            num   id 
+
+
+                                          *******************   global   *******************
+                                                      -----   unit     1   -----
+
+   1 sphere           1  1  radius =  8.7410     the center is located at (  0.0000    ,  0.0000    ,  0.0000    ).
+ 
+  ***** warning ***** keno message number k5-316 follows:
+  No mesh provided for Source Convergence Diagnostics (SCD). Continue with default mesh.
+ 
+1                                        godiva - short run                                                              
+                                        volumes for those units utilized in  this problem
+
+                                          geometry                                  cumulative
+                       unit    region      region            volume                   volume
+
+                         1         1         1         2.79751E+03 cm**3         2.79751E+03 cm**3
+
+
+
+                                        unit     uses    region     mixture        total volume
+
+                                          1         1       1          1         2.79751E+03 cm**3
+
+
+
+                                                       total mixture volumes
+                                                 mixture        total volume              mass(g)
+                                                     1         2.79751E+03 cm**3        5.24310E+04
+
+
+        ********************************************************************************************************************
+        ***                                                                                                              ***
+        ***                                         biasing information                                                  ***
+        ***                                                                                                              ***
+        ***     a default weight of    0.500 will be used for all bias id's.                                             ***
+        ***                                                                                                              ***
+        ********************************************************************************************************************
+
+                                ........ finished in KENO-V.a before tracking       ........
+
+                                ........     0.00250 minutes were used processing data.        ........
+             ====> Grid Geometry: 10001
+             ====>     title: Default mesh grid with nx=5, ny=5, and nz=5
+             ====>     Plane Summary
+             ====>       x:    5 cells from -8.74101E+00 to  8.74101E+00
+             ====>       y:    5 cells from -8.74101E+00 to  8.74101E+00
+             ====>       z:    5 cells from -8.74101E+00 to  8.74101E+00
+             ====>     Total number of cells: 125
+
+
+ volume fraction of fissile material in the system= 1.00000E+00
+
+ start type 0 was used.
+
+ the neutrons were started uniformly throughout the entire volume defined by the outermost geometry card.
+ the flag to start neutrons in the reflector was turned on                                                               
+
+   0.00000 minutes were required for starting.   total elapsed time is   0.00250 minutes.
+1godiva - short run                                                              
+
+                   generation        average         avg k-eff        generation        matrix        matrix k-eff                 
+     generation   k-effective      k-effective       deviation         entropy        k-effective       deviation                
+          1       8.81674E-01      1.00000E+00      0.00000E+00      6.02995E+00      0.00000E+00      0.00000E+00                 
+          2       9.48655E-01      1.00000E+00      0.00000E+00      5.91048E+00      0.00000E+00      0.00000E+00                 
+          3       1.00013E+00      1.00013E+00      0.00000E+00      5.76339E+00      0.00000E+00      0.00000E+00                 
+          4       1.08556E+00      1.04284E+00      4.27158E-02      5.78153E+00      0.00000E+00      0.00000E+00                 
+          5       1.02943E+00      1.03837E+00      2.50640E-02      5.70866E+00      0.00000E+00      0.00000E+00                 
+          6       9.82771E-01      1.02447E+00      2.25240E-02      5.73498E+00      0.00000E+00      0.00000E+00                 
+          7       9.04997E-01      1.00058E+00      2.95868E-02      5.62195E+00      0.00000E+00      0.00000E+00                 
+          8       1.01345E+00      1.00272E+00      2.42526E-02      5.74454E+00      0.00000E+00      0.00000E+00                 
+          9       9.78905E-01      9.70030E-01      3.25453E-02      5.76009E+00      0.00000E+00      0.00000E+00                 
+         10       1.04657E+00      9.85338E-01      5.40628E-02      5.70088E+00      0.00000E+00      0.00000E+00                 
+         11       1.08237E+00      1.00151E+00      6.85429E-02      5.56483E+00      0.00000E+00      0.00000E+00                 
+         12       1.02661E+00      1.00509E+00      5.43524E-02      5.81412E+00      0.00000E+00      0.00000E+00                 
+         13       9.87531E-01      1.00290E+00      3.98123E-02      5.75465E+00      0.00000E+00      0.00000E+00                 
+         14       1.01583E+00      1.00434E+00      3.23160E-02      5.69784E+00      0.00000E+00      0.00000E+00                 
+         15       9.98281E-01      1.00373E+00      2.73563E-02      5.71510E+00      0.00000E+00      0.00000E+00                 
+         16       9.90181E-01      1.00250E+00      2.37692E-02      5.65171E+00      0.00000E+00      0.00000E+00                 
+         17       1.06415E+00      1.00764E+00      1.86614E-02      5.76387E+00      0.00000E+00      0.00000E+00                 
+         18       9.49695E-01      1.00318E+00      1.81982E-02      5.88419E+00      0.00000E+00      0.00000E+00                 
+         19       9.10717E-01      9.96575E-01      1.87236E-02      5.84282E+00      0.00000E+00      0.00000E+00                 
+         20       9.83675E-01      9.95715E-01      1.76816E-02      5.63480E+00      0.00000E+00      0.00000E+00                 
+ 
+  keno message number k5-123          execution terminated due to completion of the specified number of generations.
+1                                                godiva - short run                                                              
+
+ lifetime =  6.17425E-09 + or -  1.24766E-10             generation time =  5.65981E-09 + or -  1.41968E-10
+ nu bar   =  2.59557E+00 + or -  2.01749E-03       average fission group =  2.60215E+01 + or -  1.35296E-01
+                      energy(ev) of the average lethargy causing fission =  8.20534E+05 + or -  1.05107E+04
+                                              system mean free path (cm) =  2.56279E+00 + or -  5.73994E-03
+
+ no. of initial                                                                                                          deviation of
+  generations      average                         67 per cent           95 per cent           99 per cent      number of   variance
+    skipped      k-effective      deviation    confidence interval   confidence interval   confidence interval  histories  (per cent)
+
+       5          0.99572   + or - 0.01768     0.97803 to 1.01340    0.96035 to 1.03108    0.94267 to 1.04876       3000      19.3841
+
+       6          0.99664   + or - 0.01865     0.97799 to 1.01529    0.95935 to 1.03393    0.94070 to 1.05258       2800      20.0061
+
+       7          1.00369   + or - 0.02172     0.98197 to 1.02541    0.96025 to 1.04713    0.93853 to 1.06884       2600      14.5744
+
+       8          1.00288   + or - 0.02400     0.97887 to 1.02688    0.95487 to 1.05088    0.93087 to 1.07488       2400      13.9264
+
+       9          1.00506   + or - 0.02816     0.97690 to 1.03321    0.94874 to 1.06137    0.92058 to 1.08953       2200      12.2676
+
+      10          1.00090   + or - 0.02954     0.97136 to 1.03044    0.94182 to 1.05999    0.91228 to 1.08953       2000      13.6202
+
+      11          0.99185   + or - 0.02602     0.96583 to 1.01787    0.93982 to 1.04389    0.91380 to 1.06990       1800      17.3962
+
+      12          0.98751   + or - 0.03103     0.95648 to 1.01854    0.92545 to 1.04957    0.89442 to 1.08060       1600      15.8554
+
+      13          0.98750   + or - 0.04033     0.94717 to 1.02784    0.90684 to 1.06817    0.86650 to 1.10850       1400      12.4998
+
+      14          0.98278   + or - 0.03424     0.94855 to 1.01702    0.91431 to 1.05125    0.88008 to 1.08549       1200      25.5386
+1                          godiva - short run                                                              
+
+                       plot of average k-effective by generation run.
+      the line represents k-eff = 0.995 + or - 0.017 which occurs for 20 generations run.
+
+                               0.9439                   0.9758                   1.0076
+         |-------------------------|------------------------|------------------------|------------------------
+         |
+         |                         *                             I         |                                   
+         |                                           *                     |                     I             
+         |                   I                         *                   |     I                             
+      10 +               I                                         *       |                                 I 
+         |                I                                                |    *                              
+         |                              I                                  |       *                           
+         |                                        I                        |     *                             
+         |                                               I                 |      *                        I   
+      15 +                                                  I              |     *                     I       
+         |                                                    I            |    *                  I           
+         |                                                            I    |         *             I           
+         |                                                         I       |     *             I               
+         |                                                   I             |*              I                   
+      20 +                                                   I             *             I                     
+1                          godiva - short run                                                              
+
+                       plot of average k-effective by generation skipped.
+      the line represents k-eff = 0.99 + or - 0.01 which occurs for 5 generations skipped.
+
+                               0.9472                   0.9761                   1.0051
+         |-------------------------|------------------------|------------------------|------------------------
+         |
+       5 +                                                   I              *               I                  
+         |                                                   I              |*               I                 
+         |                                                       I          |      *                  I        
+         |                                                    I             |      *                   I       
+         |                                                  I               |        *                       I 
+      10 +                                             I                    |    *                        I    
+         |                                         I                     *  |                   I              
+         |                                 I                         *      |                   I              
+         |                        I                                  *      |                           I      
+         |                          I                            *          |                  I               
+      15 +            I                                        *            |                          I       
+         |          I                                       *               |                       I          
+         |                         *                               I        |                                  
+
+   k-effective satisfies the chi**2 test for normality at the 95 % level
+
+ elapsed time   0.00317 minutes
+1                            godiva - short run                                                              
+                                                                                                         skipping  5 generations
+
+ group  fission  unit   region    fissions     percent       absorptions    percent         leakage      percent
+       fraction                               deviation                    deviation                    deviation
+
+    1    0.0000                 0.00000E+00     0.0000       0.00000E+00     0.0000       0.00000E+00     0.0000
+    2    0.0000                 0.00000E+00     0.0000       0.00000E+00     0.0000       0.00000E+00     0.0000
+    3    0.0000                 0.00000E+00     0.0000       0.00000E+00     0.0000       0.00000E+00     0.0000
+    4    0.0000                 0.00000E+00     0.0000       0.00000E+00     0.0000       0.00000E+00     0.0000
+    5    0.0000                 0.00000E+00     0.0000       0.00000E+00     0.0000       0.00000E+00     0.0000
+    6    0.0010                 1.02021E-03   100.0000       2.54355E-04   100.0000       0.00000E+00     0.0000
+    7    0.0063                 6.23790E-03    30.1225       1.70032E-03    30.1225       1.27433E-03    44.5142
+    8    0.0176                 1.75556E-02    18.2468       5.13410E-03    18.2468       6.56584E-03    18.3005
+    9    0.0263                 2.62158E-02    13.8030       8.40703E-03    13.8030       1.53866E-02    12.7324
+   10    0.0152                 1.51516E-02    11.6642       5.12896E-03    11.6642       9.12244E-03    17.2662
+   11    0.0801                 7.97560E-02     5.6977       2.85450E-02     5.6977       4.77877E-02     7.2429
+   12    0.0639                 6.36516E-02     6.8163       2.39324E-02     6.8163       3.12714E-02    10.2892
+   13    0.0139                 1.38836E-02    14.9856       5.32432E-03    14.9856       1.09025E-02    19.5340
+   14    0.0754                 7.50730E-02     5.3515       2.94488E-02     5.3515       4.41254E-02     7.2927
+   15    0.0761                 7.58143E-02     6.1074       3.07696E-02     6.1074       3.97092E-02     6.5560
+   16    0.0235                 2.34446E-02    10.7302       9.71036E-03    10.7302       1.33517E-02    10.6659
+   17    0.0088                 8.71744E-03    15.4033       3.63604E-03    15.4033       6.84283E-03    18.5505
+   18    0.0112                 1.11279E-02    12.3845       4.66088E-03    12.3845       6.70981E-03    19.3646
+   19    0.0160                 1.58939E-02    15.5871       6.69305E-03    15.5871       8.61656E-03    14.7041
+   20    0.0142                 1.41283E-02    12.9662       5.98498E-03    12.9662       1.03512E-02    15.1891
+   21    0.0273                 2.72160E-02     7.8388       1.16145E-02     7.8388       1.89826E-02    12.9255
+   22    0.0293                 2.91770E-02     9.1224       1.25655E-02     9.1224       2.31922E-02    10.9150
+   23    0.0260                 2.58588E-02     6.5873       1.12401E-02     6.5873       1.77519E-02    12.7666
+   24    0.0062                 6.13962E-03    15.9518       2.69129E-03    15.9518       3.22856E-03    22.1505
+   25    0.0087                 8.70139E-03    11.8281       3.82554E-03    11.8281       5.01503E-03    26.9655
+   26    0.0065                 6.46197E-03    19.3607       2.84697E-03    19.3607       5.07567E-03    20.7283
+   27    0.0145                 1.44161E-02    11.1581       6.37066E-03    11.1581       1.14347E-02    11.3924
+   28    0.0240                 2.39232E-02     7.4955       1.06392E-02     7.4955       1.87090E-02    16.5123
+   29    0.0235                 2.34055E-02     8.5740       1.05042E-02     8.5740       2.16920E-02     8.9152
+   30    0.0031                 3.10400E-03    18.4804       1.40108E-03    18.4804       1.50003E-03    54.7772
+   31    0.0322                 3.21076E-02     8.8603       1.45753E-02     8.8603       2.16389E-02     6.5759
+   32    0.0108                 1.07848E-02    13.9943       4.92683E-03    13.9943       1.01529E-02    18.1502
+   33    0.0094                 9.34183E-03    14.7184       4.28179E-03    14.7184       8.74195E-03    16.1286
+   34    0.0227                 2.26162E-02    14.2331       1.04276E-02    14.2331       1.13263E-02    11.9963
+   35    0.0167                 1.65926E-02    10.8276       7.70079E-03    10.8276       1.12313E-02    20.5982
+   36    0.0150                 1.49741E-02     8.4085       6.97689E-03     8.4085       1.09786E-02    12.7972
+   37    0.0105                 1.04149E-02    15.7615       4.87029E-03    15.7615       5.05920E-03    22.7837
+   38    0.0098                 9.74789E-03    15.5444       4.57535E-03    15.5444       7.21789E-03    15.3045
+   39    0.0476                 4.73951E-02     5.9718       2.24486E-02     5.9718       2.25287E-02    10.8341
+   40    0.0435                 4.32756E-02     8.3087       2.08034E-02     8.3087       1.92221E-02     9.2963
+   41    0.0495                 4.92768E-02     5.4658       2.41696E-02     5.4658       2.47237E-02     8.1083
+   42    0.0340                 3.38521E-02     7.8027       1.69968E-02     7.8027       1.55546E-02     8.4261
+   43    0.0178                 1.76805E-02    12.5292       9.03369E-03    12.5292       6.68063E-03    13.8739
+   44    0.0153                 1.52592E-02     7.6980       7.93045E-03     7.6980       7.81992E-03     9.3101
+   45    0.0089                 8.84536E-03    25.6428       4.66823E-03    25.6428       4.12473E-03    22.4144
+   46    0.0021                 2.07178E-03    35.1885       1.10297E-03    35.1885       1.18677E-03    42.2544
+   47    0.0058                 5.82113E-03    25.1044       3.11485E-03    25.1044       1.96546E-03    29.4962
+   48    0.0013                 1.26881E-03    28.7323       6.87541E-04    28.7323       7.48078E-05   100.0000
+   49    0.0070                 7.00124E-03    24.0951       3.77414E-03    24.0951       1.45391E-03    33.1056
+   50    0.0068                 6.75409E-03    21.4885       3.67684E-03    21.4885       1.54369E-03    32.1404
+   51    0.0010                 1.01845E-03    42.3783       5.48521E-04    42.3783       7.85432E-05   100.0000
+   52    0.0009                 8.57099E-04    44.0614       4.66606E-04    44.0614       3.87903E-04    62.2064
+   53    0.0067                 6.70780E-03    23.9674       3.70473E-03    23.9674       1.92201E-03    33.9541
+   54    0.0018                 1.76160E-03    42.6951       9.80400E-04    42.6951       1.61704E-04   100.0000
+   55    0.0013                 1.33985E-03    40.3499       7.52426E-04    40.3499       1.50269E-04   100.0000
+   56    0.0010                 9.96733E-04    56.2360       5.60917E-04    56.2360       1.90445E-04    73.3866
+1                            godiva - short run                                                              
+                                                                                                         skipping  5 generations
+
+ group  fission  unit   region    fissions     percent       absorptions    percent         leakage      percent
+       fraction                               deviation                    deviation                    deviation
+
+   57    0.0015                 1.47811E-03    46.8852       8.31979E-04    46.8852       9.73391E-05   100.0000
+   58    0.0001                 1.01837E-04   100.0000       5.73159E-05   100.0000       0.00000E+00     0.0000
+   59    0.0000                 0.00000E+00     0.0000       0.00000E+00     0.0000       0.00000E+00     0.0000
+   60    0.0003                 2.96861E-04   100.0000       1.67362E-04   100.0000       0.00000E+00     0.0000
+   61    0.0000                 0.00000E+00     0.0000       0.00000E+00     0.0000       0.00000E+00     0.0000
+   62    0.0000                 0.00000E+00     0.0000       0.00000E+00     0.0000       0.00000E+00     0.0000
+   63    0.0000                 0.00000E+00     0.0000       0.00000E+00     0.0000       0.00000E+00     0.0000
+   64    0.0000                 0.00000E+00     0.0000       0.00000E+00     0.0000       0.00000E+00     0.0000
+   65    0.0000                 0.00000E+00     0.0000       0.00000E+00     0.0000       0.00000E+00     0.0000
+   66    0.0000                 0.00000E+00     0.0000       0.00000E+00     0.0000       0.00000E+00     0.0000
+   67    0.0000                 0.00000E+00     0.0000       0.00000E+00     0.0000       0.00000E+00     0.0000
+   68    0.0000                 0.00000E+00     0.0000       0.00000E+00     0.0000       0.00000E+00     0.0000
+   69    0.0000                 0.00000E+00     0.0000       0.00000E+00     0.0000       0.00000E+00     0.0000
+   70    0.0000                 0.00000E+00     0.0000       0.00000E+00     0.0000       0.00000E+00     0.0000
+   71    0.0000                 0.00000E+00     0.0000       0.00000E+00     0.0000       0.00000E+00     0.0000
+   72    0.0000                 0.00000E+00     0.0000       0.00000E+00     0.0000       0.00000E+00     0.0000
+   73    0.0000                 0.00000E+00     0.0000       0.00000E+00     0.0000       0.00000E+00     0.0000
+   74    0.0000                 0.00000E+00     0.0000       0.00000E+00     0.0000       0.00000E+00     0.0000
+   75    0.0000                 0.00000E+00     0.0000       0.00000E+00     0.0000       0.00000E+00     0.0000
+   76    0.0000                 0.00000E+00     0.0000       0.00000E+00     0.0000       0.00000E+00     0.0000
+   77    0.0000                 0.00000E+00     0.0000       0.00000E+00     0.0000       0.00000E+00     0.0000
+   78    0.0000                 0.00000E+00     0.0000       0.00000E+00     0.0000       0.00000E+00     0.0000
+   79    0.0000                 0.00000E+00     0.0000       0.00000E+00     0.0000       0.00000E+00     0.0000
+   80    0.0000                 0.00000E+00     0.0000       0.00000E+00     0.0000       0.00000E+00     0.0000
+   81    0.0000                 0.00000E+00     0.0000       0.00000E+00     0.0000       0.00000E+00     0.0000
+   82    0.0000                 0.00000E+00     0.0000       0.00000E+00     0.0000       0.00000E+00     0.0000
+   83    0.0000                 0.00000E+00     0.0000       0.00000E+00     0.0000       0.00000E+00     0.0000
+   84    0.0000                 0.00000E+00     0.0000       0.00000E+00     0.0000       0.00000E+00     0.0000
+   85    0.0000                 0.00000E+00     0.0000       0.00000E+00     0.0000       0.00000E+00     0.0000
+   86    0.0000                 0.00000E+00     0.0000       0.00000E+00     0.0000       0.00000E+00     0.0000
+   87    0.0000                 0.00000E+00     0.0000       0.00000E+00     0.0000       0.00000E+00     0.0000
+   88    0.0000                 0.00000E+00     0.0000       0.00000E+00     0.0000       0.00000E+00     0.0000
+   89    0.0000                 0.00000E+00     0.0000       0.00000E+00     0.0000       0.00000E+00     0.0000
+   90    0.0000                 0.00000E+00     0.0000       0.00000E+00     0.0000       0.00000E+00     0.0000
+   91    0.0000                 0.00000E+00     0.0000       0.00000E+00     0.0000       0.00000E+00     0.0000
+   92    0.0000                 0.00000E+00     0.0000       0.00000E+00     0.0000       0.00000E+00     0.0000
+   93    0.0000                 0.00000E+00     0.0000       0.00000E+00     0.0000       0.00000E+00     0.0000
+   94    0.0000                 0.00000E+00     0.0000       0.00000E+00     0.0000       0.00000E+00     0.0000
+   95    0.0000                 0.00000E+00     0.0000       0.00000E+00     0.0000       0.00000E+00     0.0000
+   96    0.0000                 0.00000E+00     0.0000       0.00000E+00     0.0000       0.00000E+00     0.0000
+   97    0.0000                 0.00000E+00     0.0000       0.00000E+00     0.0000       0.00000E+00     0.0000
+   98    0.0000                 0.00000E+00     0.0000       0.00000E+00     0.0000       0.00000E+00     0.0000
+   99    0.0000                 0.00000E+00     0.0000       0.00000E+00     0.0000       0.00000E+00     0.0000
+  100    0.0000                 0.00000E+00     0.0000       0.00000E+00     0.0000       0.00000E+00     0.0000
+  101    0.0000                 0.00000E+00     0.0000       0.00000E+00     0.0000       0.00000E+00     0.0000
+  102    0.0000                 0.00000E+00     0.0000       0.00000E+00     0.0000       0.00000E+00     0.0000
+  103    0.0000                 0.00000E+00     0.0000       0.00000E+00     0.0000       0.00000E+00     0.0000
+  104    0.0000                 0.00000E+00     0.0000       0.00000E+00     0.0000       0.00000E+00     0.0000
+  105    0.0000                 0.00000E+00     0.0000       0.00000E+00     0.0000       0.00000E+00     0.0000
+  106    0.0000                 0.00000E+00     0.0000       0.00000E+00     0.0000       0.00000E+00     0.0000
+  107    0.0000                 0.00000E+00     0.0000       0.00000E+00     0.0000       0.00000E+00     0.0000
+  108    0.0000                 0.00000E+00     0.0000       0.00000E+00     0.0000       0.00000E+00     0.0000
+  109    0.0000                 0.00000E+00     0.0000       0.00000E+00     0.0000       0.00000E+00     0.0000
+  110    0.0000                 0.00000E+00     0.0000       0.00000E+00     0.0000       0.00000E+00     0.0000
+  111    0.0000                 0.00000E+00     0.0000       0.00000E+00     0.0000       0.00000E+00     0.0000
+  112    0.0000                 0.00000E+00     0.0000       0.00000E+00     0.0000       0.00000E+00     0.0000
+1                            godiva - short run                                                              
+                                                                                                         skipping  5 generations
+
+ group  fission  unit   region    fissions     percent       absorptions    percent         leakage      percent
+       fraction                               deviation                    deviation                    deviation
+
+  113    0.0000                 0.00000E+00     0.0000       0.00000E+00     0.0000       0.00000E+00     0.0000
+  114    0.0000                 0.00000E+00     0.0000       0.00000E+00     0.0000       0.00000E+00     0.0000
+  115    0.0000                 0.00000E+00     0.0000       0.00000E+00     0.0000       0.00000E+00     0.0000
+  116    0.0000                 0.00000E+00     0.0000       0.00000E+00     0.0000       0.00000E+00     0.0000
+  117    0.0000                 0.00000E+00     0.0000       0.00000E+00     0.0000       0.00000E+00     0.0000
+  118    0.0000                 0.00000E+00     0.0000       0.00000E+00     0.0000       0.00000E+00     0.0000
+  119    0.0000                 0.00000E+00     0.0000       0.00000E+00     0.0000       0.00000E+00     0.0000
+  120    0.0000                 0.00000E+00     0.0000       0.00000E+00     0.0000       0.00000E+00     0.0000
+  121    0.0000                 0.00000E+00     0.0000       0.00000E+00     0.0000       0.00000E+00     0.0000
+  122    0.0000                 0.00000E+00     0.0000       0.00000E+00     0.0000       0.00000E+00     0.0000
+  123    0.0000                 0.00000E+00     0.0000       0.00000E+00     0.0000       0.00000E+00     0.0000
+  124    0.0000                 0.00000E+00     0.0000       0.00000E+00     0.0000       0.00000E+00     0.0000
+  125    0.0000                 0.00000E+00     0.0000       0.00000E+00     0.0000       0.00000E+00     0.0000
+  126    0.0000                 0.00000E+00     0.0000       0.00000E+00     0.0000       0.00000E+00     0.0000
+  127    0.0000                 0.00000E+00     0.0000       0.00000E+00     0.0000       0.00000E+00     0.0000
+  128    0.0000                 0.00000E+00     0.0000       0.00000E+00     0.0000       0.00000E+00     0.0000
+  129    0.0000                 0.00000E+00     0.0000       0.00000E+00     0.0000       0.00000E+00     0.0000
+  130    0.0000                 0.00000E+00     0.0000       0.00000E+00     0.0000       0.00000E+00     0.0000
+  131    0.0000                 0.00000E+00     0.0000       0.00000E+00     0.0000       0.00000E+00     0.0000
+  132    0.0000                 0.00000E+00     0.0000       0.00000E+00     0.0000       0.00000E+00     0.0000
+  133    0.0000                 0.00000E+00     0.0000       0.00000E+00     0.0000       0.00000E+00     0.0000
+  134    0.0000                 0.00000E+00     0.0000       0.00000E+00     0.0000       0.00000E+00     0.0000
+  135    0.0000                 0.00000E+00     0.0000       0.00000E+00     0.0000       0.00000E+00     0.0000
+  136    0.0000                 0.00000E+00     0.0000       0.00000E+00     0.0000       0.00000E+00     0.0000
+  137    0.0000                 0.00000E+00     0.0000       0.00000E+00     0.0000       0.00000E+00     0.0000
+  138    0.0000                 0.00000E+00     0.0000       0.00000E+00     0.0000       0.00000E+00     0.0000
+  139    0.0000                 0.00000E+00     0.0000       0.00000E+00     0.0000       0.00000E+00     0.0000
+  140    0.0000                 0.00000E+00     0.0000       0.00000E+00     0.0000       0.00000E+00     0.0000
+  141    0.0000                 0.00000E+00     0.0000       0.00000E+00     0.0000       0.00000E+00     0.0000
+  142    0.0000                 0.00000E+00     0.0000       0.00000E+00     0.0000       0.00000E+00     0.0000
+  143    0.0000                 0.00000E+00     0.0000       0.00000E+00     0.0000       0.00000E+00     0.0000
+  144    0.0000                 0.00000E+00     0.0000       0.00000E+00     0.0000       0.00000E+00     0.0000
+  145    0.0000                 0.00000E+00     0.0000       0.00000E+00     0.0000       0.00000E+00     0.0000
+  146    0.0000                 0.00000E+00     0.0000       0.00000E+00     0.0000       0.00000E+00     0.0000
+  147    0.0000                 0.00000E+00     0.0000       0.00000E+00     0.0000       0.00000E+00     0.0000
+  148    0.0000                 0.00000E+00     0.0000       0.00000E+00     0.0000       0.00000E+00     0.0000
+  149    0.0000                 0.00000E+00     0.0000       0.00000E+00     0.0000       0.00000E+00     0.0000
+  150    0.0000                 0.00000E+00     0.0000       0.00000E+00     0.0000       0.00000E+00     0.0000
+  151    0.0000                 0.00000E+00     0.0000       0.00000E+00     0.0000       0.00000E+00     0.0000
+  152    0.0000                 0.00000E+00     0.0000       0.00000E+00     0.0000       0.00000E+00     0.0000
+  153    0.0000                 0.00000E+00     0.0000       0.00000E+00     0.0000       0.00000E+00     0.0000
+  154    0.0000                 0.00000E+00     0.0000       0.00000E+00     0.0000       0.00000E+00     0.0000
+  155    0.0000                 0.00000E+00     0.0000       0.00000E+00     0.0000       0.00000E+00     0.0000
+  156    0.0000                 0.00000E+00     0.0000       0.00000E+00     0.0000       0.00000E+00     0.0000
+  157    0.0000                 0.00000E+00     0.0000       0.00000E+00     0.0000       0.00000E+00     0.0000
+  158    0.0000                 0.00000E+00     0.0000       0.00000E+00     0.0000       0.00000E+00     0.0000
+  159    0.0000                 0.00000E+00     0.0000       0.00000E+00     0.0000       0.00000E+00     0.0000
+  160    0.0000                 0.00000E+00     0.0000       0.00000E+00     0.0000       0.00000E+00     0.0000
+  161    0.0000                 0.00000E+00     0.0000       0.00000E+00     0.0000       0.00000E+00     0.0000
+  162    0.0000                 0.00000E+00     0.0000       0.00000E+00     0.0000       0.00000E+00     0.0000
+  163    0.0000                 0.00000E+00     0.0000       0.00000E+00     0.0000       0.00000E+00     0.0000
+  164    0.0000                 0.00000E+00     0.0000       0.00000E+00     0.0000       0.00000E+00     0.0000
+  165    0.0000                 0.00000E+00     0.0000       0.00000E+00     0.0000       0.00000E+00     0.0000
+  166    0.0000                 0.00000E+00     0.0000       0.00000E+00     0.0000       0.00000E+00     0.0000
+  167    0.0000                 0.00000E+00     0.0000       0.00000E+00     0.0000       0.00000E+00     0.0000
+  168    0.0000                 0.00000E+00     0.0000       0.00000E+00     0.0000       0.00000E+00     0.0000
+1                            godiva - short run                                                              
+                                                                                                         skipping  5 generations
+
+ group  fission  unit   region    fissions     percent       absorptions    percent         leakage      percent
+       fraction                               deviation                    deviation                    deviation
+
+  169    0.0000                 0.00000E+00     0.0000       0.00000E+00     0.0000       0.00000E+00     0.0000
+  170    0.0000                 0.00000E+00     0.0000       0.00000E+00     0.0000       0.00000E+00     0.0000
+  171    0.0000                 0.00000E+00     0.0000       0.00000E+00     0.0000       0.00000E+00     0.0000
+  172    0.0000                 0.00000E+00     0.0000       0.00000E+00     0.0000       0.00000E+00     0.0000
+  173    0.0000                 0.00000E+00     0.0000       0.00000E+00     0.0000       0.00000E+00     0.0000
+  174    0.0000                 0.00000E+00     0.0000       0.00000E+00     0.0000       0.00000E+00     0.0000
+  175    0.0000                 0.00000E+00     0.0000       0.00000E+00     0.0000       0.00000E+00     0.0000
+  176    0.0000                 0.00000E+00     0.0000       0.00000E+00     0.0000       0.00000E+00     0.0000
+  177    0.0000                 0.00000E+00     0.0000       0.00000E+00     0.0000       0.00000E+00     0.0000
+  178    0.0000                 0.00000E+00     0.0000       0.00000E+00     0.0000       0.00000E+00     0.0000
+  179    0.0000                 0.00000E+00     0.0000       0.00000E+00     0.0000       0.00000E+00     0.0000
+  180    0.0000                 0.00000E+00     0.0000       0.00000E+00     0.0000       0.00000E+00     0.0000
+  181    0.0000                 0.00000E+00     0.0000       0.00000E+00     0.0000       0.00000E+00     0.0000
+  182    0.0000                 0.00000E+00     0.0000       0.00000E+00     0.0000       0.00000E+00     0.0000
+  183    0.0000                 0.00000E+00     0.0000       0.00000E+00     0.0000       0.00000E+00     0.0000
+  184    0.0000                 0.00000E+00     0.0000       0.00000E+00     0.0000       0.00000E+00     0.0000
+  185    0.0000                 0.00000E+00     0.0000       0.00000E+00     0.0000       0.00000E+00     0.0000
+  186    0.0000                 0.00000E+00     0.0000       0.00000E+00     0.0000       0.00000E+00     0.0000
+  187    0.0000                 0.00000E+00     0.0000       0.00000E+00     0.0000       0.00000E+00     0.0000
+  188    0.0000                 0.00000E+00     0.0000       0.00000E+00     0.0000       0.00000E+00     0.0000
+  189    0.0000                 0.00000E+00     0.0000       0.00000E+00     0.0000       0.00000E+00     0.0000
+  190    0.0000                 0.00000E+00     0.0000       0.00000E+00     0.0000       0.00000E+00     0.0000
+  191    0.0000                 0.00000E+00     0.0000       0.00000E+00     0.0000       0.00000E+00     0.0000
+  192    0.0000                 0.00000E+00     0.0000       0.00000E+00     0.0000       0.00000E+00     0.0000
+  193    0.0000                 0.00000E+00     0.0000       0.00000E+00     0.0000       0.00000E+00     0.0000
+  194    0.0000                 0.00000E+00     0.0000       0.00000E+00     0.0000       0.00000E+00     0.0000
+  195    0.0000                 0.00000E+00     0.0000       0.00000E+00     0.0000       0.00000E+00     0.0000
+  196    0.0000                 0.00000E+00     0.0000       0.00000E+00     0.0000       0.00000E+00     0.0000
+  197    0.0000                 0.00000E+00     0.0000       0.00000E+00     0.0000       0.00000E+00     0.0000
+  198    0.0000                 0.00000E+00     0.0000       0.00000E+00     0.0000       0.00000E+00     0.0000
+  199    0.0000                 0.00000E+00     0.0000       0.00000E+00     0.0000       0.00000E+00     0.0000
+  200    0.0000                 0.00000E+00     0.0000       0.00000E+00     0.0000       0.00000E+00     0.0000
+  201    0.0000                 0.00000E+00     0.0000       0.00000E+00     0.0000       0.00000E+00     0.0000
+  202    0.0000                 0.00000E+00     0.0000       0.00000E+00     0.0000       0.00000E+00     0.0000
+  203    0.0000                 0.00000E+00     0.0000       0.00000E+00     0.0000       0.00000E+00     0.0000
+  204    0.0000                 0.00000E+00     0.0000       0.00000E+00     0.0000       0.00000E+00     0.0000
+  205    0.0000                 0.00000E+00     0.0000       0.00000E+00     0.0000       0.00000E+00     0.0000
+  206    0.0000                 0.00000E+00     0.0000       0.00000E+00     0.0000       0.00000E+00     0.0000
+  207    0.0000                 0.00000E+00     0.0000       0.00000E+00     0.0000       0.00000E+00     0.0000
+  208    0.0000                 0.00000E+00     0.0000       0.00000E+00     0.0000       0.00000E+00     0.0000
+  209    0.0000                 0.00000E+00     0.0000       0.00000E+00     0.0000       0.00000E+00     0.0000
+  210    0.0000                 0.00000E+00     0.0000       0.00000E+00     0.0000       0.00000E+00     0.0000
+  211    0.0000                 0.00000E+00     0.0000       0.00000E+00     0.0000       0.00000E+00     0.0000
+  212    0.0000                 0.00000E+00     0.0000       0.00000E+00     0.0000       0.00000E+00     0.0000
+  213    0.0000                 0.00000E+00     0.0000       0.00000E+00     0.0000       0.00000E+00     0.0000
+  214    0.0000                 0.00000E+00     0.0000       0.00000E+00     0.0000       0.00000E+00     0.0000
+  215    0.0000                 0.00000E+00     0.0000       0.00000E+00     0.0000       0.00000E+00     0.0000
+  216    0.0000                 0.00000E+00     0.0000       0.00000E+00     0.0000       0.00000E+00     0.0000
+  217    0.0000                 0.00000E+00     0.0000       0.00000E+00     0.0000       0.00000E+00     0.0000
+  218    0.0000                 0.00000E+00     0.0000       0.00000E+00     0.0000       0.00000E+00     0.0000
+  219    0.0000                 0.00000E+00     0.0000       0.00000E+00     0.0000       0.00000E+00     0.0000
+  220    0.0000                 0.00000E+00     0.0000       0.00000E+00     0.0000       0.00000E+00     0.0000
+  221    0.0000                 0.00000E+00     0.0000       0.00000E+00     0.0000       0.00000E+00     0.0000
+  222    0.0000                 0.00000E+00     0.0000       0.00000E+00     0.0000       0.00000E+00     0.0000
+  223    0.0000                 0.00000E+00     0.0000       0.00000E+00     0.0000       0.00000E+00     0.0000
+  224    0.0000                 0.00000E+00     0.0000       0.00000E+00     0.0000       0.00000E+00     0.0000
+1                            godiva - short run                                                              
+                                                                                                         skipping  5 generations
+
+ group  fission  unit   region    fissions     percent       absorptions    percent         leakage      percent
+       fraction                               deviation                    deviation                    deviation
+
+  225    0.0000                 0.00000E+00     0.0000       0.00000E+00     0.0000       0.00000E+00     0.0000
+  226    0.0000                 0.00000E+00     0.0000       0.00000E+00     0.0000       0.00000E+00     0.0000
+  227    0.0000                 0.00000E+00     0.0000       0.00000E+00     0.0000       0.00000E+00     0.0000
+  228    0.0000                 0.00000E+00     0.0000       0.00000E+00     0.0000       0.00000E+00     0.0000
+  229    0.0000                 0.00000E+00     0.0000       0.00000E+00     0.0000       0.00000E+00     0.0000
+  230    0.0000                 0.00000E+00     0.0000       0.00000E+00     0.0000       0.00000E+00     0.0000
+  231    0.0000                 0.00000E+00     0.0000       0.00000E+00     0.0000       0.00000E+00     0.0000
+  232    0.0000                 0.00000E+00     0.0000       0.00000E+00     0.0000       0.00000E+00     0.0000
+  233    0.0000                 0.00000E+00     0.0000       0.00000E+00     0.0000       0.00000E+00     0.0000
+  234    0.0000                 0.00000E+00     0.0000       0.00000E+00     0.0000       0.00000E+00     0.0000
+  235    0.0000                 0.00000E+00     0.0000       0.00000E+00     0.0000       0.00000E+00     0.0000
+  236    0.0000                 0.00000E+00     0.0000       0.00000E+00     0.0000       0.00000E+00     0.0000
+  237    0.0000                 0.00000E+00     0.0000       0.00000E+00     0.0000       0.00000E+00     0.0000
+  238    0.0000                 0.00000E+00     0.0000       0.00000E+00     0.0000       0.00000E+00     0.0000
+
+ system total =                 9.95715E-01     1.2914       4.27842E-01     1.2937       5.74813E-01     1.0123
+
+ elapsed time   0.00333 minutes
+
+ random number=   21E450B2F495F6B9
+
+
+ ************************************************************************************************************************************
+
+                                                  ***** Shannon entropy tests *****
+
+ ************************************************************************************************************************************
+
+
+ --------------------------------------------------------------------------------------------|----------------
+  Test 1: Is the final fission source converged?                                             | Test 1: failed
+ --------------------------------------------------------------------------------------------|----------------
+
+
+ Test 1 details:
+
+ Is the mean square posterior relative entropy <  the center mean square Shannon entropy?
+
+  ( msq(D) < cmsq(H(S)) )
+
+ generations skipped     msq         cmsq
+                   5  1.44666E-01  8.86323E-03
+                   6  1.44666E-01  8.86323E-03
+                   7  1.35593E-01  1.01916E-02
+                   8  1.35593E-01  1.01916E-02
+                   9  1.12502E-01  1.23997E-02
+                  10  1.12502E-01  1.23997E-02
+                  11  9.49411E-02  1.20465E-02
+                  12  9.49411E-02  1.20465E-02
+                  13  6.12915E-02  1.78643E-02
+                  14  6.12915E-02  1.78643E-02
+                  15  3.48774E-02  2.16381E-02
+                  16  3.48774E-02  2.16381E-02
+                  16  3.48774E-02  2.16381E-02
+                  16  3.48774E-02  2.16381E-02
+                  16  3.48774E-02  2.16381E-02
+
+
+ --------------------------------------------------------------------------------------------|----------------
+  Test 2: Are all the active generations within epsilon of the average?                      | Test 2: failed
+ --------------------------------------------------------------------------------------------|----------------
+
+
+ Test 2 details:
+
+ Does the Shannon entropy of each active generation vary from the average Shannon entropy of the system?
+
+  ( |D(S||T)-[H(T-H(S))]| < 0.1 )
+
+   2 active generations failed the test.
+
+  The maximum value for the test is 1.83098E-01 which occurred for active generation 1.
+
+
+ --------------------------------------------------------------------------------------------|----------------
+  Test 3: Are there adequate active generations after the source is converged?               | Test 3: failed
+ --------------------------------------------------------------------------------------------|----------------
+
+
+ Test 3 details:
+
+ Does the Shannon entropy for the last half of the active generations vary from the Shannon entropy of all active generations?
+
+  ( |H(T) - Hb| < 0.1 )
+
+    |H(T) - Hb| =  3.77577E-01
+
+ ************************************************************************************************************************************
+
+1                          godiva - short run                                                              
+
+                                           plot of Shannon Entropy by generation
+
+                               1.7500                   3.5000                   5.2500                   7.0000
+         |-------------------------|------------------------|------------------------|------------------------
+       0 +
+         |                                                                                   *                 
+         |                                                                                  *                  
+         |                                                                              *                      
+         |                                                                                *                    
+       5 +                                                                                 *                   
+         |                                                                                *                    
+         |                                                                               *                     
+         |                                                                                *                    
+         |                                                                                 *                   
+      10 +                                                                                 *                   
+         |                                                                              *                      
+         |                                                                                 *                   
+         |                                                                                  *                  
+         |                                                                                 *                   
+      15 +                                                                                 *                   
+         |                                                                                *                    
+         |                                                                                  *                  
+         |                                                                                    *                
+         |                                                                                   *                 
+      20 +                                                                                *                    
+1                                                godiva - short run                                                              
+
+                                                     **** fission densities ****
+
+
+                                production   percent         total             fission     percent         total
+              unit      region   density     deviation    productions          density     deviation      fissions
+
+       global unit
+
+                 1          1    3.559E-04     1.291       9.957E-01           1.370E-04     1.283        3.833E-01
+1godiva - short run                                                              
+
+                                frequency for generations       6 to      20 each asterisk represents   1.0000 generations
+ 0.8967 to 0.9250     **
+ 0.9250 to 0.9533     *
+ 0.9533 to 0.9816     *
+ 0.9816 to 1.0099     *****
+ 1.0099 to 1.0381     ***
+ 1.0381 to 1.0664     **
+ 1.0664 to 1.0947     *
+
+                                frequency for generations      10 to      20 each asterisk represents   1.0000 generations
+ 0.8967 to 0.9250     *
+ 0.9250 to 0.9533     *
+ 0.9533 to 0.9816
+ 0.9816 to 1.0099     ****
+ 1.0099 to 1.0381     **
+ 1.0381 to 1.0664     **
+ 1.0664 to 1.0947     *
+
+                                frequency for generations      13 to      20 each asterisk represents   1.0000 generations
+ 0.8967 to 0.9250     *
+ 0.9250 to 0.9533     *
+ 0.9533 to 0.9816
+ 0.9816 to 1.0099     ****
+ 1.0099 to 1.0381     *
+ 1.0381 to 1.0664     *
+ 1.0664 to 1.0947
+
+                                frequency for generations      17 to      20 each asterisk represents   1.0000 generations
+ 0.8967 to 0.9250     *
+ 0.9250 to 0.9533     *
+ 0.9533 to 0.9816
+ 0.9816 to 1.0099     *
+ 1.0099 to 1.0381
+ 1.0381 to 1.0664     *
+ 1.0664 to 1.0947
+
+1       ********************************************************************************************************************
+        ***                                                                                                              ***
+        ***   godiva - short run                                                                                         ***
+        ***                                                                                                              ***
+        ********************************************************************************************************************
+        ***                                                                                                              ***
+        ***                                  ******      final results table      ******                                 ***
+        ***                                                                                                              ***
+        ***        best estimate system k-eff                                  0.995 + or - 0.017                        ***
+        ***                                                                                                              ***
+        ***        Energy of average lethargy of Fission (eV)                  8.20534E+05 + or -  1.05107E+04           ***
+        ***                                                                                                              ***
+        ***        system nu bar                                               2.59557E+00 + or -  2.01749E-03           ***
+        ***                                                                                                              ***
+        ***        system mean free path (cm)                                  2.56279E+00 + or -  5.73994E-03           ***
+        ***                                                                                                              ***
+        ***        number of warning messages                                  3                                         ***
+        ***                                                                                                              ***
+        ***        number of error messages                                    0                                         ***
+        ***                                                                                                              ***
+        ***        k-effective satisfies the chi**2 test for normality at the 95 % level                                 ***
+        ***                                                                                                              ***
+        ***                                                                                                              ***
+        ********************************************************************************************************************
+        ********************************************************************************************************************
+        ***                                                                                                              ***
+        ***        there are      125   source meshes                                                                    ***
+        ***                                                                                                              ***
+        ***        source convergence tests failed                                                                       ***
+        ***                                                                                                              ***
+        ***                                                                                                              ***
+        ********************************************************************************************************************
+        ********************************************************************************************************************
+
+
+
+ **********************************************************************************************************************************
+
+           Congratulations!  You have successfully traversed the perilous path through KENO-V.a in     0.00550 minutes
+
+ **********************************************************************************************************************************
+
+    SCALE is finished on Thu Oct 15 11:47:43 2026.
+-------------------------- Summary --------------------------
+csas5 finished. used 5.78 seconds.
+SCALE driver required a maximum of 750.8 MiB of RAM.
+------------------------ End Summary ------------------------
+
+var_short_run.html copied to /work/var_short_run/var_short_run.html.

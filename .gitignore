@@ -1,10 +1,16 @@
 # Results and temporary files
 results/
+results_*/
 *.out
-!tests/fixtures/**/*.out
 *.msg
 *.html
+*.htmd/
+*.sdf
 PID
+!tests/fixtures/**/*.out
+!tests/fixtures/**/*.msg
+# SCALE probe runs (tests/scale_probe/run_probe.sh)
+tests/scale_probe/results-*/
 
 # Python
 __pycache__/
@@ -12,6 +18,7 @@ __pycache__/
 *$py.class
 *.so
 .Python
+.pytest_cache/
 venv/
 ENV/
 .venv
@@ -22,3 +29,4 @@ ENV/
 # OS
 .DS_Store
 Thumbs.db
+settings.local.json

@@ -1,0 +1,60 @@
+ *******************************************************************************
+ *                                                                             *
+ *                                 SCALE 6.2.4                                 *
+ *                                -------------                                *
+ *                                octobre 2026                                 *
+ *                                                                             *
+ *           SCALE:  A Comprehensive Modeling and Simulation Suite             *
+ *                   for Nuclear Safety Analysis and Design                    *
+ *                                                                             *
+ *                      Reactor and Nuclear Systems Division                   *
+ *                        Oak Ridge National Laboratory                        *
+ *                                                                             *
+ *                           http://scale.ornl.gov                             *
+ *                            scalehelp@ornl.gov                               *
+ *                                                                             *
+ *******************************************************************************
+ *******************************************************************************
+      
+                  Job Information
+                  ---------------
+      Job started on host on jeu. 15/10/2026 11:47:34
+      Working directory: /tmp/scale.user.47225
+      Input file name  : /work/err_syntax/err_syntax.inp
+      Output file name : /work/err_syntax/err_syntax.out
+      SCALE executable : /opt/scale/bin/scale
+      
+ *******************************************************************************
+The following data cards precede an = card
+      ' Hypothesis: H10 input error: message text/location (.out or .msg), exit code, presence of 'SCALE is finished'
+      ' Expected: no Congratulations
+
+
+    module csas5 will be called on Thu Oct 15 11:47:35 2026.
+    sequence specification record:=csas5
+Input Data:
+
+      godiva - keyword error
+      v7-238
+      read composition
+       uranium 1 den=18.742 1 293 92234 1.0202 92235 93.7112 92238 5.2686 end
+      end composition
+      read parameters
+       gen=110 npg=1000 nsk=10 notakeyword=3
+      end parameters
+      read geometry
+       sphere 1 1 8.741
+      end geometry
+      end data
+end
+
+line:10 column:26 - Parse Error: expected a parameters terminator, found 'notakeyword'
+line:10 column:37 - Parse Error: expected sequence terminator, found '='
+error:  Sequence: csas5 failed to initialize - see messages file for details. 
+WARNING:  Sequence csas5 did not run correctly.
+    SCALE is finished on Thu Oct 15 11:47:35 2026.
+-------------------------- Summary --------------------------
+csas5 failed. used 0.03 seconds.
+SCALE driver required a maximum of 57.24 MiB of RAM.
+------------------------ End Summary ------------------------
+

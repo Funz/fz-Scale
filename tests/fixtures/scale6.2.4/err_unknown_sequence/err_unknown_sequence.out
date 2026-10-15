@@ -1,0 +1,55 @@
+ *******************************************************************************
+ *                                                                             *
+ *                                 SCALE 6.2.4                                 *
+ *                                -------------                                *
+ *                                octobre 2026                                 *
+ *                                                                             *
+ *           SCALE:  A Comprehensive Modeling and Simulation Suite             *
+ *                   for Nuclear Safety Analysis and Design                    *
+ *                                                                             *
+ *                      Reactor and Nuclear Systems Division                   *
+ *                        Oak Ridge National Laboratory                        *
+ *                                                                             *
+ *                           http://scale.ornl.gov                             *
+ *                            scalehelp@ornl.gov                               *
+ *                                                                             *
+ *******************************************************************************
+ *******************************************************************************
+      
+                  Job Information
+                  ---------------
+      Job started on host on jeu. 15/10/2026 11:47:34
+      Working directory: /tmp/scale.user.47232
+      Input file name  : /work/err_unknown_sequence/err_unknown_sequence.inp
+      Output file name : /work/err_unknown_sequence/err_unknown_sequence.out
+      SCALE executable : /opt/scale/bin/scale
+      
+ *******************************************************************************
+The following data cards precede an = card
+      ' Hypothesis: H14 unknown sequence name (e.g. csas5-shift on 6.2.4): message and exit code
+
+
+    module csas5-shift will be called on Thu Oct 15 11:47:35 2026.
+    sequence specification record:=csas5-shift
+Input Data:
+
+      godiva - Shift not available in 6.2.4
+      ce_v7.1
+      read composition
+       uranium 1 den=18.742 1 293 92234 1.0202 92235 93.7112 92238 5.2686 end
+      end composition
+      read geometry
+       sphere 1 1 8.741
+      end geometry
+      end data
+end
+
+    execution terminated due to errors. completion code 127. cpu time used 0.01 seconds
+
+    SCALE is finished on Thu Oct 15 11:47:35 2026.
+-------------------------- Summary --------------------------
+    terminated due to errors. completion code 127. used 0.01 seconds
+csas5-shift finished. used 0.01 seconds.
+SCALE driver required a maximum of 56.02 MiB of RAM.
+------------------------ End Summary ------------------------
+

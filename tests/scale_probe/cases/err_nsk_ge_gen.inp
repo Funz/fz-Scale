@@ -1,0 +1,20 @@
+' Hypothesis: H21 (SCALE-skill v0.2) nsk >= gen gives cs-333
+=csas6
+godiva - nsk not less than gen
+v7-238
+read composition
+ uranium 1 den=18.742 1 293 92234 1.0202 92235 93.7112 92238 5.2686 end
+end composition
+read parameters
+ gen=20 npg=1000 nsk=20
+end parameters
+read geometry
+global unit 1
+ sphere 10 8.741
+ cuboid 20 6p8.741
+ media 1 1 10
+ media 0 1 20 -10
+ boundary 20
+end geometry
+end data
+end

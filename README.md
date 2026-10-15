@@ -1,260 +1,195 @@
-# fz-scale
+# fz-Scale
 
-A [Funz](https://github.com/Funz/fz) plugin for running SCALE (Standardized Computer Analyses for Licensing Evaluation) calculations.
+A [Funz/fz](https://github.com/Funz/fz) plugin to run parametric studies with
+[SCALE](https://www.ornl.gov/scale) (ORNL): substitute variables in a SCALE
+input, run `scalerte` for each case (locally, over SSH or SLURM), and collect
+k-eff, eigenvalues or sensitivity coefficients in a pandas DataFrame.
 
-This plugin provides support for four SCALE calculation types:
-- **Scale-keno**: KENO criticality calculations (=csas5, =csas6)
-- **Scale-shift**: CSAS-Shift criticality calculations with Shift Monte Carlo solver (=csas5-shift, =csas6-shift)
-- **Scale-tsunami**: TSUNAMI sensitivity/uncertainty analysis (=tsunami-3d)
-- **Scale-xsdrnpm**: XSDRNPM transport calculations (=xsdrnpm, =csas1x)
+| Model | Sequences | Main outputs | Validated on |
+|---|---|---|---|
+| `Scale-keno` | `=csas5`, `=csas6` (multigroup or continuous energy) | `mean_keff`, `sigma_keff` + KENO final results table | SCALE 6.2.4 |
+| `Scale-tsunami` | `=tsunami-3d-k5`, `=tsunami-3d-k6`, `=tsunami-1d` | k-eff (forward, adjoint), `lambda`, sensitivity coefficients | SCALE 6.2.4 (TSUNAMI-3D-K5 multigroup, TSUNAMI-1D) |
+| `Scale-xsdrnpm` | `=t-xsdrn`, `=xsdrn` (any sequence printing the XSDRNPM `lambda` line) | `lambda` | SCALE 6.2.4 (`=t-xsdrn`) |
+| `Scale-shift` | `=csas5-shift`, `=csas6-shift` (SCALE >= 6.3) | same as `Scale-keno` | **not validated** (no Shift in SCALE 6.2) |
 
-## Features
-
-### Input Syntax
-- **Variable syntax**: `&(variable_name)` or `&(variable_name~default_value)` for variables with defaults, delimited with `()`
-- **Formula syntax**: `@{formula}`, delimited with `{}` (distinct from the variable delimiter, so variables and formulas can be nested/mixed unambiguously)
-- **Comment character**: `'` (single quote)
-
-### Supported Output Variables
-
-#### Scale-keno
-- `mean_keff`, `sigma_keff`: Effective multiplication factor and uncertainty
-- `mean_E_lethargy`, `sigma_E_lethargy`: Energy of average lethargy of fission
-- `mean_nubar`, `sigma_nubar`: Average neutrons per fission
-- `mean_free_path`, `sigma_free_path`: System mean free path
-
-#### Scale-shift
-Same output variables as Scale-keno:
-- `mean_keff`, `sigma_keff`: Effective multiplication factor and uncertainty
-- `mean_E_lethargy`, `sigma_E_lethargy`: Energy of average lethargy of fission
-- `mean_nubar`, `sigma_nubar`: Average neutrons per fission
-- `mean_free_path`, `sigma_free_path`: System mean free path
-
-#### Scale-tsunami
-All Scale-keno outputs plus sensitivity coefficients for various isotopes:
-- H-1, O-16, Al-27, Ti-48, Fe-56, C
-- U-235, U-238, Pu-239, Pu-240, Rh-103, Mo-95
-- For each isotope: total, scatter, capture, fission, nubar sensitivities
-
-#### Scale-xsdrnpm
-- `lambda`: Eigenvalue from XSDRNPM calculation
+All models share one calculator, `.fz/calculators/Scale.sh`, and report a
+`scale_status` output (see [Run status](#run-status)).
 
 ## Installation
 
-This plugin requires:
-1. [Funz/fz](https://github.com/Funz/fz) framework
-2. SCALE 6.2 or later installed at `/SCALE/scale6.2` (or set `SCALE_HOME` environment variable)
+```bash
+pip install git+https://github.com/Funz/fz.git
+fz install Scale            # or: python -c "import fz; fz.install('Scale')"
+```
+
+SCALE itself is found, in this order, from `SCALE_CMD` (path of `scalerte`),
+`SCALE_HOME` (`$SCALE_HOME/bin/scalerte`), `scalerte` on `PATH`, then the newest
+of `/SCALE/scale6*`, `/opt/scale*`, `/opt/SCALE*`, `~/opt/SCALE*`, `~/opt/scale*`.
+
+```bash
+export SCALE_HOME=/opt/SCALE-6.2.4
+```
 
 ## Usage
-
-### With fz Python API
 
 ```python
 import fz
 
-# Example: KENO calculation with varying sphere radius
 results = fz.fzr(
-    input_path="examples/Scale-keno/godiva.inp",
-    input_variables={
-        "r": [8.5, 8.6, 8.7, 8.741, 8.8, 8.9, 9.0]
-    },
+    "examples/Scale-keno/godiva.inp",
+    {"r": [8.4, 8.6, 8.741, 8.9, 9.1]},
     model="Scale-keno",
-    calculators="localhost_Scale",
-    results_dir="godiva_results"
+    calculators=["localhost_Scale"] * 4,   # 4 cases in parallel
+    results_dir="results/godiva",
 )
-
-print(results[['r', 'mean_keff', 'sigma_keff']])
-
-# Example: CSAS-Shift calculation with varying sphere radius
-# Uses the Shift Monte Carlo solver for improved performance
-results = fz.fzr(
-    input_path="examples/Scale-shift/godiva.inp",
-    input_variables={
-        "r": [8.5, 8.6, 8.7, 8.741, 8.8, 8.9, 9.0]
-    },
-    model="Scale-shift",
-    calculators="localhost_Scale",
-    results_dir="godiva_shift_results"
-)
-
-print(results[['r', 'mean_keff', 'sigma_keff']])
+print(results[["r", "status", "scale_status", "mean_keff", "sigma_keff"]])
 ```
 
-### Directory Structure
+Command line:
 
-```
-your_project/
-├── examples/
-│   ├── Scale-keno/
-│   │   └── godiva.inp          # Example KENO input file
-│   └── Scale-shift/
-│       └── godiva.inp          # Example CSAS-Shift input file
-├── .fz/
-│   ├── models/
-│   │   ├── Scale-keno.json
-│   │   ├── Scale-shift.json
-│   │   ├── Scale-tsunami.json
-│   │   └── Scale-xsdrnpm.json
-│   └── calculators/
-│       ├── Scale-keno.sh
-│       ├── Scale-shift.sh
-│       ├── Scale-tsunami.sh
-│       ├── Scale-xsdrnpm.sh
-│       └── localhost_Scale.json
-└── results/                    # Generated by fz
-```
-
-## Example Input File
-
-```
-'Input generated by GeeWiz SCALE 6.0.2
-=csas6
-godiva
-ce_v7_endf
-read composition
- uranium     1 den=18.742 1 293
-                                 92234 1.0202
-                                 92235 93.7112
-                                 92238 5.2686   end
-end composition
-read geometry
-global unit 1
- sphere 10    &(r)
- media 1 1 10
- boundary 10
-end geometry
-end data
-end
-```
-
-In this example:
-- `&(r)` is a variable parameter that will be substituted by fz
-- The comment character `'` is used for the header line
-- The calculation type is `=csas6` (KENO-VI)
-
-### CSAS-Shift Input File Example
-
-For CSAS-Shift calculations, simply use `=csas5-shift` or `=csas6-shift` instead of `=csas5` or `=csas6`:
-
-```
-'Input generated by GeeWiz SCALE 6.0.2
-=csas6-shift
-godiva
-ce_v7_endf
-read composition
- uranium     1 den=18.742 1 293
-                                 92234 1.0202
-                                 92235 93.7112
-                                 92238 5.2686   end
-end composition
-read geometry
-global unit 1
- sphere 10    &(r)
- media 1 1 10
- boundary 10
-end geometry
-end data
-end
-```
-
-The key difference:
-- `=csas6-shift` uses the Shift Monte Carlo solver instead of KENO
-- Improved performance and scalability, especially for parallel computations
-- Compatible with all KENO V.a and KENO-VI geometries
-
-## Expected Output
-
-When running a parametric study, fz returns a pandas DataFrame:
-
-```
-     r  mean_keff  sigma_keff  mean_E_lethargy  sigma_E_lethargy  ...
-0  8.5     0.9850      0.0018       820684.0            2191.56  ...
-1  8.6     0.9910      0.0019       820684.0            2191.56  ...
-2  8.7     0.9965      0.0018       820684.0            2191.56  ...
-3  8.741   0.9996      0.0019       820684.0            2191.56  ...
-4  8.8     1.0040      0.0019       820684.0            2191.56  ...
-5  8.9     1.0095      0.0018       820684.0            2191.56  ...
-6  9.0     1.0150      0.0019       820684.0            2191.56  ...
-```
-
-## Configuration
-
-### Calculator Configuration
-
-The calculator JSON files define how to execute SCALE:
-
-```json
-{
-    "uri": "sh://",
-    "n": 1,
-    "models": {
-        "Scale-keno": "bash .fz/calculators/Scale-keno.sh"
-    }
-}
-```
-
-- `uri`: Execution method (sh:// for local shell, ssh:// for remote)
-- `n`: Number of parallel workers
-- `models`: Mapping of model names to execution commands
-
-### Model Configuration
-
-The model JSON files define variable syntax and output parsing:
-
-```json
-{
-    "id": "Scale-keno",
-    "varprefix": "&",
-    "formulaprefix": "@",
-    "var_delim": "()",
-    "formula_delim": "{}",
-    "commentline": "'",
-    "output": {
-        "mean_keff": "python://grep(r'best estimate system k-eff\\s+(\\S+)\\s+\\+\\s+or\\s+-\\s+(\\S+)', next(base_dir.glob('*.out')).name, group=1)",
-        "sigma_keff": "python://grep(r'best estimate system k-eff\\s+(\\S+)\\s+\\+\\s+or\\s+-\\s+(\\S+)', next(base_dir.glob('*.out')).name, group=2)"
-    }
-}
-```
-
-`var_delim` and `formula_delim` set independent delimiters for variables
-(`&(...)`) and formulas (`@{...}`), so the two constructs never collide in
-the same input file. If only a single `delim` field is given, it applies to
-both variables and formulas.
-
-## Remote Execution
-
-To run SCALE calculations on a remote server:
-
-```python
-results = fz.fzr(
-    input_path="godiva.inp",
-    input_variables={"r": [8.5, 8.6, 8.7]},
-    model="Scale-keno",
-    calculators="ssh://user@server.com/bash /path/to/scale/calculators/Scale-keno.sh",
-    results_dir="remote_results"
-)
-```
-
-## Troubleshooting
-
-### SCALE_HOME not set
-If SCALE is not installed at `/SCALE/scale6.2`, set the environment variable:
 ```bash
-export SCALE_HOME=/path/to/your/scale/installation
+fzr examples/Scale-keno/godiva.inp --model Scale-keno \
+    --input_variables '{"r": [8.4, 8.741, 9.1]}' --calculators localhost_Scale --results_dir results/godiva
+fzo 'results/godiva/*' --model Scale-keno --format csv    # re-parse existing results
 ```
 
-### Congratulations message not found
-The calculator scripts check for "Congratulations" in the output to verify successful completion. If this fails:
-1. Check that SCALE is properly installed
-2. Verify the input file syntax is correct
-3. Check the `.msg` and `.out` files in the results directory
+`calculators` may be omitted: fz then uses `.fz/calculators/localhost_Scale.json`.
+
+Result with SCALE 6.2.4 (`examples/Scale-keno/godiva.inp`, CSAS6, ce_v7.1,
+250 generations of 2000 neutrons; see `example_usage.ipynb`):
+
+```
+       r status scale_status  mean_keff  sigma_keff
+0  8.400   done   NORMAL END     0.9701      0.0013
+1  8.600   done   NORMAL END     0.9859      0.0014
+2  8.741   done   NORMAL END     0.9990      0.0013
+3  8.900   done   NORMAL END     1.0165      0.0012
+4  9.100   done   NORMAL END     1.0355      0.0013
+```
+
+## Input syntax
+
+| Syntax | Meaning | Example |
+|---|---|---|
+| `&(name)` | variable | `sphere 10 &(r)` |
+| `&(name~value)` | variable with default value | `&(r~8.741)` |
+| `@{expression}` | formula (Python), evaluated after substitution | `@{round(4/3*3.14159265*r**3*18.742/1000, 2)}` |
+| `@{expression\|format}` | formula with number format | `@{6.686E-2*&(dens)\|0.00000E00}` → `6.68600E-04` |
+| `'` | SCALE comment line | `' r = &(r) cm` |
+
+Variables (`()`) and formulas (`{}`) use different delimiters, so they can be
+mixed on one line. In a formula, a name that is used nowhere else as a
+variable must be written with its prefix (`&(dens)` or `&dens`); a plain name
+(`r`) works once `&(r)` appears in the input.
+
+The comment and title lines are copied to the SCALE output: a variable in a
+comment (e.g. `' r = &(r) cm`) documents each case in its output.
+
+## Outputs
+
+`Scale-keno` and `Scale-shift` (KENO final results table, first sequence of
+the input when it contains several):
+
+| Output | Content |
+|---|---|
+| `scale_status` | `NORMAL END`, `CHECK ONLY` (`parm=check`), `ERROR: <first SCALE error message>`, `NO END BANNER[: <crash message>]`, `NO OUTPUT` |
+| `scale_version` | e.g. `6.2.4` |
+| `mean_keff`, `sigma_keff` | best estimate system k-eff and its standard deviation |
+| `mean_E_lethargy`, `sigma_E_lethargy` | energy (eV) of the average lethargy causing fission |
+| `mean_nubar`, `sigma_nubar` | system nu bar |
+| `mean_free_path`, `sigma_free_path` | system mean free path (cm) |
+| `n_warnings`, `n_errors` | numbers of KENO warning / error messages |
+| `keff_normality` | chi**2 normality test of k-eff: `pass_95`, `pass_99` (fails at 95 %, passes at 99 %), `fail_99` |
+| `source_convergence` | KENO source convergence tests: `passed`, `failed`, `not valid` |
+
+`Scale-tsunami`: the outputs above, plus
+
+| Output | Content |
+|---|---|
+| `mean_keff_adjoint`, `sigma_keff_adjoint` | adjoint k-eff (TSUNAMI-3D; the 2nd KENO final table) |
+| `lambda` | eigenvalue (TSUNAMI-1D) |
+| `mean_sens_<nuclide>_<reaction>`, `sigma_sens_<nuclide>_<reaction>` | energy-, region- and mixture-integrated sensitivity coefficients (first table of the output), e.g. `mean_sens_u235_total`, `mean_sens_u238_nnp` (`n,n'`), `mean_sens_h1_capture`; no `sigma_sens_*` for TSUNAMI-1D |
+
+`Scale-xsdrnpm`: `scale_status`, `scale_version`, `lambda` (first XSDRNPM eigenvalue).
+
+## Run status
+
+The `scalerte` exit code is 0 even when the calculation failed (input error,
+unknown library or nuclide, KENO failure), and `Congratulations!` can be
+printed although a later step failed (TSUNAMI-3D adjoint KENO). The calculator
+and `scale_status` therefore read `<input>.out` and `<input>.msg`:
+
+- an error message (`error: ...`, `***** error ***** ...`, `Parse Error`,
+  `<module> failed to execute`, `terminated due to errors`) gives
+  `ERROR: <message>` and a failed case (`status = failed`, message in `error`
+  and in the case's `err.txt`);
+- a `parm=check` run (data check, no transport) gives `CHECK ONLY` (case done);
+- no `SCALE is finished on ...` line (run killed, crashed) gives `NO END BANNER`,
+  followed by the crash message of the `.msg` file when there is one
+  (e.g. `double free or corruption (out)`);
+- otherwise `NORMAL END`.
+
+`NORMAL END` does not mean that the result is physically meaningful: SCALE
+accepts, for instance, a negative sphere radius in KENO-VI. Look at
+`source_convergence`, `keff_normality` and the warnings.
+
+## Calculator settings
+
+Environment variables read by `.fz/calculators/Scale.sh`:
+
+| Variable | Effect |
+|---|---|
+| `SCALE_HOME`, `SCALE_CMD` | SCALE location (see Installation) |
+| `SCALE_THREADS` | `scalerte -I N` (threads) |
+| `SCALE_MPI` | `scalerte -N N` (MPI processes, MPI builds only) |
+| `SCALE_TMPDIR` | `scalerte -T DIR` (temporary directory, default `/tmp/scale.<user>.<pid>`) |
+| `SCALE_OPTS` | other `scalerte` options, e.g. `-r` (keep the temporary directory) |
+
+The input file is the first `*.inp` file of the case, else the first file
+that is not an output. Exit codes: 0 normal end or `parm=check`, 1 no input, 2 usage,
+4 scalerte not found, 5 no `.out` produced, 6 SCALE errors, 7 no end banner.
+
+fz stops a case after `FZ_RUN_TIMEOUT` seconds (default 3600 for local runs;
+`0` for none), or after the model's `"timeout"` entry. On timeout or
+interrupt, the calculator relays the signal to `scalerte`, which stops all
+SCALE processes and removes its temporary directory.
+
+Remote execution: install the plugin and SCALE on the remote host, then e.g.
+`calculators="ssh://user@host/bash .fz/calculators/Scale.sh"` (see the fz
+documentation for SSH/SLURM calculators).
+
+## Limits
+
+- `Scale-shift` has not been run: SCALE 6.2 has no Shift. The SCALE 6.3 manual
+  describes a CSAS-Shift "final results table" with the best-estimate system
+  k-eff, but its exact layout was not checked; run `tests/scale_probe` with a
+  `=csas5-shift` input before relying on it.
+- SCALE 6.3 outputs, CE-TSUNAMI, MPI builds and Windows were not tested.
+- With several sequences in one input, only the first final results table is
+  reported.
+
+## Tests
+
+```bash
+pip install pytest git+https://github.com/Funz/fz.git
+pytest tests/                    # ~10 s without SCALE; tests/test_scale_real.py runs SCALE if found (~1 min)
+python tools/build_models.py     # regenerate .fz/models/*.json after editing the generator
+```
+
+- `tests/fixtures/scale6.2.4/`: real SCALE 6.2.4 outputs (normal ends, input
+  errors, failed adjoint, killed run, echo traps), from `tests/scale_probe`;
+- `tests/test_outputs.py`: output extraction on these outputs;
+- `tests/test_calculator.py`: `Scale.sh` with a fake `scalerte` replaying them;
+- `tests/test_fz_e2e.py`: `fzi`, `fzc`, `fzr` with the fake `scalerte`;
+- `tests/test_scale_real.py`: `fzr` with the real SCALE (skipped without it);
+- `tests/scale_probe/`: the SCALE probe and its findings (`README.md`).
+
+## Links
+
+- [Funz/fz](https://github.com/Funz/fz)
+- [Funz/plugin-scale](https://github.com/Funz/plugin-scale) (former Java Funz plugin)
+- [SCALE manual](https://scale-manual.ornl.gov)
 
 ## License
 
-This plugin follows the same license as the Funz framework.
-
-## Related Links
-
-- [Funz/fz](https://github.com/Funz/fz) - Main framework
-- [Original plugin-scale](https://github.com/Funz/plugin-scale) - Legacy Java-based plugin
-- [SCALE](https://www.ornl.gov/scale) - SCALE code system
+BSD 3-Clause, see [LICENSE](LICENSE).

@@ -1,0 +1,16 @@
+' Hypothesis: H7 tsunami-3d-k5 sensitivity table format (nuclide, reaction, value, sigma)
+' Expected: forward and adjoint k-eff, sensitivity coefficients for u-235/u-238/u-234
+=tsunami-3d-k5
+godiva - TSUNAMI-3D KENO-V.a
+v7-238
+read composition
+ uranium 1 den=18.742 1 293 92234 1.0202 92235 93.7112 92238 5.2686 end
+end composition
+read parameters
+ gen=200 npg=2000 nsk=20 apg=20000 agn=200 ask=20 htm=no
+end parameters
+read geometry
+ sphere 1 1 8.741
+end geometry
+end data
+end
