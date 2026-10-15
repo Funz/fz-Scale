@@ -1,0 +1,16 @@
+' Hypothesis: H1 H2 H3 H4 csas5 multigroup ends with 'Congratulations' + 'SCALE is finished', exit code 0
+' Expected: final results table (k-eff, lethargy, nu bar, mfp, warnings/errors count, chi**2, source convergence)
+=csas5
+godiva bare sphere - KENO-V.a multigroup
+v7-238
+read composition
+ uranium 1 den=18.742 1 293 92234 1.0202 92235 93.7112 92238 5.2686 end
+end composition
+read parameters
+ gen=150 npg=1000 nsk=20
+end parameters
+read geometry
+ sphere 1 1 8.741
+end geometry
+end data
+end

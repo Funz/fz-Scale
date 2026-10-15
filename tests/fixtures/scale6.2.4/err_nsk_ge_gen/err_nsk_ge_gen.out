@@ -1,0 +1,158 @@
+ *******************************************************************************
+ *                                                                             *
+ *                                 SCALE 6.2.4                                 *
+ *                                -------------                                *
+ *                                octobre 2026                                 *
+ *                                                                             *
+ *           SCALE:  A Comprehensive Modeling and Simulation Suite             *
+ *                   for Nuclear Safety Analysis and Design                    *
+ *                                                                             *
+ *                      Reactor and Nuclear Systems Division                   *
+ *                        Oak Ridge National Laboratory                        *
+ *                                                                             *
+ *                           http://scale.ornl.gov                             *
+ *                            scalehelp@ornl.gov                               *
+ *                                                                             *
+ *******************************************************************************
+ *******************************************************************************
+      
+                  Job Information
+                  ---------------
+      Job started on host on jeu. 15/10/2026 14:53:46
+      Working directory: /tmp/scale.user.178968
+      Input file name  : /work/err_nsk_ge_gen/err_nsk_ge_gen.inp
+      Output file name : /work/err_nsk_ge_gen/err_nsk_ge_gen.out
+      SCALE executable : /opt/scale/bin/scale
+      
+ *******************************************************************************
+The following data cards precede an = card
+      ' Hypothesis: H21 (SCALE-skill v0.2) nsk >= gen gives cs-333
+
+
+    module csas6 will be called on Thu Oct 15 14:53:48 2026.
+    sequence specification record:=csas6
+Input Data:
+
+      godiva - nsk not less than gen
+      v7-238
+      read composition
+       uranium 1 den=18.742 1 293 92234 1.0202 92235 93.7112 92238 5.2686 end
+      end composition
+      read parameters
+       gen=20 npg=1000 nsk=20
+      end parameters
+      read geometry
+      global unit 1
+       sphere 10 8.741
+       cuboid 20 6p8.741
+       media 1 1 10
+       media 0 1 20 -10
+       boundary 20
+      end geometry
+      end data
+end
+
+No cell data found in input.
+
+
+
+************************************************************************************************************************************
+************************************************************************************************************************************
+************************************************************************************************************************************
+*****                                                                                                                          *****
+*****                                             program verification information                                             *****
+*****                                                                                                                          *****
+*****                                           code system: SCALE   version: 6.2.0                                            *****
+*****                                                                                                                          *****
+************************************************************************************************************************************
+************************************************************************************************************************************
+*****                                                                                                                          *****
+*****                                                                                                                          *****
+*****                      program:  csas6                                                                                     *****
+*****                                                                                                                          *****
+*****                      version:  6.2.4 (602004)                                                                            *****
+*****                                                                                                                          *****
+*****                     username:  user                                                                                *****
+*****                                                                                                                          *****
+*****                     hostname:  host.example.org                                                            *****
+*****                                                                                                                          *****
+*****                                                                                                                          *****
+*****            date of execution:  2026-10-15                                                                                *****
+*****                                                                                                                          *****
+*****            time of execution:  14:53:48                                                                                  *****
+*****                                                                                                                          *****
+************************************************************************************************************************************
+************************************************************************************************************************************
+************************************************************************************************************************************
+
+
+
+------------------------------------------------------------------------------------
+ Mixture table for component comps at line:5, column:1
+------------------------------------------------------------------------------------
+Mixture = 1 with density(g/cc) = 18.7420 and temperature(K) = 293.00
+        Entry      Mixture      Nuclide     Density (atoms/b-cm)     Temperature (K)
+------------------------------------------------------------------------------------
+            1            1        92234             4.919947e-04              293.00
+            2            1        92235             4.499968e-02              293.00
+            3            1        92238             2.498000e-03              293.00
+------------------------------------------------------------------------------------
+        Entry      Mixture      Nuclide     Density (atoms/b-cm)     Temperature (K)
+------------------------------------------------------------------------------------
+ End of mixture table for component comps at line:5, column:1
+------------------------------------------------------------------------------------
+
+Csas56 built mixture pool in: 0.14 seconds.
+Csas56 built celldata pool in: 0.00 seconds.
+Loaded MG Library: /opt/scale/data/scale.rev07.xn238v7.0
+Csas56 loaded ampx library in: 2.78 seconds.
+
+----------------------------------------------------------------------------------------------------
+ Cross section processing summary of the cells: 
+----------------------------------------------------------------------------------------------------
+
+ Total 1 cells are being processed:
+
+      1 *default cells* (fissionable) processed with CENTRM (sequence default option).
+
+ NOTE: *default cells* are the cells not specified in CELLDATA block (They are processed as
+       infinite homogeneous cells).
+
+----------------------------------------------------------------------------------------------------
+
+Csas56 prepared 1 unit cells in 0.03 seconds.
+Csas56 wrote mixing table to .mixtures8828 in 0.00 seconds.
+
+                                ........ finished before reading keno data    ........
+ 
+  ***** error ***** csas message number cs-333 follows:
+  The number of generations skipped is not less than the number of generations to be run.
+  nsk=20 - gen=20.
+  The case will not be run.
+ 
+
+                                ........ finished reading the keno parameter data    ........
+
+
+                               *************** data reading completed ***************
+
+                                ........ finished preparing the keno input data    ........
+
+                                ........ finished loading the data    ........
+ 
+  ***** warning ***** csas message number cs-316 follows:
+  No mesh provided for Source Convergence Diagnostics (SCD). Continue with default mesh.
+ 
+
+                                ........ finished loading the keno data    ........
+ csas message number cs-55  ***  errors were encountered in processing the keno data.  execution is impossible. ***
+
+                                ........ finished checking the keno geometry data    ........
+This problem will not be run because errors were detected in reading the input.
+
+    SCALE is finished on Thu Oct 15 14:53:51 2026.
+-------------------------- Summary --------------------------
+csas6 finished. used 3.05 seconds.
+SCALE driver required a maximum of 748.4 MiB of RAM.
+------------------------ End Summary ------------------------
+

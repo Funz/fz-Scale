@@ -1,0 +1,494 @@
+ *******************************************************************************
+ *                                                                             *
+ *                                 SCALE 6.2.4                                 *
+ *                                -------------                                *
+ *                                octobre 2026                                 *
+ *                                                                             *
+ *           SCALE:  A Comprehensive Modeling and Simulation Suite             *
+ *                   for Nuclear Safety Analysis and Design                    *
+ *                                                                             *
+ *                      Reactor and Nuclear Systems Division                   *
+ *                        Oak Ridge National Laboratory                        *
+ *                                                                             *
+ *                           http://scale.ornl.gov                             *
+ *                            scalehelp@ornl.gov                               *
+ *                                                                             *
+ *******************************************************************************
+ *******************************************************************************
+      
+                  Job Information
+                  ---------------
+      Job started on host on jeu. 15/10/2026 14:53:46
+      Working directory: /tmp/scale.user.178965
+      Input file name  : /work/var_parm_check/var_parm_check.inp
+      Output file name : /work/var_parm_check/var_parm_check.out
+      SCALE executable : /opt/scale/bin/scale
+      
+ *******************************************************************************
+The following data cards precede an = card
+      ' Hypothesis: H20 (SCALE-skill v0.2) '=csas6 parm=check' checks the data without transport: which message, which status
+
+
+    module csas6 will be called on Thu Oct 15 14:53:48 2026.
+    sequence specification record:=csas6 parm=check
+Input Data:
+
+      godiva - data check only
+      v7-238
+      read composition
+       uranium 1 den=18.742 1 293 92234 1.0202 92235 93.7112 92238 5.2686 end
+      end composition
+      read parameters
+       gen=110 npg=1000 nsk=10
+      end parameters
+      read geometry
+      global unit 1
+       sphere 10 8.741
+       cuboid 20 6p8.741
+       media 1 1 10
+       media 0 1 20 -10
+       boundary 20
+      end geometry
+      end data
+end
+
+No cell data found in input.
+
+
+
+************************************************************************************************************************************
+************************************************************************************************************************************
+************************************************************************************************************************************
+*****                                                                                                                          *****
+*****                                             program verification information                                             *****
+*****                                                                                                                          *****
+*****                                           code system: SCALE   version: 6.2.0                                            *****
+*****                                                                                                                          *****
+************************************************************************************************************************************
+************************************************************************************************************************************
+*****                                                                                                                          *****
+*****                                                                                                                          *****
+*****                      program:  csas6                                                                                     *****
+*****                                                                                                                          *****
+*****                      version:  6.2.4 (602004)                                                                            *****
+*****                                                                                                                          *****
+*****                     username:  user                                                                                *****
+*****                                                                                                                          *****
+*****                     hostname:  host.example.org                                                            *****
+*****                                                                                                                          *****
+*****                                                                                                                          *****
+*****            date of execution:  2026-10-15                                                                                *****
+*****                                                                                                                          *****
+*****            time of execution:  14:53:48                                                                                  *****
+*****                                                                                                                          *****
+************************************************************************************************************************************
+************************************************************************************************************************************
+************************************************************************************************************************************
+
+
+
+------------------------------------------------------------------------------------
+ Mixture table for component comps at line:5, column:1
+------------------------------------------------------------------------------------
+Mixture = 1 with density(g/cc) = 18.7420 and temperature(K) = 293.00
+        Entry      Mixture      Nuclide     Density (atoms/b-cm)     Temperature (K)
+------------------------------------------------------------------------------------
+            1            1        92234             4.919947e-04              293.00
+            2            1        92235             4.499968e-02              293.00
+            3            1        92238             2.498000e-03              293.00
+------------------------------------------------------------------------------------
+        Entry      Mixture      Nuclide     Density (atoms/b-cm)     Temperature (K)
+------------------------------------------------------------------------------------
+ End of mixture table for component comps at line:5, column:1
+------------------------------------------------------------------------------------
+
+Csas56 built mixture pool in: 0.08 seconds.
+Csas56 built celldata pool in: 0.00 seconds.
+Loaded MG Library: /opt/scale/data/scale.rev07.xn238v7.0
+Csas56 loaded ampx library in: 2.70 seconds.
+
+----------------------------------------------------------------------------------------------------
+ Cross section processing summary of the cells: 
+----------------------------------------------------------------------------------------------------
+
+ Total 1 cells are being processed:
+
+      1 *default cells* (fissionable) processed with CENTRM (sequence default option).
+
+ NOTE: *default cells* are the cells not specified in CELLDATA block (They are processed as
+       infinite homogeneous cells).
+
+----------------------------------------------------------------------------------------------------
+
+Csas56 prepared 1 unit cells in 0.02 seconds.
+Csas56 wrote mixing table to .mixtures8828 in 0.00 seconds.
+
+                                ........ finished before reading keno data    ........
+          ********************************************************************************************************************
+          ***                                                                                                              ***
+          ***                              godiva - data check only                                                        ***
+          ***                                                                                                              ***
+          ********************************************************************************************************************
+          ***                                 ******       numeric parameters       ******                                 ***
+          ***                                                                                                              ***
+          ***                                                                                                              ***
+          ***                   tme         maximum problem time (min)                          0.00                       ***
+          ***                                                                                                              ***
+          ***                   tba         time per generation (min)                          10.00                       ***
+          ***                                                                                                              ***
+          ***                   gen         number of generations                                110                       ***
+          ***                                                                                                              ***
+          ***                   npg         number per generation                               1000                       ***
+          ***                                                                                                              ***
+          ***                   nsk         number of generations to be skipped                   10                       ***
+          ***                                                                                                              ***
+          ***                   beg         beginning generation number                            1                       ***
+          ***                                                                                                              ***
+          ***                   res         generations between checkpoints                        0                       ***
+          ***                                                                                                              ***
+          ***                   x1d         number of extra 1-d cross sections                     1                       ***
+          ***                                                                                                              ***
+          ***                   nbk         neutron bank size                                   1025                       ***
+          ***                                                                                                              ***
+          ***                   xnb         extra positions in neutron bank                        0                       ***
+          ***                                                                                                              ***
+          ***                   nfb         fission bank size                                   1000                       ***
+          ***                                                                                                              ***
+          ***                   xfb         extra positions in fission bank                        0                       ***
+          ***                                                                                                              ***
+          ***                   sig         cut off standard deviation                        0.0000                       ***
+          ***                                                                                                              ***
+          ***                   wta         default value of weight average                   0.5000                       ***
+          ***                                                                                                              ***
+          ***                   wth         weight high for splitting                         3.0000                       ***
+          ***                                                                                                              ***
+          ***                   wtl         weight low for russian roulette                   0.3333                       ***
+          ***                                                                                                              ***
+          ***                   rnd         starting random number                  000015714D98EE96                       ***
+          ***                                                                                                              ***
+          ***                   nb8         number of d.a. blocks on unit 90                    1000                       ***
+          ***                                                                                                              ***
+          ***                   nl8         length of d.a. blocks on unit 90                     512                       ***
+          ***                                                                                                              ***
+          ***                   nqd         quadrature order for angular fluxes                    0                       ***
+          ***                                                                                                              ***
+          ***                   pnm         highest order of flux moments                          0                       ***
+          ***                                                                                                              ***
+          ***                   msh         mesh size for mesh flux tally                     0.0000                       ***
+          ***                                                                                                              ***
+          ***                   adj         mode of calculation                              forward                       ***
+          ***                                                                                                              ***
+          ***                   tps         sampling sites per track length                        5                       ***
+          ***                                                                                                              ***
+          ***                   cgs         number of secondary groups to sampl                    0                       ***
+          ***                                                                                                              ***
+          ***                   cas         number of secondary angles to sampl                    0                       ***
+          ***                                                                                                              ***
+          ***                   wtc         Woodcock tracking cut-off value                     0.90                       ***
+          ***                                                                                                              ***
+          ***                   ttl         temperature tolerance for CE xsecs                 -1.00                       ***
+          ***                                                                                                              ***
+          ***                               input data written on restart unit                    no                       ***
+          ***                                                                                                              ***
+          ***                   dbl         Low Energy Cutoff (in eV) for DBRC                  0.40                       ***
+          ***                                                                                                              ***
+          ***                   dbh         High Energy Cutoff (in eV) for DBRC               210.00                       ***
+          ***                                                                                                              ***
+          ***                   cet         CE-TSUNAMI sensitivity method                       NONE                       ***
+          ***                                                                                                              ***
+          ***                   cfp         Number of latent gens in CE-TSUNAMI                    5                       ***
+          ***                                                                                                              ***
+          ***                   dbr         DBRC isotope selection                                 0                       ***
+          ***                                                                                                              ***
+          ***                   dbx         Doppler Broadening Method                              2                       ***
+          ***                                                                                                              ***
+          ***                                                                                                              ***
+          ********************************************************************************************************************
+          ********************************************************************************************************************
+1         ********************************************************************************************************************
+          ********************************************************************************************************************
+          ***                                                                                                              ***
+          ***                              godiva - data check only                                                        ***
+          ***                                                                                                              ***
+          ********************************************************************************************************************
+          ***                                 ******      logical parameters        ******                                 ***
+          ***                                                                                                              ***
+          ***  run  execute problem after checking data  yes            plt  plot picture map(s)                     yes   ***
+          ***                                                                                                              ***
+          ***       compute fluxes (cfx, flx, cfe or mfp  no            fdn  compute fission densities               yes   ***
+          ***                                                                                                              ***
+          ***  smu  compute avg unit self-multiplication  no            nub  compute nu-bar & avg fission group      yes   ***
+          ***                                                                                                              ***
+          ***  mku  compute matrix k-eff by unit number   no            mkp  compute matrix k-eff by unit location    no   ***
+          ***                                                                                                              ***
+          ***  cku  compute cofactor k-eff by unit numbe  no            ckp  compute cofactor k-eff by unit location  no   ***
+          ***                                                                                                              ***
+          ***  fmu  print fiss prod matrix by unit numbe  no            fmp  print fiss prod matrix by unit location  no   ***
+          ***                                                                                                              ***
+          ***  mkh  compute matrix k-eff by hole number   no            mka  compute matrix k-eff by array number     no   ***
+          ***                                                                                                              ***
+          ***  ckh  compute cofactor k-eff by hole numbe  no            cka  compute cofactor k-eff by array number   no   ***
+          ***                                                                                                              ***
+          ***  fmh  print fiss prod matrix by hole numbe  no            fma  print fiss prod matrix by array number   no   ***
+          ***                                                                                                              ***
+          ***  hhl  collect matrix by highest hole level  no            hal  collect matrix by highest array level    no   ***
+          ***                                                                                                              ***
+          ***  amx  print all mixed cross sections        no            far  print fis. and abs. by region            no   ***
+          ***                                                                                                              ***
+          ***  xs1  print 1-d mixture x-sections          no            gas  print far by group                       no   ***
+          ***                                                                                                              ***
+          ***  xs2  print 2-d mixture x-sections          no            pax  print xsec-albedo correlation tables     no   ***
+          ***                                                                                                              ***
+          ***  xsl  print 2-d mixture Pl arrays           no            pwt  print weight average array               no   ***
+          ***                                                                                                              ***
+          ***  xap  print mixture angles & probabilities  no            pgm  print input geometry                     no   ***
+          ***                                                                                                              ***
+          ***  pki  print fission spectrum                no            bug  print debug information                  no   ***
+          ***                                                                                                              ***
+          ***  p1d  print extra 1-d cross sections        no            trk  print tracking information               no   ***
+          ***                                                                                                              ***
+          ***  tfm  coordinate transform for fluxes       no            pmf  print angular fluxes and flux moments    no   ***
+          ***                                                                                                              ***
+          ***       print fluxes (flx)                    no            app  append, not overwrite, restart data      no   ***
+          ***                                                                                                              ***
+          ***  mfx  compute mesh fluxes                   no            pms  print mesh fluxes if calculated          no   ***
+          ***                                                                                                              ***
+          ***  mfp  compute region mean free paths        no            pmm  print mesh flux moments if calculated    no   ***
+          ***                                                                                                              ***
+          ***  sen  compute derivative sensitivites       no            pmv  print mesh volumes                       no   ***
+          ***                                                                                                              ***
+          ***  cep  continuous energy calculation         no            ptb  use probability tables                  yes   ***
+          ***                                                                                                              ***
+          ***  fre  use analytic free gas kernel         yes            pnu  use prompt neutron spectrum only         no   ***
+          ***                                                                                                              ***
+          ***  udi  use double indexing                   no            cbt  compute contributons                     no   ***
+          ***                                                                                                              ***
+          ***  pct  print contributons                    no            cds  collect CADIS fissions                   no   ***
+          ***                                                                                                              ***
+          ***  cfe  use collision flux estimator          no            wdk  use woodcock tracking                    no   ***
+          ***                                                                                                              ***
+          ***  scx  save CE cross sections in restart     no            uum  use unionized mixture cross sections     no   ***
+          ***                                                                                                              ***
+          ***  htm  produce HTML output                  yes            scd  mesh based source convergence diag.     yes   ***
+          ***                                                                                                              ***
+          ***  cgd  use F*(r) Mesh                        no            m2u  use unionized nuclide cross sections     no   ***
+          ***                                                                                                              ***
+          ***  gfx  grid flux, averaged over voxel volum  no            fst  print F*(r) mesh values                  no   ***
+          ***                                                                                                              ***
+          ***                                                                                                              ***
+          ********************************************************************************************************************
+          ********************************************************************************************************************
+          ********************************************************************************************************************
+
+                                ........ finished reading the keno parameter data    ........
+
+
+                               *************** data reading completed ***************
+1       ********************************************************************************************************************
+        ***                                                                                                              ***
+        ***                              godiva - data check only                                                        ***
+        ***                                                                                                              ***
+        ********************************************************************************************************************
+        ********************************************************************************************************************
+        ***                                                                                                              ***
+        ***          unit                                                volume                                          ***
+        ***         number               data set name                    name        unit function                      ***
+        ***         ------               -------------                    ----        -------------                      ***
+        ***                                                                                                              ***
+        ***      alb  79     ->t/opt/SCALE-6.2.4/data/scale.rev00.albedos             input albedos                      ***
+        ***                                                                                                              ***
+        ***      wts  80     ->t/opt/SCALE-6.2.4/data/scale.rev03.weights             input weights                      ***
+        ***                                                                                                              ***
+        ***      skt  16      unknown                                                 write scratch data                 ***
+        ***                                                                                                              ***
+        ***      wrs  35      unknown                                                 write restart data                 ***
+        ***                                                                                                              ***
+        ***      lib   4      unknown                                                 input ampx working library         ***
+        ***                                                                                                              ***
+        ***           90     /tmp/scale.user.178965/xfile090                    input data direct access           ***
+        ***                                                                                                              ***
+        ***           10      unknown                                                 xsec mixing direct access          ***
+        ***                                                                                                              ***
+        ********************************************************************************************************************
+1                                        godiva - data check only                                                        
+
+                                                   mixing table
+
+                                          number of scattering angles =  3
+                                      cross section message threshold = 1.0E+00
+
+
+ mixture =     1          density(g/cc) =  18.742              temperature(K) =    293.00
+    nuclide    nucmix   atom-dens.   wgt. frac.     za      awt          temp               nuclide title
+      92234       1    4.91995E-04  1.02020E-02   92234   234.0410       293.00     u-234
+      92235       1    4.49997E-02  9.37112E-01   92235   235.0439       293.00     u-235
+      92238       1    2.49800E-03  5.26860E-02   92238   238.0508       293.00     u-238
+
+
+
+
+                                ........ finished preparing the keno input data    ........
+1                ***************************************************************************************************
+                 ***                                                                                             ***
+                 ***          godiva - data check only                                                           ***
+                 ***                                                                                             ***
+                 ***************************************************************************************************
+                 ***************************************************************************************************
+                 ***                                                                                             ***
+                 ***                               ****** additional information ******                          ***
+                 ***                                                                                             ***
+                 ***  use a global unit                      yes    use lattice geometry                     no  ***
+                 ***                                                                                             ***
+                 ***  no. of scattering angles in xsecs        3    global array number                       0  ***
+                 ***                                                                                             ***
+                 ***  number of mixtures used                  1    number of units in the global x dir.      0  ***
+                 ***                                                                                             ***
+                 ***  number of bias id's used                 1    number of units in the global y dir.      0  ***
+                 ***                                                                                             ***
+                 ***  number of differential albedos used      0    number of units in the global z dir.      0  ***
+                 ***                                                                                             ***
+                 ***  total input geometry regions             2    number of energy groups                 238  ***
+                 ***                                                                                             ***
+                 ***  number of geometry regions used          2    no. of fission spectrum source grps.      0  ***
+                 ***                                                                                             ***
+                 ***  use nested arrays                       no    use nested holes                         no  ***
+                 ***                                                                                             ***
+                 ***  number of arrays used                    0    number of holes                           0  ***
+                 ***                                                                                             ***
+                 ***  maximum array nesting level              0    maximum hole nesting level                0  ***
+                 ***                                                                                             ***
+                 ***  largest array number                     0    largest geometry unit number              1  ***
+                 ***                                                                                             ***
+                 ***                                                                                             ***
+                 ***  boundary label 20               cuboid                                                     ***
+                 ***                                                                                             ***
+                 ***    +x boundary condition          vacuum         -x boundary condition              vacuum  ***
+                 ***                                                                                             ***
+                 ***    +y boundary condition          vacuum         -y boundary condition              vacuum  ***
+                 ***                                                                                             ***
+                 ***    +z boundary condition          vacuum         -z boundary condition              vacuum  ***
+                 ***                                                                                             ***
+                 ***************************************************************************************************
+
+                                ........ finished loading the data    ........
+1       ********************************************************************************************************************
+        ***                                                                                                              ***
+        ***                                                                                                              ***
+        ********************************************************************************************************************
+        ***                                 ******      geometry parameters       ******                                 ***
+        ***                                                                                                              ***
+        ***                                                                                                              ***
+        ***                     niar        number of independent array references              0                        ***
+        ***                                                                                                              ***
+        ***                     ngblu       global unit number                                  1                        ***
+        ***                                                                                                              ***
+        ***                     nboxt       number of units in the problem                      1                        ***
+        ***                                                                                                              ***
+        ***                     nquad       number of quadratics in the problem                 4                        ***
+        ***                                                                                                              ***
+        ***                     ngwrds      number of geometry words read                       2                        ***
+        ***                                                                                                              ***
+        ***                     maxgwd      maximum geometry words in a unit                    2                        ***
+        ***                                                                                                              ***
+        ***                     maxsfu      largest number of surfaces in a unit                4                        ***
+        ***                                                                                                              ***
+        ***                     maxreg      largest number of media in a unit                   2                        ***
+        ***                                                                                                              ***
+        ***                     regtot      number of spatial volumes defined                   2                        ***
+        ***                                                                                                              ***
+        ***                     sectot      number of entries in the sector array               6                        ***
+        ***                                                                                                              ***
+        ***                     nucom       number of comments in the geometry data             0                        ***
+        ***                                                                                                              ***
+        ***                     numhol      number of holes in the problem                      0                        ***
+        ***                                                                                                              ***
+        ********************************************************************************************************************
+
+1                                        godiva - data check only                                                        
+
+                                  geometry description for those units utilized in this problem
+
+
+
+                                          *******************   global   *******************
+                                                      -----   unit 1   -----
+
+       1        sphere         10                          quadratic surfaces
+
+      X**2         Y**2         Z**2           XY           XZ           YZ            X            Y            Z      Constant
+
+  -1.00000E+00 -1.00000E+00 -1.00000E+00 +0.00000E+00 +0.00000E+00 +0.00000E+00 +0.00000E+00 +0.00000E+00 +0.00000E+00 +7.64051E+01
+
+       2        cuboid         20                          quadratic surfaces
+
+      X**2         Y**2         Z**2           XY           XZ           YZ            X            Y            Z      Constant
+
+  -1.00000E+00 +0.00000E+00 +0.00000E+00 +0.00000E+00 +0.00000E+00 +0.00000E+00 +0.00000E+00 +0.00000E+00 +0.00000E+00 +7.64051E+01
+
+  +0.00000E+00 -1.00000E+00 +0.00000E+00 +0.00000E+00 +0.00000E+00 +0.00000E+00 +0.00000E+00 +0.00000E+00 +0.00000E+00 +7.64051E+01
+
+  +0.00000E+00 +0.00000E+00 -1.00000E+00 +0.00000E+00 +0.00000E+00 +0.00000E+00 +0.00000E+00 +0.00000E+00 +0.00000E+00 +7.64051E+01
+
+                          sector
+               imp      definitions
+
+ media 1    1          10
+
+ media 0    1          20 -10
+
+ boundary                       20
+ 
+  ***** warning ***** csas message number cs-316 follows:
+  No mesh provided for Source Convergence Diagnostics (SCD). Continue with default mesh.
+ 
+1                                        godiva - data check only                                                        
+
+                              volumes for those units utilized in this problem
+
+                      volumes not specified in the input were set to -1.0
+
+                                         geometry
+                         unit     uses    region     mixture        total region volume (cm**3)
+
+                           1         1       1           1         -1.00000E+00
+                                             2           0         -1.00000E+00
+
+
+
+                             mixture       total mixture volume (cm**3)            total mixture mass (gm)
+
+                                 1         0.00000E+00                             0.00000E+00
+                                          -------------                           -------------
+                                           0.00000E+00                             0.00000E+00
+ 
+  ***** warning ***** csas message number cs-239 follows:
+  The volumes for all regions are not set.
+  Some region volumes are not set by input, not in the space for which volumes are calculated,
+  missed by the volume calculation, or actually 0.0. For these regions, volumes are set to -1.0
+  and the fluxes and fission densities are divided by -1.0 instead of the real volume.
+ 
+ 
+
+
+        ********************************************************************************************************************
+        ***                                                                                                              ***
+        ***                                         biasing information                                                  ***
+        ***                                                                                                              ***
+        ***     a default weight of    0.500 will be used for all bias id's.                                             ***
+        ***                                                                                                              ***
+        ********************************************************************************************************************
+
+                                ........ finished loading the keno data    ........
+
+                                ........ finished checking the keno geometry data    ........
+                                *****  restart data has been written on unit 35  *****
+
+                                ........ finished writing the keno data    ........
+This problem will not be run because parm=check was entered in the analytical sequence specification.
+
+    SCALE is finished on Thu Oct 15 14:53:51 2026.
+-------------------------- Summary --------------------------
+csas6 finished. used 2.96 seconds.
+SCALE driver required a maximum of 748.6 MiB of RAM.
+------------------------ End Summary ------------------------
+

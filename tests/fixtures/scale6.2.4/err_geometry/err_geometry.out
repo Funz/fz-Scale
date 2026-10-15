@@ -1,0 +1,170 @@
+ *******************************************************************************
+ *                                                                             *
+ *                                 SCALE 6.2.4                                 *
+ *                                -------------                                *
+ *                                octobre 2026                                 *
+ *                                                                             *
+ *           SCALE:  A Comprehensive Modeling and Simulation Suite             *
+ *                   for Nuclear Safety Analysis and Design                    *
+ *                                                                             *
+ *                      Reactor and Nuclear Systems Division                   *
+ *                        Oak Ridge National Laboratory                        *
+ *                                                                             *
+ *                           http://scale.ornl.gov                             *
+ *                            scalehelp@ornl.gov                               *
+ *                                                                             *
+ *******************************************************************************
+ *******************************************************************************
+      
+                  Job Information
+                  ---------------
+      Job started on host on jeu. 15/10/2026 11:47:34
+      Working directory: /tmp/scale.user.47215
+      Input file name  : /work/err_geometry/err_geometry.inp
+      Output file name : /work/err_geometry/err_geometry.out
+      SCALE executable : /opt/scale/bin/scale
+      
+ *******************************************************************************
+The following data cards precede an = card
+      ' Hypothesis: H13 KENO geometry error (inner region larger than outer): reported in .out, exit code
+
+
+    module csas5 will be called on Thu Oct 15 11:47:35 2026.
+    sequence specification record:=csas5
+Input Data:
+
+      godiva - geometry error
+      v7-238
+      read composition
+       uranium 1 den=18.742 1 293 92234 1.0202 92235 93.7112 92238 5.2686 end
+      end composition
+      read parameters
+       gen=110 npg=1000 nsk=10
+      end parameters
+      read geometry
+       sphere 1 1 8.741
+       sphere 0 1 5.0
+      end geometry
+      end data
+end
+
+No cell data found in input.
+
+
+
+************************************************************************************************************************************
+************************************************************************************************************************************
+************************************************************************************************************************************
+*****                                                                                                                          *****
+*****                                             program verification information                                             *****
+*****                                                                                                                          *****
+*****                                           code system: SCALE   version: 6.2.0                                            *****
+*****                                                                                                                          *****
+************************************************************************************************************************************
+************************************************************************************************************************************
+*****                                                                                                                          *****
+*****                                                                                                                          *****
+*****                      program:  csas5                                                                                     *****
+*****                                                                                                                          *****
+*****                      version:  6.2.4 (602004)                                                                            *****
+*****                                                                                                                          *****
+*****                     username:  user                                                                                *****
+*****                                                                                                                          *****
+*****                     hostname:  host.example.org                                                            *****
+*****                                                                                                                          *****
+*****                                                                                                                          *****
+*****            date of execution:  2026-10-15                                                                                *****
+*****                                                                                                                          *****
+*****            time of execution:  11:47:35                                                                                  *****
+*****                                                                                                                          *****
+************************************************************************************************************************************
+************************************************************************************************************************************
+************************************************************************************************************************************
+
+
+
+------------------------------------------------------------------------------------
+ Mixture table for component comps at line:5, column:1
+------------------------------------------------------------------------------------
+Mixture = 1 with density(g/cc) = 18.7420 and temperature(K) = 293.00
+        Entry      Mixture      Nuclide     Density (atoms/b-cm)     Temperature (K)
+------------------------------------------------------------------------------------
+            1            1        92234             4.919947e-04              293.00
+            2            1        92235             4.499968e-02              293.00
+            3            1        92238             2.498000e-03              293.00
+------------------------------------------------------------------------------------
+        Entry      Mixture      Nuclide     Density (atoms/b-cm)     Temperature (K)
+------------------------------------------------------------------------------------
+ End of mixture table for component comps at line:5, column:1
+------------------------------------------------------------------------------------
+
+Csas56 built mixture pool in: 0.05 seconds.
+Csas56 built celldata pool in: 0.00 seconds.
+Loaded MG Library: /opt/scale/data/scale.rev07.xn238v7.0
+Csas56 loaded ampx library in: 2.24 seconds.
+
+----------------------------------------------------------------------------------------------------
+ Cross section processing summary of the cells: 
+----------------------------------------------------------------------------------------------------
+
+ Total 1 cells are being processed:
+
+      1 *default cells* (fissionable) processed with CENTRM (sequence default option).
+
+ NOTE: *default cells* are the cells not specified in CELLDATA block (They are processed as
+       infinite homogeneous cells).
+
+----------------------------------------------------------------------------------------------------
+
+Csas56 prepared 1 unit cells in 0.02 seconds.
+Csas56 wrote mixing table to .mixtures7655 in 0.00 seconds.
+
+                                ........ finished before reading keno data    ........
+
+                                ........ finished reading the keno parameter data    ........
+
+
+                               *************** data reading completed ***************
+
+                                ........ finished preparing the keno input data    ........
+
+                                ........ finished loading the data    ........
+1godiva - geometry error                                                         
+ 
+  ***** error ***** csas message number cs-091 follows:
+  unit 1 contains the following geometry inconsistencies:
+ 
+  ***** error ***** csas message number cs-092 follows:
+  region number 1 intersects region number 2.
+ 
+  ***** warning ***** csas message number cs-316 follows:
+  No mesh provided for Source Convergence Diagnostics (SCD). Continue with default mesh.
+ 
+ 
+  ***** error ***** csas message number cs-096 follows:
+  the volume defined by region 2 in unit 1 is negative.
+
+                                ........ finished loading the keno data    ........
+1                                        godiva - geometry error                                                         
+
+                  media bias      geometry description for those units utilized in this problem
+ region            num   id 
+
+
+                                          *******************   global   *******************
+                                                      -----   unit     1   -----
+
+   1 sphere           1  1  radius =  8.7410     the center is located at (  0.0000    ,  0.0000    ,  0.0000    ).
+
+   2 sphere           0  1  radius =  5.0000     the center is located at (  0.0000    ,  0.0000    ,  0.0000    ).
+ csas message number cs-55  ***  errors were encountered in processing the keno data.  execution is impossible. ***
+
+                                ........ finished checking the keno geometry data    ........
+This problem will not be run because errors were detected in reading the input.
+
+    SCALE is finished on Thu Oct 15 11:47:38 2026.
+-------------------------- Summary --------------------------
+csas5 finished. used 2.36 seconds.
+SCALE driver required a maximum of 748.3 MiB of RAM.
+------------------------ End Summary ------------------------
+

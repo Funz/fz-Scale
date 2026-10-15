@@ -1,0 +1,18 @@
+#!/bin/bash
+# Fake scalerte for the tests: replays a real SCALE output.
+#   FAKE_SCALE_CASE   fixture directory (contains <case>.out, optionally <case>.msg)
+#   FAKE_SCALE_SLEEP  seconds to sleep before writing the outputs (kill tests)
+# Records its arguments in fake_scalerte_args.txt and always exits 0, like
+# the real scalerte (tests/scale_probe, H4).
+echo "$@" > fake_scalerte_args.txt
+INP="${!#}"
+BASE="${INP%.*}"
+if [ -n "${FAKE_SCALE_SLEEP:-}" ]; then
+  trap 'echo TERM > fake_scalerte_terminated.txt; exit 143' TERM
+  sleep "$FAKE_SCALE_SLEEP" & wait $!
+fi
+[ -z "${FAKE_SCALE_CASE:-}" ] && exit 0
+CASE="$(basename "$FAKE_SCALE_CASE")"
+[ -f "$FAKE_SCALE_CASE/$CASE.out" ] && cp "$FAKE_SCALE_CASE/$CASE.out" "$BASE.out"
+[ -f "$FAKE_SCALE_CASE/$CASE.msg" ] && cp "$FAKE_SCALE_CASE/$CASE.msg" "$BASE.msg"
+exit 0

@@ -1,0 +1,6 @@
+# Real SCALE outputs: keep them byte-exact (no CRLF conversion on Windows
+# checkouts); tests/test_outputs.py converts them to CRLF itself.
+tests/fixtures/** -text
+# Scripts run by bash: LF line endings everywhere
+*.sh text eol=lf
+tests/fake/scalerte text eol=lf

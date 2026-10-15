@@ -1,0 +1,999 @@
+ *******************************************************************************
+ *                                                                             *
+ *                                 SCALE 6.2.4                                 *
+ *                                -------------                                *
+ *                                octobre 2026                                 *
+ *                                                                             *
+ *           SCALE:  A Comprehensive Modeling and Simulation Suite             *
+ *                   for Nuclear Safety Analysis and Design                    *
+ *                                                                             *
+ *                      Reactor and Nuclear Systems Division                   *
+ *                        Oak Ridge National Laboratory                        *
+ *                                                                             *
+ *                           http://scale.ornl.gov                             *
+ *                            scalehelp@ornl.gov                               *
+ *                                                                             *
+ *******************************************************************************
+ *******************************************************************************
+      
+                  Job Information
+                  ---------------
+      Job started on host on jeu. 15/10/2026 14:53:46
+      Working directory: /tmp/scale.user.178964
+      Input file name  : /work/err_overlap/err_overlap.inp
+      Output file name : /work/err_overlap/err_overlap.out
+      SCALE executable : /opt/scale/bin/scale
+      
+ *******************************************************************************
+The following data cards precede an = card
+      ' Hypothesis: H22 (SCALE-skill v0.2) overlapping KENO-VI regions: k6-106 multiply defined space, repeated per source point
+
+
+    module csas6 will be called on Thu Oct 15 14:53:48 2026.
+    sequence specification record:=csas6
+Input Data:
+
+      godiva - overlapping regions
+      v7-238
+      read composition
+       uranium 1 den=18.742 1 293 92234 1.0202 92235 93.7112 92238 5.2686 end
+      end composition
+      read parameters
+       gen=110 npg=1000 nsk=10
+      end parameters
+      read geometry
+      global unit 1
+       sphere 10 8.741
+       cuboid 20 6p8.741
+       media 1 1 10
+       media 0 1 20
+       boundary 20
+      end geometry
+      end data
+end
+
+No cell data found in input.
+
+
+
+************************************************************************************************************************************
+************************************************************************************************************************************
+************************************************************************************************************************************
+*****                                                                                                                          *****
+*****                                             program verification information                                             *****
+*****                                                                                                                          *****
+*****                                           code system: SCALE   version: 6.2.0                                            *****
+*****                                                                                                                          *****
+************************************************************************************************************************************
+************************************************************************************************************************************
+*****                                                                                                                          *****
+*****                                                                                                                          *****
+*****                      program:  csas6                                                                                     *****
+*****                                                                                                                          *****
+*****                      version:  6.2.4 (602004)                                                                            *****
+*****                                                                                                                          *****
+*****                     username:  user                                                                                *****
+*****                                                                                                                          *****
+*****                     hostname:  host.example.org                                                            *****
+*****                                                                                                                          *****
+*****                                                                                                                          *****
+*****            date of execution:  2026-10-15                                                                                *****
+*****                                                                                                                          *****
+*****            time of execution:  14:53:48                                                                                  *****
+*****                                                                                                                          *****
+************************************************************************************************************************************
+************************************************************************************************************************************
+************************************************************************************************************************************
+
+
+
+------------------------------------------------------------------------------------
+ Mixture table for component comps at line:5, column:1
+------------------------------------------------------------------------------------
+Mixture = 1 with density(g/cc) = 18.7420 and temperature(K) = 293.00
+        Entry      Mixture      Nuclide     Density (atoms/b-cm)     Temperature (K)
+------------------------------------------------------------------------------------
+            1            1        92234             4.919947e-04              293.00
+            2            1        92235             4.499968e-02              293.00
+            3            1        92238             2.498000e-03              293.00
+------------------------------------------------------------------------------------
+        Entry      Mixture      Nuclide     Density (atoms/b-cm)     Temperature (K)
+------------------------------------------------------------------------------------
+ End of mixture table for component comps at line:5, column:1
+------------------------------------------------------------------------------------
+
+Csas56 built mixture pool in: 0.10 seconds.
+Csas56 built celldata pool in: 0.02 seconds.
+Loaded MG Library: /opt/scale/data/scale.rev07.xn238v7.0
+Csas56 loaded ampx library in: 2.84 seconds.
+
+----------------------------------------------------------------------------------------------------
+ Cross section processing summary of the cells: 
+----------------------------------------------------------------------------------------------------
+
+ Total 1 cells are being processed:
+
+      1 *default cells* (fissionable) processed with CENTRM (sequence default option).
+
+ NOTE: *default cells* are the cells not specified in CELLDATA block (They are processed as
+       infinite homogeneous cells).
+
+----------------------------------------------------------------------------------------------------
+
+Csas56 prepared 1 unit cells in 0.03 seconds.
+Csas56 wrote mixing table to .mixtures8828 in 0.00 seconds.
+
+                                ........ finished before reading keno data    ........
+
+                                ........ finished reading the keno parameter data    ........
+
+
+                               *************** data reading completed ***************
+
+                                ........ finished preparing the keno input data    ........
+
+                                ........ finished loading the data    ........
+ 
+  ***** warning ***** csas message number cs-316 follows:
+  No mesh provided for Source Convergence Diagnostics (SCD). Continue with default mesh.
+ 
+
+                                ........ finished loading the keno data    ........
+
+                                ........ finished checking the keno geometry data    ........
+                                *****  restart data has been written on unit 35  *****
+
+                                ........ finished writing the keno data    ........
+
+     0$ array      4 entries read
+
+     1$ array     10 entries read
+
+     1* array     10 entries read
+
+     1t
+ 
+  MG Library Source: endf Revision: 7 Mod: 0
+  Determined CE Library XML file to be: ce_v7.0_endf.xml
+
+
+   CE-KENO xsdir XML file:   /opt/scale/data/ce_v7.0_endf.xml
+
+
+   A new centrm library has been written on unit number:   81
+   The number of input nuclides was:                        3
+   Number of Nuclides on output PW library:                 3
+
+
+                  Description of Output CENTRM Library 
+
+ Entry    ZA   Data Src  Vers No.  Mod No.  MT-Optn  Thermal ID    XS temperatures 
+ -----  -----  --------  --------  -------  -------  ----------    --------------- 
+    1    92234    endf       7         0        1             0        293.00
+    2    92235    endf       7         0        1             0        293.00
+    3    92238    endf       7         0        1             0        293.00
+XSProc starting module Dancoff.
+
+ Dancoff Module Problem Description
+ ige--geometry type(0/1/2/3--inf med/slab/cyl/sphere)                         0
+ izm--number of zones or material regions                                     1
+ igo--celltype                                                                1
+ ibr--right boundary condition (0/1/2/3--vacuum/reflected/periodic/white)     0
+ ibl--left  boundary condition (0/1/2/3--vacuum/reflected/periodic/white)     0
+XSProc execution of module Dancoff completed.
+XSProc starting module Bonami.
+XSProc execution of module Bonami completed.
+XSProc starting module MixMacros.
+XSProc execution of module MixMacros completed.
+XSProc starting module CentrmPmc.
+
+ >>>> BEGIN CENTRM CALCULATION >>>>
+
+
+                         ***** Program CENTRM: Continuous ENergy TRansport Module
+
+     CENTRM MATERIALS
+
+        nuclides on                                                   Mixing Table
+        multi-grp lib.  composition                mixture   component   atom density      small
+     1     92234            1                         1        92234     4.91995E-04         1                
+     2     92235            1                         1        92235     4.49997E-02         1                
+     3     92238            1                         1        92238     2.49800E-03         1                
+ *** WARNING! Use of bound thermal scattering kernels is requested, but no kernel file is provided.
+               Free-gas thermal kernels will be used for all materials
+     ft81f001            =   pointwise XS library from Crawdad
+
+      MULTIGROUP STRUCTURE
+
+     igm      =      238      number of energy groups
+     mmt      =      238      number of neutron groups
+     mcr      =        0      number of gamma groups
+     iftg     =      149      first thermal group number
+
+
+     GENERAL PROBLEM DATA
+
+     ige      =        0     problem geometry
+                               0/1/2/3 = inf. hom. medium/plane/cylinder/sphere
+     izm      =        1     number of zones
+     im       =        1     number of spatial intervals
+     ibl      =        1     left boundary condition:
+                               0/1/2/3 = vacuum/reflected/periodic/albedo
+     ibr      =        1     right boundary condition:
+                               0/1/2/3 = vacuum/reflected/periodic/albedo
+     mxx      =        1     number of mixtures
+     ms       =        3     mixing table length
+     isn      =        2     SN quadrature order (not used for npxs=6)
+     isct     =        0     order of elastic scattering
+     isrc     =        1     type of source spectrum:
+                               0/1/2 = multigroup input spectrum/fission spectrum/both (1)
+     iim      =       10     inner iterations maximum (10)
+     iup      =        3     upscatter outer iterations in thermal range (3)
+     nfst     =        3     multigroup calculation option in upper energy range [option nfst=5 is deprecated]:
+                               0/1/2/3/4/6 = sn/diffusion/homogeneous/zonewise homogeneous/BN/2D MoC cell (0)
+     nthr     =        3     multigroup calculation option in lower energy range [option nthr=5 is deprecated]:
+                               0/1/2/3/4/6 = sn/diffusion/homogeneous/zonewise homogeneous/BN/2D MoC cell (0)
+     npxs     =        4     pointwise calculation option:
+                               <=0/1/2/3/4/5/6 = no pointwise: do multigroup as in nfst/sn/coll. prob./
+                                 homogeneous/zonewise homogeneous/zonewise two-region/2D MoC cell (1)
+     isvar    =        3     multigroup source & cross section linearization option :
+                               0/1/2/3 = none/linearize source/linearize group cross sections/both (3)
+     mocMesh  =        0     meshing options for MoC calculation; npxs=6 only:
+                               0/1/2   = coarse/regular/fine mesh/input by zone (0)
+     mocPol   =        0     number of polar angles for MoC quadrature; npxs=6 only:
+                               2/3/4 = allowable values        (3)
+     mocAzi   =        0     number of azimuthal angles for MoC quadrature; npxs=6 only:
+                               1 -> 16 = allowable values      (8)
+     kern     =        0     thermal neutron scattering treatment:
+                               0/1 = all free-gas thermal kernels/use bound S(alpha, beta) data if available (0)
+     iscti    =        0     inelastic scattering order (0)
+     nmf6     =       -1     inelastic scattering option:
+                               -1/0/1 = no inelastic/discrete level only/discrete+continuum (0)
+
+
+     EDITTING AND OTHER OPTIONS
+
+     iprt     =       -3     -3/-2/-1/n = mixture cross sections print options: 
+                               none/write P.W. energy & macro x-sections to output file/print 1-D M.G. x-sections
+                               /print nth p (p0,p1..) M.G. x-section matrix (-3)
+     id1      =       -1     -1/0/1/2 = flux print options:
+                                none/print M.G flux/also print M.G moments/save PW zone flux in ascii file
+     ipbt     =        0     0/1 = none/group summary table print (0)
+     iqm      =        0     input multigrp volumetric sources (0/n=no/yes)
+     ipm      =        0     input multigrp boundary angular sources (0/n=no/yes)
+     ipn      =        2     0/1/2 diff. coef. param (2)
+     idfm     =        1     0/1 = none/density factors (0)
+     ixprt    =        0     0/1 = minimum print/regular print (0)
+     mlim     =        0     0/m = no effect/restrict nuclides with mass >= m to have PW scatter order <= nlim  (100)
+     nlim     =        0     restrictive scatter order (1)
+
+
+
+     FLOATING POINT VALUES
+
+     eps      =     0.10000E-02    upscatter integral convergence (0.001)
+     ptc      =     0.10000E-03    inner iteration convergence (0.001)
+     xnf      =     0.10000E+01    source normalization factor (1.0)
+     b2       =     0.00000E+00    buckling value ( cm**(-2) )
+     demin    =     0.10000E-02    lowest energy of pointwise calculation in (eV)
+     demax    =     0.20000E+05    highest energy of pointwise calculation in (eV)
+     tole     =     0.10000E-02    tolerance used in thinning the pointwise cross sections (0.001)
+     mocRay   =     0.00000E+00    distance between MoC rays; npxs=6 only. (0.02)
+     flet     =     0.10000E+00    fractional lethargy used in construction of flux energy mesh (0.1)
+     alump    =     0.20000E+00    mass-lumping criterion (0)
+
+
+ .........................................................................................................
+
+  Input DEMIN and DEMAX values may be modified to lie on multigroup boundaries.
+    Min and Max energies (eV) defining range for pointwise flux calculation  =     1.000E-03    2.500E+04
+ .........................................................................................................
+
+
+                              *******  Nuclide Lumping Summary **********
+
+                                Lumping tolerance on mass    =   0.2000
+                                Original number of Materials =    3
+                                Number of lumped materials   =    1
+
+                              ********************************************
+
+
+
+
+          kern is input as 0 or no file supplied for bound thermal kernel data.
+          => All PW thermal scatter kernels are treated as Free Gas
+
+
+
+  ***Thermal Outer Iteration Limit Reached!
+
+  ***Worst Inner Convergence For Epithermal Groups Was 0.00000E+00
+  ***Worst Inner Convergence For Thermal Flux Was      0.00000E+00
+  ***Outer Convergence of Thermal Flux (MG/PW) Was     6.79530E+01 7.36459E+02
+  ***Max. Scale Factor For Thermal Band Was            9.98248E-01
+  ***Outer Integral Convergence of Thermal Balance Was-1.92096E-07
+
+
+
+   elapsed time .00 min.
+   =time at end of centrm_Execute.
+  
+ <<<< CENTRM CALCULATION COMPLETED <<<<
+
+ >>>> BEGIN PMC CALCULATION >>>>
+
+
+                         ***** Program PMC: Process Multigroup Cross sections
+
+     PMC LOGICAL UNITS 
+
+     libx  = 81    Input Pointwise XS Library
+     libsc = 18    Scratch Unit 1
+     libsx = 19    Scratch Unit 2
+     libsm = 17    scratch unit (master library)
+
+
+
+     PMC INPUT PARAMETERS
+
+     mrange =  2   Option for choosing energy range     0   Averaging over pointwise xs limits
+                                                        1   Averaging over resolved resonance range
+                                                        2   Averaging over pointwise flux limits
+
+     n2d    = -1   Option for 2-D scat. calculation    -2   Apply elastic removal correction to P0 matrix and 
+                                                             apply consistent PN correction to Legendre moments
+                                                       -1   Apply elastic removal correction to P0 matrix
+                                                        0   Normalize 2-D elastic data to shielded 1-D value
+                                                        1   Recompute 2-D elastic using flux and s-wave kernel
+                                                        2   Apply consistent PN correction to Legendre moments
+
+     nprt   = -1   Option for PMC print output         -1   Minimum data printed 
+                                                        0   Standard printed output
+                                                        1   Print 1-D XSs
+                                                        2   Print both 1-D and 2-D XSs 
+
+     nwt    =  0   Option for XS averaging              0   Zone average
+                                                        1   Cell average
+
+     mtt    =  1   Option for total XS calculation      0   Average independently
+                                                        1   As sum of partial XS 
+
+    pmc_omit=  0   Option for Processing PW Materials   0   Process all Pointwise Materials Used in CENTRM
+                                                        1   Process only nuclides in fissionable (fuel) regions
+                                                        N   Process all materials except N nuclides in 2$$
+
+     ixtr(2)=  0   Option for calculation sequence      0   CSAS Standard Sequence
+                                                        1   Independant (stand-alone) Execution
+                                                        2   CSAS Doubly-Heterogeneous Cell Sequence
+
+     ixtr(3)=  5   Legendre expansion order            -1   Process all Legendre expansion moments found on AMPX LIB.
+                                                  =0,...N   Process new values only up through PN moments 
+
+     n1d    =  0   Option for 1-D cross-sections        0   Weight using using scalar flux
+                                                        1   Weight using using abs value of current (1st moment)
+
+
+     XS_dilute =  1.0E+10   min background XS considered infinitely dilute
+
+   elapsed time .00 min.
+
+   elapsed time .00 min.
+
+ <<<< PMC CALCULATION COMPLETED <<<<
+
+XSProc execution of module CentrmPmc completed.
+XSProc starting module MixMacros.
+XSProc execution of module MixMacros completed.
+Csas56 executed XSProc with 1 unit cells in 2.07 seconds.
+1
+
+
+
+
+
+
+        ************************************************************************************************************************
+        ************************************************************************************************************************
+        ************************************************************************************************************************
+        *****                                                                                                              *****
+        *****                                       program verification information                                       *****
+        *****                                                                                                              *****
+        *****                                   code system:  SCALE    version:  6.2                                       *****
+        *****                                                                                                              *****
+        ************************************************************************************************************************
+        ************************************************************************************************************************
+        *****                                                                                                              *****
+        *****                                                                                                              *****
+        *****              program:  kenovi                                                                                *****
+        *****                                                                                                              *****
+        *****        creation date:  06_aug_2026                                                                           *****
+        *****                                                                                                              *****
+        *****              library:  /opt/scale/bin                                                      *****
+        *****                                                                                                              *****
+        *****                                                                                                              *****
+        *****            prod code:  kenovi                                                                                *****
+        *****                                                                                                              *****
+        *****              version:  6.2.4                                                                                 *****
+        *****                                                                                                              *****
+        *****              jobname:  user                                                                              *****
+        *****                                                                                                              *****
+        *****         machine name:  host.example.org                                                        *****
+        *****                                                                                                              *****
+        *****    date of execution:  15_oct_2026                                                                           *****
+        *****                                                                                                              *****
+        *****    time of execution:  14:53:54.07                                                                           *****
+        *****                                                                                                              *****
+        *****                                                                                                              *****
+        ************************************************************************************************************************
+        ************************************************************************************************************************
+        ************************************************************************************************************************
+
+          ********************************************************************************************************************
+          ***                                                                                                              ***
+          ***                              godiva - overlapping regions                                                    ***
+          ***                                                                                                              ***
+          ********************************************************************************************************************
+          ***                                 ******       numeric parameters       ******                                 ***
+          ***                                                                                                              ***
+          ***                                                                                                              ***
+          ***                   tme         maximum problem time (min)                          0.00                       ***
+          ***                                                                                                              ***
+          ***                   tba         time per generation (min)                          10.00                       ***
+          ***                                                                                                              ***
+          ***                   gen         number of generations                                110                       ***
+          ***                                                                                                              ***
+          ***                   npg         number per generation                               1000                       ***
+          ***                                                                                                              ***
+          ***                   nsk         number of generations to be skipped                   10                       ***
+          ***                                                                                                              ***
+          ***                   beg         beginning generation number                            1                       ***
+          ***                                                                                                              ***
+          ***                   res         generations between checkpoints                        0                       ***
+          ***                                                                                                              ***
+          ***                   x1d         number of extra 1-d cross sections                     1                       ***
+          ***                                                                                                              ***
+          ***                   nbk         neutron bank size                                   1025                       ***
+          ***                                                                                                              ***
+          ***                   xnb         extra positions in neutron bank                        0                       ***
+          ***                                                                                                              ***
+          ***                   nfb         fission bank size                                   1000                       ***
+          ***                                                                                                              ***
+          ***                   xfb         extra positions in fission bank                        0                       ***
+          ***                                                                                                              ***
+          ***                   sig         cut off standard deviation                        0.0000                       ***
+          ***                                                                                                              ***
+          ***                   wta         default value of weight average                   0.5000                       ***
+          ***                                                                                                              ***
+          ***                   wth         weight high for splitting                         3.0000                       ***
+          ***                                                                                                              ***
+          ***                   wtl         weight low for russian roulette                   0.3333                       ***
+          ***                                                                                                              ***
+          ***                   rnd         starting random number                  000015714D98EE96                       ***
+          ***                                                                                                              ***
+          ***                   nb8         number of d.a. blocks on unit  8                    1000                       ***
+          ***                                                                                                              ***
+          ***                   nl8         length of d.a. blocks on unit  8                     512                       ***
+          ***                                                                                                              ***
+          ***                   nqd         quadrature order for angular fluxes                    0                       ***
+          ***                                                                                                              ***
+          ***                   pnm         highest order of flux moments                          0                       ***
+          ***                                                                                                              ***
+          ***                   msh         mesh size for mesh flux tally                     0.0000                       ***
+          ***                                                                                                              ***
+          ***                   adj         mode of calculation                              forward                       ***
+          ***                                                                                                              ***
+          ***                   tps         sampling sites per track length                        5                       ***
+          ***                                                                                                              ***
+          ***                   cgs         number of secondary groups to sampl                    0                       ***
+          ***                                                                                                              ***
+          ***                   cas         number of secondary angles to sampl                    0                       ***
+          ***                                                                                                              ***
+          ***                   wtc         Woodcock tracking cut-off value                     0.90                       ***
+          ***                                                                                                              ***
+          ***                   ttl         temperature tolerance for CE xsecs                 -1.00                       ***
+          ***                                                                                                              ***
+          ***                               input data written on restart unit                    no                       ***
+          ***                                                                                                              ***
+          ***                   dbl         Low Energy Cutoff (in eV) for DBRC                  0.40                       ***
+          ***                                                                                                              ***
+          ***                   dbh         High Energy Cutoff (in eV) for DBRC               210.00                       ***
+          ***                                                                                                              ***
+          ***                   cet         CE-TSUNAMI sensitivity method                       NONE                       ***
+          ***                                                                                                              ***
+          ***                   cfp         Number of latent gens in CE-TSUNAMI                    5                       ***
+          ***                                                                                                              ***
+          ***                   dbr         DBRC isotope selection                                 0                       ***
+          ***                                                                                                              ***
+          ***                   dbx         Doppler Broadening Method                              2                       ***
+          ***                                                                                                              ***
+          ***                                                                                                              ***
+          ********************************************************************************************************************
+          ********************************************************************************************************************
+1         ********************************************************************************************************************
+          ********************************************************************************************************************
+          ***                                                                                                              ***
+          ***                              godiva - overlapping regions                                                    ***
+          ***                                                                                                              ***
+          ********************************************************************************************************************
+          ***                                 ******      logical parameters        ******                                 ***
+          ***                                                                                                              ***
+          ***  run  execute problem after checking data  yes            plt  plot picture map(s)                     yes   ***
+          ***                                                                                                              ***
+          ***       compute fluxes (cfx, flx, cfe or mfp  no            fdn  compute fission densities               yes   ***
+          ***                                                                                                              ***
+          ***  smu  compute avg unit self-multiplication  no            nub  compute nu-bar & avg fission group      yes   ***
+          ***                                                                                                              ***
+          ***  mku  compute matrix k-eff by unit number   no            mkp  compute matrix k-eff by unit location    no   ***
+          ***                                                                                                              ***
+          ***  cku  compute cofactor k-eff by unit numbe  no            ckp  compute cofactor k-eff by unit location  no   ***
+          ***                                                                                                              ***
+          ***  fmu  print fiss prod matrix by unit numbe  no            fmp  print fiss prod matrix by unit location  no   ***
+          ***                                                                                                              ***
+          ***  mkh  compute matrix k-eff by hole number   no            mka  compute matrix k-eff by array number     no   ***
+          ***                                                                                                              ***
+          ***  ckh  compute cofactor k-eff by hole numbe  no            cka  compute cofactor k-eff by array number   no   ***
+          ***                                                                                                              ***
+          ***  fmh  print fiss prod matrix by hole numbe  no            fma  print fiss prod matrix by array number   no   ***
+          ***                                                                                                              ***
+          ***  hhl  collect matrix by highest hole level  no            hal  collect matrix by highest array level    no   ***
+          ***                                                                                                              ***
+          ***  amx  print all mixed cross sections        no            far  print fis. and abs. by region            no   ***
+          ***                                                                                                              ***
+          ***  xs1  print 1-d mixture x-sections          no            gas  print far by group                       no   ***
+          ***                                                                                                              ***
+          ***  xs2  print 2-d mixture x-sections          no            pax  print xsec-albedo correlation tables     no   ***
+          ***                                                                                                              ***
+          ***  xsl  print 2-d mixture Pl arrays           no            pwt  print weight average array               no   ***
+          ***                                                                                                              ***
+          ***  xap  print mixture angles & probabilities  no            pgm  print input geometry                     no   ***
+          ***                                                                                                              ***
+          ***  pki  print fission spectrum                no            bug  print debug information                  no   ***
+          ***                                                                                                              ***
+          ***  p1d  print extra 1-d cross sections        no            trk  print tracking information               no   ***
+          ***                                                                                                              ***
+          ***  tfm  coordinate transform for fluxes       no            pmf  print angular fluxes and flux moments    no   ***
+          ***                                                                                                              ***
+          ***       print fluxes (flx)                    no            app  append, not overwrite, restart data      no   ***
+          ***                                                                                                              ***
+          ***  mfx  compute mesh fluxes                   no            pms  print mesh fluxes if calculated          no   ***
+          ***                                                                                                              ***
+          ***  mfp  compute region mean free paths        no            pmm  print mesh flux moments if calculated    no   ***
+          ***                                                                                                              ***
+          ***  sen  compute derivative sensitivites       no            pmv  print mesh volumes                       no   ***
+          ***                                                                                                              ***
+          ***  cep  continuous energy calculation         no            ptb  use probability tables                  yes   ***
+          ***                                                                                                              ***
+          ***  fre  use analytic free gas kernel         yes            pnu  use prompt neutron spectrum only         no   ***
+          ***                                                                                                              ***
+          ***  udi  use double indexing                   no            cbt  compute contributons                     no   ***
+          ***                                                                                                              ***
+          ***  pct  print contributons                    no            cds  collect CADIS fissions                   no   ***
+          ***                                                                                                              ***
+          ***  cfe  use collision flux estimator          no            wdk  use woodcock tracking                    no   ***
+          ***                                                                                                              ***
+          ***  scx  save CE cross sections in restart     no            uum  use unionized mixture cross sections     no   ***
+          ***                                                                                                              ***
+          ***  htm  produce HTML output                  yes            scd  mesh based source convergence diag.     yes   ***
+          ***                                                                                                              ***
+          ***  cgd  use F*(r) Mesh                        no            m2u  use unionized nuclide cross sections     no   ***
+          ***                                                                                                              ***
+          ***  gfx  grid flux, averaged over voxel volum  no            fst  print F*(r) mesh values                  no   ***
+          ***                                                                                                              ***
+          ***                                                                                                              ***
+          ********************************************************************************************************************
+          ********************************************************************************************************************
+          ********************************************************************************************************************
+                                              parameter input completed
+
+
+                                ........ finished reading the parameter data      ........
+
+
+                               *************** data reading completed ***************
+1       ********************************************************************************************************************
+        ***                                                                                                              ***
+        ***                              godiva - overlapping regions                                                    ***
+        ***                                                                                                              ***
+        ********************************************************************************************************************
+        ********************************************************************************************************************
+        ***                                                                                                              ***
+        ***          unit                                                volume                                          ***
+        ***         number               data set name                    name        unit function                      ***
+        ***         ------               -------------                    ----        -------------                      ***
+        ***                                                                                                              ***
+        ***      xsc  14     /tmp/scale.user.178964/ft14f001                    mixed cross sections               ***
+        ***                                                                                                              ***
+        ***      alb  79      unknown                                                 input albedos                      ***
+        ***                                                                                                              ***
+        ***      wts  80      unknown                                                 input weights                      ***
+        ***                                                                                                              ***
+        ***      skt  16      unknown                                                 write scratch data                 ***
+        ***                                                                                                              ***
+        ***      rst  35     ->scale.user.178964/restart.keno_input             read restart data                  ***
+        ***                                                                                                              ***
+        ***      lib   4     /tmp/scale.user.178964/ft04f001                    input ampx working library         ***
+        ***                                                                                                              ***
+        ***            8     /tmp/scale.user.178964/xfile008                    input data direct access           ***
+        ***                                                                                                              ***
+        ***           10      unknown                                                 xsec mixing direct access          ***
+        ***                                                                                                              ***
+        ********************************************************************************************************************
+
+                                ........ finished preparing input data    ........
+1                ***************************************************************************************************
+                 ***                                                                                             ***
+                 ***          godiva - overlapping regions                                                       ***
+                 ***                                                                                             ***
+                 ***************************************************************************************************
+                 ***************************************************************************************************
+                 ***                                                                                             ***
+                 ***                               ****** additional information ******                          ***
+                 ***                                                                                             ***
+                 ***  use a global unit                      yes    use lattice geometry                     no  ***
+                 ***                                                                                             ***
+                 ***  no. of scattering angles in xsecs        3    global array number                       0  ***
+                 ***                                                                                             ***
+                 ***  number of mixtures used                  1    number of units in the global x dir.      0  ***
+                 ***                                                                                             ***
+                 ***  number of bias id's used                 1    number of units in the global y dir.      0  ***
+                 ***                                                                                             ***
+                 ***  number of differential albedos used      0    number of units in the global z dir.      0  ***
+                 ***                                                                                             ***
+                 ***  total input geometry regions             2    number of energy groups                 238  ***
+                 ***                                                                                             ***
+                 ***  number of geometry regions used          2    no. of fission spectrum source grps.      1  ***
+                 ***                                                                                             ***
+                 ***  use nested arrays                       no    use nested holes                         no  ***
+                 ***                                                                                             ***
+                 ***  number of arrays used                    0    number of holes                           0  ***
+                 ***                                                                                             ***
+                 ***  maximum array nesting level              0    maximum hole nesting level                0  ***
+                 ***                                                                                             ***
+                 ***  largest array number                     0    largest geometry unit number              1  ***
+                 ***                                                                                             ***
+                 ***                                                                                             ***
+                 ***  boundary label 20               cuboid                                                     ***
+                 ***                                                                                             ***
+                 ***    +x boundary condition          vacuum         -x boundary condition              vacuum  ***
+                 ***                                                                                             ***
+                 ***    +y boundary condition          vacuum         -y boundary condition              vacuum  ***
+                 ***                                                                                             ***
+                 ***    +z boundary condition          vacuum         -z boundary condition              vacuum  ***
+                 ***                                                                                             ***
+                 ***************************************************************************************************
+
+
+
+                                 cross sections read from the ampx working library on unit    4
+
+1                                        godiva - overlapping regions                                                    
+
+                                                   mixing table
+
+                                          number of scattering angles =  3
+                                      cross section message threshold = 1.0E+00
+
+
+ mixture =     1          density(g/cc) =  18.742              temperature(K) =    293.00
+    nuclide    nucmix   atom-dens.   wgt. frac.     za      awt          temp               nuclide title
+      92234       1    4.91995E-04  1.02020E-02   92234   234.0410       293.00     u234 9225 endf/b7 rel5 rev7 mod2                 12/17/09
+      92235       1    4.49997E-02  9.37112E-01   92235   235.0439       293.00     u235 9228 endf/b7 rel0 rev7 mod7                 12/17/09
+      92238       1    2.49800E-03  5.26860E-02   92238   238.0508       293.00     u238 9237 endf/b7 rel6 rev7 mod5                 12/17/09
+
+
+
+ 
+  ***** warning ***** keno message number k6-222 follows:
+  41 transfers for mixture 1 were corrected for bad moments.
+
+                                ........ finished mixing cross-sections       ........
+
+                                 1-d cross section array id numbers
+
+                                            neutron
+                                reaction name    reaction id
+                                        total              1
+                               non-absorption           2002
+                                   nu-fission           1452
+                                   absorption             27
+                                      fission             18
+                                          chi           1018
+
+                                ........ finished preparing the cross sections    ........
+
+                                ........ finished loading the data    ........
+1       ********************************************************************************************************************
+        ***                                                                                                              ***
+        ***                                                                                                              ***
+        ********************************************************************************************************************
+        ***                                 ******      geometry parameters       ******                                 ***
+        ***                                                                                                              ***
+        ***                                                                                                              ***
+        ***                     niar        number of independent array references              0                        ***
+        ***                                                                                                              ***
+        ***                     ngblu       global unit number                                  1                        ***
+        ***                                                                                                              ***
+        ***                     nboxt       number of units in the problem                      1                        ***
+        ***                                                                                                              ***
+        ***                     nquad       number of quadratics in the problem                 4                        ***
+        ***                                                                                                              ***
+        ***                     ngwrds      number of geometry words read                       2                        ***
+        ***                                                                                                              ***
+        ***                     maxgwd      maximum geometry words in a unit                    2                        ***
+        ***                                                                                                              ***
+        ***                     maxsfu      largest number of surfaces in a unit                4                        ***
+        ***                                                                                                              ***
+        ***                     maxreg      largest number of media in a unit                   2                        ***
+        ***                                                                                                              ***
+        ***                     regtot      number of spatial volumes defined                   2                        ***
+        ***                                                                                                              ***
+        ***                     sectot      number of entries in the sector array               6                        ***
+        ***                                                                                                              ***
+        ***                     nucom       number of comments in the geometry data             0                        ***
+        ***                                                                                                              ***
+        ***                     numhol      number of holes in the problem                      0                        ***
+        ***                                                                                                              ***
+        ********************************************************************************************************************
+
+1                                        godiva - overlapping regions                                                    
+
+                                  geometry description for those units utilized in this problem
+
+
+
+                                          *******************   global   *******************
+                                                      -----   unit 1   -----
+
+       1        sphere         10                          quadratic surfaces
+
+      X**2         Y**2         Z**2           XY           XZ           YZ            X            Y            Z      Constant
+
+  -1.00000E+00 -1.00000E+00 -1.00000E+00 +0.00000E+00 +0.00000E+00 +0.00000E+00 +0.00000E+00 +0.00000E+00 +0.00000E+00 +7.64051E+01
+
+       2        cuboid         20                          quadratic surfaces
+
+      X**2         Y**2         Z**2           XY           XZ           YZ            X            Y            Z      Constant
+
+  -1.00000E+00 +0.00000E+00 +0.00000E+00 +0.00000E+00 +0.00000E+00 +0.00000E+00 +0.00000E+00 +0.00000E+00 +0.00000E+00 +7.64051E+01
+
+  +0.00000E+00 -1.00000E+00 +0.00000E+00 +0.00000E+00 +0.00000E+00 +0.00000E+00 +0.00000E+00 +0.00000E+00 +0.00000E+00 +7.64051E+01
+
+  +0.00000E+00 +0.00000E+00 -1.00000E+00 +0.00000E+00 +0.00000E+00 +0.00000E+00 +0.00000E+00 +0.00000E+00 +0.00000E+00 +7.64051E+01
+
+                          sector
+               imp      definitions
+
+ media 1    1          10
+
+ media 0    1          20
+
+ boundary                       20
+ 
+  ***** warning ***** keno message number k6-316 follows:
+  No mesh provided for Source Convergence Diagnostics (SCD). Continue with default mesh.
+ 
+1                                        godiva - overlapping regions                                                    
+
+                              volumes for those units utilized in this problem
+
+                      volumes not specified in the input were set to -1.0
+
+                                         geometry
+                         unit     uses    region     mixture        total region volume (cm**3)
+
+                           1         1       1           1         -1.00000E+00
+                                             2           0         -1.00000E+00
+
+
+
+                             mixture       total mixture volume (cm**3)            total mixture mass (gm)
+
+                                 1         0.00000E+00                             0.00000E+00
+                                          -------------                           -------------
+                                           0.00000E+00                             0.00000E+00
+ 
+  ***** warning ***** keno message number k6-239 follows:
+  The volumes for all regions are not set.
+  Some region volumes are not set by input, not in the space for which volumes are calculated,
+  missed by the volume calculation, or actually 0.0. For these regions, volumes are set to -1.0
+  and the fluxes and fission densities are divided by -1.0 instead of the real volume.
+ 
+ 
+
+
+        ********************************************************************************************************************
+        ***                                                                                                              ***
+        ***                                         biasing information                                                  ***
+        ***                                                                                                              ***
+        ***     a default weight of    0.500 will be used for all bias id's.                                             ***
+        ***                                                                                                              ***
+        ********************************************************************************************************************
+
+                                ........ finished in KENO-VI before tracking       ........
+
+                                ........     0.00217 minutes were used processing data.        ........
+             ====> Grid Geometry: 10001
+             ====>     title: Default mesh grid with nx=5, ny=5, and nz=5
+             ====>     Plane Summary
+             ====>       x:    5 cells from -8.74101E+00 to  8.74101E+00
+             ====>       y:    5 cells from -8.74101E+00 to  8.74101E+00
+             ====>       z:    5 cells from -8.74101E+00 to  8.74101E+00
+             ====>     Total number of cells: 125
+
+
+ volume fraction of fissile material in the system= 5.00000E-01
+
+ start type 0 was used.
+
+ the neutrons were started with a flat distribution in a cuboid defined by:
+                        +x= 8.74100E+00  -x=-8.74100E+00  +y= 8.74100E+00  -y=-8.74100E+00  +z= 8.74100E+00  -z=-8.74100E+00
+ 
+  ***** error ***** keno message number k6-106 follows:
+  posit error --- unit 1 has multiply defined space at
+  x =  2.72266E+00   y =  5.20839E+00   z = -3.47088E+00
+  sector inside
+     1      T
+     2      T
+ 
+ number of quadratics =    4           number of sectors =    2
+ number of geometry words =     2           offset of first quadratic =    0
+ quadratics
+ -1.0000E+00 -1.0000E+00 -1.0000E+00  0.0000E+00  0.0000E+00  0.0000E+00  0.0000E+00  0.0000E+00  0.0000E+00  7.6405E+01  1.0000E+00
+ -1.0000E+00  0.0000E+00  0.0000E+00  0.0000E+00  0.0000E+00  0.0000E+00  0.0000E+00  0.0000E+00  0.0000E+00  7.6405E+01  1.0000E+00
+  0.0000E+00 -1.0000E+00  0.0000E+00  0.0000E+00  0.0000E+00  0.0000E+00  0.0000E+00  0.0000E+00  0.0000E+00  7.6405E+01  1.0000E+00
+  0.0000E+00  0.0000E+00 -1.0000E+00  0.0000E+00  0.0000E+00  0.0000E+00  0.0000E+00  0.0000E+00  0.0000E+00  7.6405E+01  1.0000E+00
+ surface senses
+  2.9818E+01  6.8992E+01  4.9278E+01  6.4358E+01
+ sector definitions
+   1.  1.
+   0.  1.
+   0.  1.
+ 
+  ***** error ***** keno message number k6-104 follows:
+  a posit error indicates that the point x= 2.72266E+00 y= 5.20839E+00 z=-3.47088E+00  does not occur within unit 1
+  if xsm, xsp, ysm, ysp, zsm, zsp were entered in the start data, verify that they fit within the overall coordinates of the system.
+  the overall coordinates may not be printed for a bare array.
+ 
+  ***** error ***** keno message number k6-106 follows:
+  posit error --- unit 1 has multiply defined space at
+  x =  3.60210E+00   y =  5.19705E+00   z = -3.53872E+00
+  sector inside
+     1      T
+     2      T
+ 
+ number of quadratics =    4           number of sectors =    2
+ number of geometry words =     2           offset of first quadratic =    0
+ quadratics
+ -1.0000E+00 -1.0000E+00 -1.0000E+00  0.0000E+00  0.0000E+00  0.0000E+00  0.0000E+00  0.0000E+00  0.0000E+00  7.6405E+01  1.0000E+00
+ -1.0000E+00  0.0000E+00  0.0000E+00  0.0000E+00  0.0000E+00  0.0000E+00  0.0000E+00  0.0000E+00  0.0000E+00  7.6405E+01  1.0000E+00
+  0.0000E+00 -1.0000E+00  0.0000E+00  0.0000E+00  0.0000E+00  0.0000E+00  0.0000E+00  0.0000E+00  0.0000E+00  7.6405E+01  1.0000E+00
+  0.0000E+00  0.0000E+00 -1.0000E+00  0.0000E+00  0.0000E+00  0.0000E+00  0.0000E+00  0.0000E+00  0.0000E+00  7.6405E+01  1.0000E+00
+ surface senses
+  2.3898E+01  6.3430E+01  4.9396E+01  6.3883E+01
+ sector definitions
+   1.  1.
+   0.  1.
+   0.  1.
+ 
+  ***** error ***** keno message number k6-104 follows:
+  a posit error indicates that the point x= 3.60210E+00 y= 5.19705E+00 z=-3.53872E+00  does not occur within unit 1
+  if xsm, xsp, ysm, ysp, zsm, zsp were entered in the start data, verify that they fit within the overall coordinates of the system.
+  the overall coordinates may not be printed for a bare array.
+ 
+  ***** error ***** keno message number k6-106 follows:
+  posit error --- unit 1 has multiply defined space at
+  x =  1.86926E+00   y = -7.93383E+00   z = -2.03900E+00
+  sector inside
+     1      T
+     2      T
+ 
+ number of quadratics =    4           number of sectors =    2
+ number of geometry words =     2           offset of first quadratic =    0
+ quadratics
+ -1.0000E+00 -1.0000E+00 -1.0000E+00  0.0000E+00  0.0000E+00  0.0000E+00  0.0000E+00  0.0000E+00  0.0000E+00  7.6405E+01  1.0000E+00
+ -1.0000E+00  0.0000E+00  0.0000E+00  0.0000E+00  0.0000E+00  0.0000E+00  0.0000E+00  0.0000E+00  0.0000E+00  7.6405E+01  1.0000E+00
+  0.0000E+00 -1.0000E+00  0.0000E+00  0.0000E+00  0.0000E+00  0.0000E+00  0.0000E+00  0.0000E+00  0.0000E+00  7.6405E+01  1.0000E+00
+  0.0000E+00  0.0000E+00 -1.0000E+00  0.0000E+00  0.0000E+00  0.0000E+00  0.0000E+00  0.0000E+00  0.0000E+00  7.6405E+01  1.0000E+00
+ surface senses
+  5.8077E+00  7.2911E+01  1.3459E+01  7.2248E+01
+ sector definitions
+   1.  1.
+   0.  1.
+   0.  1.
+ 
+  ***** error ***** keno message number k6-104 follows:
+  a posit error indicates that the point x= 1.86926E+00 y=-7.93383E+00 z=-2.03900E+00  does not occur within unit 1
+  if xsm, xsp, ysm, ysp, zsm, zsp were entered in the start data, verify that they fit within the overall coordinates of the system.
+  the overall coordinates may not be printed for a bare array.
+ 
+  ***** error ***** keno message number k6-106 follows:
+  posit error --- unit 1 has multiply defined space at
+  x =  1.55523E+00   y =  1.52805E+00   z =  8.05180E+00
+  sector inside
+     1      T
+     2      T
+ 
+ number of quadratics =    4           number of sectors =    2
+ number of geometry words =     2           offset of first quadratic =    0
+ quadratics
+ -1.0000E+00 -1.0000E+00 -1.0000E+00  0.0000E+00  0.0000E+00  0.0000E+00  0.0000E+00  0.0000E+00  0.0000E+00  7.6405E+01  1.0000E+00
+ -1.0000E+00  0.0000E+00  0.0000E+00  0.0000E+00  0.0000E+00  0.0000E+00  0.0000E+00  0.0000E+00  0.0000E+00  7.6405E+01  1.0000E+00
+  0.0000E+00 -1.0000E+00  0.0000E+00  0.0000E+00  0.0000E+00  0.0000E+00  0.0000E+00  0.0000E+00  0.0000E+00  7.6405E+01  1.0000E+00
+  0.0000E+00  0.0000E+00 -1.0000E+00  0.0000E+00  0.0000E+00  0.0000E+00  0.0000E+00  0.0000E+00  0.0000E+00  7.6405E+01  1.0000E+00
+ surface senses
+  6.8199E+00  7.3986E+01  7.4070E+01  1.1574E+01
+ sector definitions
+   1.  1.
+   0.  1.
+   0.  1.
+ 
+  ***** error ***** keno message number k6-104 follows:
+  a posit error indicates that the point x= 1.55523E+00 y= 1.52805E+00 z= 8.05180E+00  does not occur within unit 1
+  if xsm, xsp, ysm, ysp, zsm, zsp were entered in the start data, verify that they fit within the overall coordinates of the system.
+  the overall coordinates may not be printed for a bare array.
+ 
+  ***** error ***** keno message number k6-106 follows:
+  posit error --- unit 1 has multiply defined space at
+  x =  4.61088E+00   y =  3.77559E+00   z = -1.64522E-01
+  sector inside
+     1      T
+     2      T
+ 
+ number of quadratics =    4           number of sectors =    2
+ number of geometry words =     2           offset of first quadratic =    0
+ quadratics
+ -1.0000E+00 -1.0000E+00 -1.0000E+00  0.0000E+00  0.0000E+00  0.0000E+00  0.0000E+00  0.0000E+00  0.0000E+00  7.6405E+01  1.0000E+00
+ -1.0000E+00  0.0000E+00  0.0000E+00  0.0000E+00  0.0000E+00  0.0000E+00  0.0000E+00  0.0000E+00  0.0000E+00  7.6405E+01  1.0000E+00
+  0.0000E+00 -1.0000E+00  0.0000E+00  0.0000E+00  0.0000E+00  0.0000E+00  0.0000E+00  0.0000E+00  0.0000E+00  7.6405E+01  1.0000E+00
+  0.0000E+00  0.0000E+00 -1.0000E+00  0.0000E+00  0.0000E+00  0.0000E+00  0.0000E+00  0.0000E+00  0.0000E+00  7.6405E+01  1.0000E+00
+ surface senses
+  4.0863E+01  5.5145E+01  6.2150E+01  7.6378E+01
+ sector definitions
+   1.  1.
+   0.  1.
+   0.  1.
+ 
+  ***** error ***** keno message number k6-104 follows:
+  a posit error indicates that the point x= 4.61088E+00 y= 3.77559E+00 z=-1.64522E-01  does not occur within unit 1
+  if xsm, xsp, ysm, ysp, zsm, zsp were entered in the start data, verify that they fit within the overall coordinates of the system.
+  the overall coordinates may not be printed for a bare array.
+ 
+  ***** error ***** keno message number k6-106 follows:
+  posit error --- unit 1 has multiply defined space at
+  x = -4.82048E+00   y = -7.34434E-01   z = -5.04646E+00
+  sector inside
+     1      T
+     2      T
+ 
+ number of quadratics =    4           number of sectors =    2
+ number of geometry words =     2           offset of first quadratic =    0
+ quadratics
+ -1.0000E+00 -1.0000E+00 -1.0000E+00  0.0000E+00  0.0000E+00  0.0000E+00  0.0000E+00  0.0000E+00  0.0000E+00  7.6405E+01  1.0000E+00
+ -1.0000E+00  0.0000E+00  0.0000E+00  0.0000E+00  0.0000E+00  0.0000E+00  0.0000E+00  0.0000E+00  0.0000E+00  7.6405E+01  1.0000E+00
+  0.0000E+00 -1.0000E+00  0.0000E+00  0.0000E+00  0.0000E+00  0.0000E+00  0.0000E+00  0.0000E+00  0.0000E+00  7.6405E+01  1.0000E+00
+  0.0000E+00  0.0000E+00 -1.0000E+00  0.0000E+00  0.0000E+00  0.0000E+00  0.0000E+00  0.0000E+00  0.0000E+00  7.6405E+01  1.0000E+00
+ surface senses
+  2.7162E+01  5.3168E+01  7.5866E+01  5.0938E+01
+ sector definitions
+   1.  1.
+   0.  1.
+   0.  1.
+ 
+  ***** error ***** keno message number k6-104 follows:
+  a posit error indicates that the point x=-4.82048E+00 y=-7.34434E-01 z=-5.04646E+00  does not occur within unit 1
+  if xsm, xsp, ysm, ysp, zsm, zsp were entered in the start data, verify that they fit within the overall coordinates of the system.
+  the overall coordinates may not be printed for a bare array.
+ 
+  ***** error ***** keno message number k6-117 follows:
+ the calculation was terminated because errors were encountered in the start data.
+ 
+ stop code        130
+KENO failed to execute. error code 33280
+
+    SCALE is finished on Thu Oct 15 14:53:54 2026.
+-------------------------- Summary --------------------------
+csas6 finished. used 5.67 seconds.
+SCALE driver required a maximum of 751.3 MiB of RAM.
+------------------------ End Summary ------------------------
+

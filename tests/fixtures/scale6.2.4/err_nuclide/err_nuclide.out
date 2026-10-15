@@ -1,0 +1,90 @@
+ *******************************************************************************
+ *                                                                             *
+ *                                 SCALE 6.2.4                                 *
+ *                                -------------                                *
+ *                                octobre 2026                                 *
+ *                                                                             *
+ *           SCALE:  A Comprehensive Modeling and Simulation Suite             *
+ *                   for Nuclear Safety Analysis and Design                    *
+ *                                                                             *
+ *                      Reactor and Nuclear Systems Division                   *
+ *                        Oak Ridge National Laboratory                        *
+ *                                                                             *
+ *                           http://scale.ornl.gov                             *
+ *                            scalehelp@ornl.gov                               *
+ *                                                                             *
+ *******************************************************************************
+ *******************************************************************************
+      
+                  Job Information
+                  ---------------
+      Job started on host on jeu. 15/10/2026 11:47:34
+      Working directory: /tmp/scale.user.47226
+      Input file name  : /work/err_nuclide/err_nuclide.inp
+      Output file name : /work/err_nuclide/err_nuclide.out
+      SCALE executable : /opt/scale/bin/scale
+      
+ *******************************************************************************
+The following data cards precede an = card
+      ' Hypothesis: H12 unknown nuclide/material name: error message and exit code
+
+
+    module csas5 will be called on Thu Oct 15 11:47:35 2026.
+    sequence specification record:=csas5
+Input Data:
+
+      godiva - unknown nuclide
+      v7-238
+      read composition
+       unobtainium 1 1.0 293 end
+      end composition
+      read geometry
+       sphere 1 1 8.741
+      end geometry
+      end data
+end
+
+No cell data found in input.
+No parameters data found in input.
+
+
+
+************************************************************************************************************************************
+************************************************************************************************************************************
+************************************************************************************************************************************
+*****                                                                                                                          *****
+*****                                             program verification information                                             *****
+*****                                                                                                                          *****
+*****                                           code system: SCALE   version: 6.2.0                                            *****
+*****                                                                                                                          *****
+************************************************************************************************************************************
+************************************************************************************************************************************
+*****                                                                                                                          *****
+*****                                                                                                                          *****
+*****                      program:  csas5                                                                                     *****
+*****                                                                                                                          *****
+*****                      version:  6.2.4 (602004)                                                                            *****
+*****                                                                                                                          *****
+*****                     username:  user                                                                                *****
+*****                                                                                                                          *****
+*****                     hostname:  host.example.org                                                            *****
+*****                                                                                                                          *****
+*****                                                                                                                          *****
+*****            date of execution:  2026-10-15                                                                                *****
+*****                                                                                                                          *****
+*****            time of execution:  11:47:35                                                                                  *****
+*****                                                                                                                          *****
+************************************************************************************************************************************
+************************************************************************************************************************************
+************************************************************************************************************************************
+
+
+
+error:  Sequence: csas5 failed to execute - see messages file for details. 
+WARNING:  Sequence csas5 did not run correctly.
+    SCALE is finished on Thu Oct 15 11:47:35 2026.
+-------------------------- Summary --------------------------
+csas5 failed. used 0.1 seconds.
+SCALE driver required a maximum of 66.7 MiB of RAM.
+------------------------ End Summary ------------------------
+

@@ -1,0 +1,21 @@
+' Hypothesis: H16 the input is echoed in the .out: comment lines below must not be taken for SCALE messages
+' error:  Sequence: csas5 failed to run with assertion: FAKE
+' ***** error ***** keno message number k5-999 follows:
+' execution terminated due to errors. completion code 99
+' SCALE is finished on Mon Jan  1 00:00:00 2000.
+'        ***        best estimate system k-eff                                  9.9999 + or - 0.0001
+'                   lambda   9.9999999          production/absorption    1.828E+00
+=csas5
+best estimate system k-eff 9.9999 + or - 0.0001
+v7-238
+read composition
+ uranium 1 den=18.742 1 293 92234 1.0202 92235 93.7112 92238 5.2686 end
+end composition
+read parameters
+ gen=110 npg=1000 nsk=10
+end parameters
+read geometry
+ sphere 1 1 8.741
+end geometry
+end data
+end

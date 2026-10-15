@@ -1,0 +1,12 @@
+' Hypothesis: H12 unknown nuclide/material name: error message and exit code
+=csas5
+godiva - unknown nuclide
+v7-238
+read composition
+ unobtainium 1 1.0 293 end
+end composition
+read geometry
+ sphere 1 1 8.741
+end geometry
+end data
+end

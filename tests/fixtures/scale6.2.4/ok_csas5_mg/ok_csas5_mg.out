@@ -1,0 +1,1883 @@
+ *******************************************************************************
+ *                                                                             *
+ *                                 SCALE 6.2.4                                 *
+ *                                -------------                                *
+ *                                octobre 2026                                 *
+ *                                                                             *
+ *           SCALE:  A Comprehensive Modeling and Simulation Suite             *
+ *                   for Nuclear Safety Analysis and Design                    *
+ *                                                                             *
+ *                      Reactor and Nuclear Systems Division                   *
+ *                        Oak Ridge National Laboratory                        *
+ *                                                                             *
+ *                           http://scale.ornl.gov                             *
+ *                            scalehelp@ornl.gov                               *
+ *                                                                             *
+ *******************************************************************************
+ *******************************************************************************
+      
+                  Job Information
+                  ---------------
+      Job started on host on jeu. 15/10/2026 11:47:34
+      Working directory: /tmp/scale.user.47234
+      Input file name  : /work/ok_csas5_mg/ok_csas5_mg.inp
+      Output file name : /work/ok_csas5_mg/ok_csas5_mg.out
+      SCALE executable : /opt/scale/bin/scale
+      
+ *******************************************************************************
+The following data cards precede an = card
+      ' Hypothesis: H1 H2 H3 H4 csas5 multigroup ends with 'Congratulations' + 'SCALE is finished', exit code 0
+      ' Expected: final results table (k-eff, lethargy, nu bar, mfp, warnings/errors count, chi**2, source convergence)
+
+
+    module csas5 will be called on Thu Oct 15 11:47:35 2026.
+    sequence specification record:=csas5
+Input Data:
+
+      godiva bare sphere - KENO-V.a multigroup
+      v7-238
+      read composition
+       uranium 1 den=18.742 1 293 92234 1.0202 92235 93.7112 92238 5.2686 end
+      end composition
+      read parameters
+       gen=150 npg=1000 nsk=20
+      end parameters
+      read geometry
+       sphere 1 1 8.741
+      end geometry
+      end data
+end
+
+No cell data found in input.
+
+
+
+************************************************************************************************************************************
+************************************************************************************************************************************
+************************************************************************************************************************************
+*****                                                                                                                          *****
+*****                                             program verification information                                             *****
+*****                                                                                                                          *****
+*****                                           code system: SCALE   version: 6.2.0                                            *****
+*****                                                                                                                          *****
+************************************************************************************************************************************
+************************************************************************************************************************************
+*****                                                                                                                          *****
+*****                                                                                                                          *****
+*****                      program:  csas5                                                                                     *****
+*****                                                                                                                          *****
+*****                      version:  6.2.4 (602004)                                                                            *****
+*****                                                                                                                          *****
+*****                     username:  user                                                                                *****
+*****                                                                                                                          *****
+*****                     hostname:  host.example.org                                                            *****
+*****                                                                                                                          *****
+*****                                                                                                                          *****
+*****            date of execution:  2026-10-15                                                                                *****
+*****                                                                                                                          *****
+*****            time of execution:  11:47:35                                                                                  *****
+*****                                                                                                                          *****
+************************************************************************************************************************************
+************************************************************************************************************************************
+************************************************************************************************************************************
+
+
+
+------------------------------------------------------------------------------------
+ Mixture table for component comps at line:6, column:1
+------------------------------------------------------------------------------------
+Mixture = 1 with density(g/cc) = 18.7420 and temperature(K) = 293.00
+        Entry      Mixture      Nuclide     Density (atoms/b-cm)     Temperature (K)
+------------------------------------------------------------------------------------
+            1            1        92234             4.919947e-04              293.00
+            2            1        92235             4.499968e-02              293.00
+            3            1        92238             2.498000e-03              293.00
+------------------------------------------------------------------------------------
+        Entry      Mixture      Nuclide     Density (atoms/b-cm)     Temperature (K)
+------------------------------------------------------------------------------------
+ End of mixture table for component comps at line:6, column:1
+------------------------------------------------------------------------------------
+
+Csas56 built mixture pool in: 0.05 seconds.
+Csas56 built celldata pool in: 0.00 seconds.
+Loaded MG Library: /opt/scale/data/scale.rev07.xn238v7.0
+Csas56 loaded ampx library in: 1.91 seconds.
+
+----------------------------------------------------------------------------------------------------
+ Cross section processing summary of the cells: 
+----------------------------------------------------------------------------------------------------
+
+ Total 1 cells are being processed:
+
+      1 *default cells* (fissionable) processed with CENTRM (sequence default option).
+
+ NOTE: *default cells* are the cells not specified in CELLDATA block (They are processed as
+       infinite homogeneous cells).
+
+----------------------------------------------------------------------------------------------------
+
+Csas56 prepared 1 unit cells in 0.01 seconds.
+Csas56 wrote mixing table to .mixtures7655 in 0.01 seconds.
+
+                                ........ finished before reading keno data    ........
+
+                                ........ finished reading the keno parameter data    ........
+
+
+                               *************** data reading completed ***************
+
+                                ........ finished preparing the keno input data    ........
+
+                                ........ finished loading the data    ........
+ 
+  ***** warning ***** csas message number cs-316 follows:
+  No mesh provided for Source Convergence Diagnostics (SCD). Continue with default mesh.
+ 
+
+                                ........ finished loading the keno data    ........
+
+                                ........ finished checking the keno geometry data    ........
+                                *****  restart data has been written on unit 35  *****
+
+                                ........ finished writing the keno data    ........
+
+     0$ array      4 entries read
+
+     1$ array     10 entries read
+
+     1* array     10 entries read
+
+     1t
+ 
+  MG Library Source: endf Revision: 7 Mod: 0
+  Determined CE Library XML file to be: ce_v7.0_endf.xml
+
+
+   CE-KENO xsdir XML file:   /opt/scale/data/ce_v7.0_endf.xml
+
+
+   A new centrm library has been written on unit number:   81
+   The number of input nuclides was:                        3
+   Number of Nuclides on output PW library:                 3
+
+
+                  Description of Output CENTRM Library 
+
+ Entry    ZA   Data Src  Vers No.  Mod No.  MT-Optn  Thermal ID    XS temperatures 
+ -----  -----  --------  --------  -------  -------  ----------    --------------- 
+    1    92234    endf       7         0        1             0        293.00
+    2    92235    endf       7         0        1             0        293.00
+    3    92238    endf       7         0        1             0        293.00
+XSProc starting module Dancoff.
+
+ Dancoff Module Problem Description
+ ige--geometry type(0/1/2/3--inf med/slab/cyl/sphere)                         0
+ izm--number of zones or material regions                                     1
+ igo--celltype                                                                1
+ ibr--right boundary condition (0/1/2/3--vacuum/reflected/periodic/white)     0
+ ibl--left  boundary condition (0/1/2/3--vacuum/reflected/periodic/white)     0
+XSProc execution of module Dancoff completed.
+XSProc starting module Bonami.
+XSProc execution of module Bonami completed.
+XSProc starting module MixMacros.
+XSProc execution of module MixMacros completed.
+XSProc starting module CentrmPmc.
+
+ >>>> BEGIN CENTRM CALCULATION >>>>
+
+
+                         ***** Program CENTRM: Continuous ENergy TRansport Module
+
+     CENTRM MATERIALS
+
+        nuclides on                                                   Mixing Table
+        multi-grp lib.  composition                mixture   component   atom density      small
+     1     92234            1                         1        92234     4.91995E-04         1                
+     2     92235            1                         1        92235     4.49997E-02         1                
+     3     92238            1                         1        92238     2.49800E-03         1                
+ *** WARNING! Use of bound thermal scattering kernels is requested, but no kernel file is provided.
+               Free-gas thermal kernels will be used for all materials
+     ft81f001            =   pointwise XS library from Crawdad
+
+      MULTIGROUP STRUCTURE
+
+     igm      =      238      number of energy groups
+     mmt      =      238      number of neutron groups
+     mcr      =        0      number of gamma groups
+     iftg     =      149      first thermal group number
+
+
+     GENERAL PROBLEM DATA
+
+     ige      =        0     problem geometry
+                               0/1/2/3 = inf. hom. medium/plane/cylinder/sphere
+     izm      =        1     number of zones
+     im       =        1     number of spatial intervals
+     ibl      =        1     left boundary condition:
+                               0/1/2/3 = vacuum/reflected/periodic/albedo
+     ibr      =        1     right boundary condition:
+                               0/1/2/3 = vacuum/reflected/periodic/albedo
+     mxx      =        1     number of mixtures
+     ms       =        3     mixing table length
+     isn      =        2     SN quadrature order (not used for npxs=6)
+     isct     =        0     order of elastic scattering
+     isrc     =        1     type of source spectrum:
+                               0/1/2 = multigroup input spectrum/fission spectrum/both (1)
+     iim      =       10     inner iterations maximum (10)
+     iup      =        3     upscatter outer iterations in thermal range (3)
+     nfst     =        3     multigroup calculation option in upper energy range [option nfst=5 is deprecated]:
+                               0/1/2/3/4/6 = sn/diffusion/homogeneous/zonewise homogeneous/BN/2D MoC cell (0)
+     nthr     =        3     multigroup calculation option in lower energy range [option nthr=5 is deprecated]:
+                               0/1/2/3/4/6 = sn/diffusion/homogeneous/zonewise homogeneous/BN/2D MoC cell (0)
+     npxs     =        4     pointwise calculation option:
+                               <=0/1/2/3/4/5/6 = no pointwise: do multigroup as in nfst/sn/coll. prob./
+                                 homogeneous/zonewise homogeneous/zonewise two-region/2D MoC cell (1)
+     isvar    =        3     multigroup source & cross section linearization option :
+                               0/1/2/3 = none/linearize source/linearize group cross sections/both (3)
+     mocMesh  =        0     meshing options for MoC calculation; npxs=6 only:
+                               0/1/2   = coarse/regular/fine mesh/input by zone (0)
+     mocPol   =        0     number of polar angles for MoC quadrature; npxs=6 only:
+                               2/3/4 = allowable values        (3)
+     mocAzi   =        0     number of azimuthal angles for MoC quadrature; npxs=6 only:
+                               1 -> 16 = allowable values      (8)
+     kern     =        0     thermal neutron scattering treatment:
+                               0/1 = all free-gas thermal kernels/use bound S(alpha, beta) data if available (0)
+     iscti    =        0     inelastic scattering order (0)
+     nmf6     =       -1     inelastic scattering option:
+                               -1/0/1 = no inelastic/discrete level only/discrete+continuum (0)
+
+
+     EDITTING AND OTHER OPTIONS
+
+     iprt     =       -3     -3/-2/-1/n = mixture cross sections print options: 
+                               none/write P.W. energy & macro x-sections to output file/print 1-D M.G. x-sections
+                               /print nth p (p0,p1..) M.G. x-section matrix (-3)
+     id1      =       -1     -1/0/1/2 = flux print options:
+                                none/print M.G flux/also print M.G moments/save PW zone flux in ascii file
+     ipbt     =        0     0/1 = none/group summary table print (0)
+     iqm      =        0     input multigrp volumetric sources (0/n=no/yes)
+     ipm      =        0     input multigrp boundary angular sources (0/n=no/yes)
+     ipn      =        2     0/1/2 diff. coef. param (2)
+     idfm     =        1     0/1 = none/density factors (0)
+     ixprt    =        0     0/1 = minimum print/regular print (0)
+     mlim     =        0     0/m = no effect/restrict nuclides with mass >= m to have PW scatter order <= nlim  (100)
+     nlim     =        0     restrictive scatter order (1)
+
+
+
+     FLOATING POINT VALUES
+
+     eps      =     0.10000E-02    upscatter integral convergence (0.001)
+     ptc      =     0.10000E-03    inner iteration convergence (0.001)
+     xnf      =     0.10000E+01    source normalization factor (1.0)
+     b2       =     0.00000E+00    buckling value ( cm**(-2) )
+     demin    =     0.10000E-02    lowest energy of pointwise calculation in (eV)
+     demax    =     0.20000E+05    highest energy of pointwise calculation in (eV)
+     tole     =     0.10000E-02    tolerance used in thinning the pointwise cross sections (0.001)
+     mocRay   =     0.00000E+00    distance between MoC rays; npxs=6 only. (0.02)
+     flet     =     0.10000E+00    fractional lethargy used in construction of flux energy mesh (0.1)
+     alump    =     0.20000E+00    mass-lumping criterion (0)
+
+
+ .........................................................................................................
+
+  Input DEMIN and DEMAX values may be modified to lie on multigroup boundaries.
+    Min and Max energies (eV) defining range for pointwise flux calculation  =     1.000E-03    2.500E+04
+ .........................................................................................................
+
+
+                              *******  Nuclide Lumping Summary **********
+
+                                Lumping tolerance on mass    =   0.2000
+                                Original number of Materials =    3
+                                Number of lumped materials   =    1
+
+                              ********************************************
+
+
+
+
+          kern is input as 0 or no file supplied for bound thermal kernel data.
+          => All PW thermal scatter kernels are treated as Free Gas
+
+
+
+  ***Thermal Outer Iteration Limit Reached!
+
+  ***Worst Inner Convergence For Epithermal Groups Was 0.00000E+00
+  ***Worst Inner Convergence For Thermal Flux Was      0.00000E+00
+  ***Outer Convergence of Thermal Flux (MG/PW) Was     6.79530E+01 7.36459E+02
+  ***Max. Scale Factor For Thermal Band Was            9.98248E-01
+  ***Outer Integral Convergence of Thermal Balance Was-1.92096E-07
+
+
+
+   elapsed time .00 min.
+   =time at end of centrm_Execute.
+  
+ <<<< CENTRM CALCULATION COMPLETED <<<<
+
+ >>>> BEGIN PMC CALCULATION >>>>
+
+
+                         ***** Program PMC: Process Multigroup Cross sections
+
+     PMC LOGICAL UNITS 
+
+     libx  = 81    Input Pointwise XS Library
+     libsc = 18    Scratch Unit 1
+     libsx = 19    Scratch Unit 2
+     libsm = 17    scratch unit (master library)
+
+
+
+     PMC INPUT PARAMETERS
+
+     mrange =  2   Option for choosing energy range     0   Averaging over pointwise xs limits
+                                                        1   Averaging over resolved resonance range
+                                                        2   Averaging over pointwise flux limits
+
+     n2d    = -1   Option for 2-D scat. calculation    -2   Apply elastic removal correction to P0 matrix and 
+                                                             apply consistent PN correction to Legendre moments
+                                                       -1   Apply elastic removal correction to P0 matrix
+                                                        0   Normalize 2-D elastic data to shielded 1-D value
+                                                        1   Recompute 2-D elastic using flux and s-wave kernel
+                                                        2   Apply consistent PN correction to Legendre moments
+
+     nprt   = -1   Option for PMC print output         -1   Minimum data printed 
+                                                        0   Standard printed output
+                                                        1   Print 1-D XSs
+                                                        2   Print both 1-D and 2-D XSs 
+
+     nwt    =  0   Option for XS averaging              0   Zone average
+                                                        1   Cell average
+
+     mtt    =  1   Option for total XS calculation      0   Average independently
+                                                        1   As sum of partial XS 
+
+    pmc_omit=  0   Option for Processing PW Materials   0   Process all Pointwise Materials Used in CENTRM
+                                                        1   Process only nuclides in fissionable (fuel) regions
+                                                        N   Process all materials except N nuclides in 2$$
+
+     ixtr(2)=  0   Option for calculation sequence      0   CSAS Standard Sequence
+                                                        1   Independant (stand-alone) Execution
+                                                        2   CSAS Doubly-Heterogeneous Cell Sequence
+
+     ixtr(3)=  5   Legendre expansion order            -1   Process all Legendre expansion moments found on AMPX LIB.
+                                                  =0,...N   Process new values only up through PN moments 
+
+     n1d    =  0   Option for 1-D cross-sections        0   Weight using using scalar flux
+                                                        1   Weight using using abs value of current (1st moment)
+
+
+     XS_dilute =  1.0E+10   min background XS considered infinitely dilute
+
+   elapsed time .00 min.
+
+   elapsed time .00 min.
+
+ <<<< PMC CALCULATION COMPLETED <<<<
+
+XSProc execution of module CentrmPmc completed.
+XSProc starting module MixMacros.
+XSProc execution of module MixMacros completed.
+Csas56 executed XSProc with 1 unit cells in 2.06 seconds.
+1
+
+
+
+
+
+
+        ************************************************************************************************************************
+        ************************************************************************************************************************
+        ************************************************************************************************************************
+        *****                                                                                                              *****
+        *****                                       program verification information                                       *****
+        *****                                                                                                              *****
+        *****                                   code system:  SCALE    version:  6.2                                       *****
+        *****                                                                                                              *****
+        ************************************************************************************************************************
+        ************************************************************************************************************************
+        *****                                                                                                              *****
+        *****                                                                                                              *****
+        *****              program:  kenova                                                                                *****
+        *****                                                                                                              *****
+        *****        creation date:  06_aug_2026                                                                           *****
+        *****                                                                                                              *****
+        *****              library:  /opt/scale/bin                                                      *****
+        *****                                                                                                              *****
+        *****                                                                                                              *****
+        *****            prod code:  kenova                                                                                *****
+        *****                                                                                                              *****
+        *****              version:  6.2.4                                                                                 *****
+        *****                                                                                                              *****
+        *****              jobname:  user                                                                              *****
+        *****                                                                                                              *****
+        *****         machine name:  host.example.org                                                        *****
+        *****                                                                                                              *****
+        *****    date of execution:  15_oct_2026                                                                           *****
+        *****                                                                                                              *****
+        *****    time of execution:  11:47:40.03                                                                           *****
+        *****                                                                                                              *****
+        *****                                                                                                              *****
+        ************************************************************************************************************************
+        ************************************************************************************************************************
+        ************************************************************************************************************************
+
+          ********************************************************************************************************************
+          ***                                                                                                              ***
+          ***                              godiva bare sphere - keno-v.a multigroup                                        ***
+          ***                                                                                                              ***
+          ********************************************************************************************************************
+          ***                                 ******       numeric parameters       ******                                 ***
+          ***                                                                                                              ***
+          ***                                                                                                              ***
+          ***                   tme         maximum problem time (min)                          0.00                       ***
+          ***                                                                                                              ***
+          ***                   tba         time per generation (min)                          10.00                       ***
+          ***                                                                                                              ***
+          ***                   gen         number of generations                                150                       ***
+          ***                                                                                                              ***
+          ***                   npg         number per generation                               1000                       ***
+          ***                                                                                                              ***
+          ***                   nsk         number of generations to be skipped                   20                       ***
+          ***                                                                                                              ***
+          ***                   beg         beginning generation number                            1                       ***
+          ***                                                                                                              ***
+          ***                   res         generations between checkpoints                        0                       ***
+          ***                                                                                                              ***
+          ***                   x1d         number of extra 1-d cross sections                     1                       ***
+          ***                                                                                                              ***
+          ***                   nbk         neutron bank size                                   1025                       ***
+          ***                                                                                                              ***
+          ***                   xnb         extra positions in neutron bank                        0                       ***
+          ***                                                                                                              ***
+          ***                   nfb         fission bank size                                   1000                       ***
+          ***                                                                                                              ***
+          ***                   xfb         extra positions in fission bank                        0                       ***
+          ***                                                                                                              ***
+          ***                   sig         cut off standard deviation                        0.0000                       ***
+          ***                                                                                                              ***
+          ***                   wta         default value of weight average                   0.5000                       ***
+          ***                                                                                                              ***
+          ***                   wth         weight high for splitting                         3.0000                       ***
+          ***                                                                                                              ***
+          ***                   wtl         weight low for russian roulette                   0.3333                       ***
+          ***                                                                                                              ***
+          ***                   rnd         starting random number                  000015714D98EE96                       ***
+          ***                                                                                                              ***
+          ***                   nb8         number of d.a. blocks on unit  8                    1000                       ***
+          ***                                                                                                              ***
+          ***                   nl8         length of d.a. blocks on unit  8                     512                       ***
+          ***                                                                                                              ***
+          ***                   nqd         quadrature order for angular fluxes                    0                       ***
+          ***                                                                                                              ***
+          ***                   pnm         highest order of flux moments                          0                       ***
+          ***                                                                                                              ***
+          ***                   msh         mesh size for mesh flux tally                     0.0000                       ***
+          ***                                                                                                              ***
+          ***                   adj         mode of calculation                              forward                       ***
+          ***                                                                                                              ***
+          ***                   tps         sampling sites per track length                        5                       ***
+          ***                                                                                                              ***
+          ***                   cgs         number of secondary groups to sampl                    0                       ***
+          ***                                                                                                              ***
+          ***                   cas         number of secondary angles to sampl                    0                       ***
+          ***                                                                                                              ***
+          ***                   wtc         Woodcock tracking cut-off value                     0.90                       ***
+          ***                                                                                                              ***
+          ***                   ttl         temperature tolerance for CE xsecs                 -1.00                       ***
+          ***                                                                                                              ***
+          ***                               input data written on restart unit                    no                       ***
+          ***                                                                                                              ***
+          ***                   dbl         Low Energy Cutoff (in eV) for DBRC                  0.40                       ***
+          ***                                                                                                              ***
+          ***                   dbh         High Energy Cutoff (in eV) for DBRC               210.00                       ***
+          ***                                                                                                              ***
+          ***                   cet         CE-TSUNAMI sensitivity method                       NONE                       ***
+          ***                                                                                                              ***
+          ***                   cfp         Number of latent gens in CE-TSUNAMI                    5                       ***
+          ***                                                                                                              ***
+          ***                   dbr         DBRC isotope selection                                 0                       ***
+          ***                                                                                                              ***
+          ***                   dbx         Doppler Broadening Method                              2                       ***
+          ***                                                                                                              ***
+          ***                                                                                                              ***
+          ********************************************************************************************************************
+          ********************************************************************************************************************
+1         ********************************************************************************************************************
+          ********************************************************************************************************************
+          ***                                                                                                              ***
+          ***                              godiva bare sphere - keno-v.a multigroup                                        ***
+          ***                                                                                                              ***
+          ********************************************************************************************************************
+          ***                                 ******      logical parameters        ******                                 ***
+          ***                                                                                                              ***
+          ***  run  execute problem after checking data  yes            plt  plot picture map(s)                     yes   ***
+          ***                                                                                                              ***
+          ***       compute fluxes (cfx, flx, cfe or mfp  no            fdn  compute fission densities               yes   ***
+          ***                                                                                                              ***
+          ***  smu  compute avg unit self-multiplication  no            nub  compute nu-bar & avg fission group      yes   ***
+          ***                                                                                                              ***
+          ***  mku  compute matrix k-eff by unit number   no            mkp  compute matrix k-eff by unit location    no   ***
+          ***                                                                                                              ***
+          ***  cku  compute cofactor k-eff by unit numbe  no            ckp  compute cofactor k-eff by unit location  no   ***
+          ***                                                                                                              ***
+          ***  fmu  print fiss prod matrix by unit numbe  no            fmp  print fiss prod matrix by unit location  no   ***
+          ***                                                                                                              ***
+          ***  mkh  compute matrix k-eff by hole number   no            mka  compute matrix k-eff by array number     no   ***
+          ***                                                                                                              ***
+          ***  ckh  compute cofactor k-eff by hole numbe  no            cka  compute cofactor k-eff by array number   no   ***
+          ***                                                                                                              ***
+          ***  fmh  print fiss prod matrix by hole numbe  no            fma  print fiss prod matrix by array number   no   ***
+          ***                                                                                                              ***
+          ***  hhl  collect matrix by highest hole level  no            hal  collect matrix by highest array level    no   ***
+          ***                                                                                                              ***
+          ***  amx  print all mixed cross sections        no            far  print fis. and abs. by region            no   ***
+          ***                                                                                                              ***
+          ***  xs1  print 1-d mixture x-sections          no            gas  print far by group                       no   ***
+          ***                                                                                                              ***
+          ***  xs2  print 2-d mixture x-sections          no            pax  print xsec-albedo correlation tables     no   ***
+          ***                                                                                                              ***
+          ***  xsl  print 2-d mixture Pl arrays           no            pwt  print weight average array               no   ***
+          ***                                                                                                              ***
+          ***  xap  print mixture angles & probabilities  no            pgm  print input geometry                     no   ***
+          ***                                                                                                              ***
+          ***  pki  print fission spectrum                no            bug  print debug information                  no   ***
+          ***                                                                                                              ***
+          ***  p1d  print extra 1-d cross sections        no            trk  print tracking information               no   ***
+          ***                                                                                                              ***
+          ***  tfm  coordinate transform for fluxes       no            pmf  print angular fluxes and flux moments    no   ***
+          ***                                                                                                              ***
+          ***       print fluxes (flx)                    no            app  append, not overwrite, restart data      no   ***
+          ***                                                                                                              ***
+          ***  mfx  compute mesh fluxes                   no            pms  print mesh fluxes if calculated          no   ***
+          ***                                                                                                              ***
+          ***  mfp  compute region mean free paths        no            pmm  print mesh flux moments if calculated    no   ***
+          ***                                                                                                              ***
+          ***  sen  compute derivative sensitivites       no            pmv  print mesh volumes                       no   ***
+          ***                                                                                                              ***
+          ***  cep  continuous energy calculation         no            ptb  use probability tables                  yes   ***
+          ***                                                                                                              ***
+          ***  fre  use analytic free gas kernel         yes            pnu  use prompt neutron spectrum only         no   ***
+          ***                                                                                                              ***
+          ***  udi  use double indexing                   no            cbt  compute contributons                     no   ***
+          ***                                                                                                              ***
+          ***  pct  print contributons                    no            cds  collect CADIS fissions                   no   ***
+          ***                                                                                                              ***
+          ***  cfe  use collision flux estimator          no            wdk  use woodcock tracking                    no   ***
+          ***                                                                                                              ***
+          ***  scx  save CE cross sections in restart     no            uum  use unionized mixture cross sections     no   ***
+          ***                                                                                                              ***
+          ***  htm  produce HTML output                  yes            scd  mesh based source convergence diag.     yes   ***
+          ***                                                                                                              ***
+          ***  cgd  use F*(r) Mesh                        no            m2u  use unionized nuclide cross sections     no   ***
+          ***                                                                                                              ***
+          ***  gfx  grid flux, averaged over voxel volum  no            fst  print F*(r) mesh values                  no   ***
+          ***                                                                                                              ***
+          ***                                                                                                              ***
+          ********************************************************************************************************************
+          ********************************************************************************************************************
+          ********************************************************************************************************************
+                                              parameter input completed
+
+
+                                ........ finished reading the parameter data      ........
+
+
+                               *************** data reading completed ***************
+1       ********************************************************************************************************************
+        ***                                                                                                              ***
+        ***                              godiva bare sphere - keno-v.a multigroup                                        ***
+        ***                                                                                                              ***
+        ********************************************************************************************************************
+        ********************************************************************************************************************
+        ***                                                                                                              ***
+        ***          unit                                                volume                                          ***
+        ***         number               data set name                    name        unit function                      ***
+        ***         ------               -------------                    ----        -------------                      ***
+        ***                                                                                                              ***
+        ***      xsc  14     /tmp/scale.user.47234/ft14f001                     mixed cross sections               ***
+        ***                                                                                                              ***
+        ***      alb  79      unknown                                                 input albedos                      ***
+        ***                                                                                                              ***
+        ***      wts  80      unknown                                                 input weights                      ***
+        ***                                                                                                              ***
+        ***      skt  16      unknown                                                 write scratch data                 ***
+        ***                                                                                                              ***
+        ***      rst  35     ->/scale.user.47234/restart.keno_input             read restart data                  ***
+        ***                                                                                                              ***
+        ***      lib   4     /tmp/scale.user.47234/ft04f001                     input ampx working library         ***
+        ***                                                                                                              ***
+        ***            8     /tmp/scale.user.47234/xfile008                     input data direct access           ***
+        ***                                                                                                              ***
+        ***           10      unknown                                                 xsec mixing direct access          ***
+        ***                                                                                                              ***
+        ********************************************************************************************************************
+
+                                ........ finished preparing input data    ........
+1                ***************************************************************************************************
+                 ***                                                                                             ***
+                 ***          godiva bare sphere - keno-v.a multigroup                                           ***
+                 ***                                                                                             ***
+                 ***************************************************************************************************
+                 ***************************************************************************************************
+                 ***                                                                                             ***
+                 ***                               ****** additional information ******                          ***
+                 ***                                                                                             ***
+                 ***  use a global unit                      yes    use lattice geometry                     no  ***
+                 ***                                                                                             ***
+                 ***  no. of scattering angles in xsecs        3    global array number                       0  ***
+                 ***                                                                                             ***
+                 ***  number of mixtures used                  1    number of units in the global x dir.      0  ***
+                 ***                                                                                             ***
+                 ***  number of bias id's used                 1    number of units in the global y dir.      0  ***
+                 ***                                                                                             ***
+                 ***  number of differential albedos used      0    number of units in the global z dir.      0  ***
+                 ***                                                                                             ***
+                 ***  total input geometry regions             1    number of energy groups                 238  ***
+                 ***                                                                                             ***
+                 ***  number of geometry regions used          1    no. of fission spectrum source grps.      1  ***
+                 ***                                                                                             ***
+                 ***  use nested arrays                       no    use nested holes                         no  ***
+                 ***                                                                                             ***
+                 ***  number of arrays used                    0    number of holes                           0  ***
+                 ***                                                                                             ***
+                 ***  maximum array nesting level              0    maximum hole nesting level                0  ***
+                 ***                                                                                             ***
+                 ***  largest array number                     0    largest geometry unit number              1  ***
+                 ***                                                                                             ***
+                 ***                                                                                             ***
+                 ***  +x boundary condition            vacuum       -x boundary condition                vacuum  ***
+                 ***                                                                                             ***
+                 ***  +y boundary condition            vacuum       -y boundary condition                vacuum  ***
+                 ***                                                                                             ***
+                 ***  +z boundary condition            vacuum       -z boundary condition                vacuum  ***
+                 ***                                                                                             ***
+                 ***************************************************************************************************
+
+
+
+                                 cross sections read from the ampx working library on unit    4
+
+1                                        godiva bare sphere - keno-v.a multigroup                                        
+
+                                                   mixing table
+
+                                          number of scattering angles =  3
+                                      cross section message threshold = 1.0E+00
+
+
+ mixture =     1          density(g/cc) =  18.742              temperature(K) =    293.00
+    nuclide    nucmix   atom-dens.   wgt. frac.     za      awt          temp               nuclide title
+      92234       1    4.91995E-04  1.02020E-02   92234   234.0410       293.00     u234 9225 endf/b7 rel5 rev7 mod2                 12/17/09
+      92235       1    4.49997E-02  9.37112E-01   92235   235.0439       293.00     u235 9228 endf/b7 rel0 rev7 mod7                 12/17/09
+      92238       1    2.49800E-03  5.26860E-02   92238   238.0508       293.00     u238 9237 endf/b7 rel6 rev7 mod5                 12/17/09
+
+
+
+ 
+  ***** warning ***** keno message number k5-222 follows:
+  41 transfers for mixture 1 were corrected for bad moments.
+
+                                ........ finished mixing cross-sections       ........
+
+                                 1-d cross section array id numbers
+
+                                            neutron
+                                reaction name    reaction id
+                                        total              1
+                               non-absorption           2002
+                                   nu-fission           1452
+                                   absorption             27
+                                      fission             18
+                                          chi           1018
+
+                                ........ finished preparing the cross sections    ........
+
+                                ........ finished loading the data    ........
+1                                        godiva bare sphere - keno-v.a multigroup                                        
+
+                  media bias      geometry description for those units utilized in this problem
+ region            num   id 
+
+
+                                          *******************   global   *******************
+                                                      -----   unit     1   -----
+
+   1 sphere           1  1  radius =  8.7410     the center is located at (  0.0000    ,  0.0000    ,  0.0000    ).
+ 
+  ***** warning ***** keno message number k5-316 follows:
+  No mesh provided for Source Convergence Diagnostics (SCD). Continue with default mesh.
+ 
+1                                        godiva bare sphere - keno-v.a multigroup                                        
+                                        volumes for those units utilized in  this problem
+
+                                          geometry                                  cumulative
+                       unit    region      region            volume                   volume
+
+                         1         1         1         2.79751E+03 cm**3         2.79751E+03 cm**3
+
+
+
+                                        unit     uses    region     mixture        total volume
+
+                                          1         1       1          1         2.79751E+03 cm**3
+
+
+
+                                                       total mixture volumes
+                                                 mixture        total volume              mass(g)
+                                                     1         2.79751E+03 cm**3        5.24310E+04
+
+
+        ********************************************************************************************************************
+        ***                                                                                                              ***
+        ***                                         biasing information                                                  ***
+        ***                                                                                                              ***
+        ***     a default weight of    0.500 will be used for all bias id's.                                             ***
+        ***                                                                                                              ***
+        ********************************************************************************************************************
+
+                                ........ finished in KENO-V.a before tracking       ........
+
+                                ........     0.00233 minutes were used processing data.        ........
+             ====> Grid Geometry: 10001
+             ====>     title: Default mesh grid with nx=5, ny=5, and nz=5
+             ====>     Plane Summary
+             ====>       x:    5 cells from -8.74101E+00 to  8.74101E+00
+             ====>       y:    5 cells from -8.74101E+00 to  8.74101E+00
+             ====>       z:    5 cells from -8.74101E+00 to  8.74101E+00
+             ====>     Total number of cells: 125
+
+
+ volume fraction of fissile material in the system= 1.00000E+00
+
+ start type 0 was used.
+
+ the neutrons were started uniformly throughout the entire volume defined by the outermost geometry card.
+ the flag to start neutrons in the reflector was turned on                                                               
+
+   0.00000 minutes were required for starting.   total elapsed time is   0.00233 minutes.
+1godiva bare sphere - keno-v.a multigroup                                        
+
+                   generation        average         avg k-eff        generation        matrix        matrix k-eff                 
+     generation   k-effective      k-effective       deviation         entropy        k-effective       deviation                
+          1       9.10765E-01      1.00000E+00      0.00000E+00      6.34508E+00      0.00000E+00      0.00000E+00                 
+          2       9.51424E-01      1.00000E+00      0.00000E+00      6.20519E+00      0.00000E+00      0.00000E+00                 
+          3       1.01467E+00      1.01467E+00      0.00000E+00      6.18212E+00      0.00000E+00      0.00000E+00                 
+          4       1.02657E+00      1.02062E+00      5.94860E-03      6.09037E+00      0.00000E+00      0.00000E+00                 
+          5       1.00760E+00      1.01628E+00      5.53629E-03      6.14044E+00      0.00000E+00      0.00000E+00                 
+          6       9.61041E-01      1.00247E+00      1.43539E-02      6.05659E+00      0.00000E+00      0.00000E+00                 
+          7       9.90602E-01      1.00010E+00      1.13690E-02      6.04123E+00      0.00000E+00      0.00000E+00                 
+          8       9.57520E-01      9.93000E-01      1.16844E-02      6.08484E+00      0.00000E+00      0.00000E+00                 
+          9       9.69078E-01      9.89583E-01      1.04498E-02      6.17819E+00      0.00000E+00      0.00000E+00                 
+         10       9.74145E-01      9.87653E-01      9.25322E-03      6.13963E+00      0.00000E+00      0.00000E+00                 
+         11       9.72390E-01      9.85957E-01      8.33494E-03      6.16767E+00      0.00000E+00      0.00000E+00                 
+         12       9.84103E-01      9.85772E-01      7.45730E-03      6.14405E+00      0.00000E+00      0.00000E+00                 
+         13       1.04315E+00      9.90988E-01      8.52722E-03      6.07421E+00      0.00000E+00      0.00000E+00                 
+         14       9.59905E-01      9.88398E-01      8.20390E-03      6.14112E+00      0.00000E+00      0.00000E+00                 
+         15       9.97349E-01      9.89087E-01      7.57784E-03      6.09216E+00      0.00000E+00      0.00000E+00                 
+         16       9.85319E-01      9.88818E-01      7.02088E-03      6.12552E+00      0.00000E+00      0.00000E+00                 
+         17       1.01192E+00      9.90358E-01      6.71510E-03      6.09214E+00      0.00000E+00      0.00000E+00                 
+         18       1.01066E+00      9.91626E-01      6.40823E-03      6.10663E+00      0.00000E+00      0.00000E+00                 
+         19       9.70840E-01      9.90404E-01      6.14242E-03      6.14185E+00      0.00000E+00      0.00000E+00                 
+         20       1.00017E+00      9.90946E-01      5.81651E-03      6.08335E+00      0.00000E+00      0.00000E+00                 
+         21       1.03851E+00      9.93450E-01      6.04457E-03      6.14159E+00      0.00000E+00      0.00000E+00                 
+         22       1.03316E+00      9.95435E-01      6.06845E-03      6.18381E+00      0.00000E+00      0.00000E+00                 
+         23       1.01321E+00      9.96282E-01      5.83397E-03      6.13524E+00      0.00000E+00      0.00000E+00                 
+         24       1.01598E+00      1.02521E+00      2.04013E-02      6.13400E+00      0.00000E+00      0.00000E+00                 
+         25       9.93575E-01      1.01889E+00      1.84446E-02      6.14212E+00      0.00000E+00      0.00000E+00                 
+         26       1.01320E+00      1.01794E+00      1.39380E-02      6.14745E+00      0.00000E+00      0.00000E+00                 
+         27       1.03978E+00      1.02106E+00      1.13605E-02      6.11000E+00      0.00000E+00      0.00000E+00                 
+         28       1.03408E+00      1.02269E+00      1.05419E-02      6.13050E+00      0.00000E+00      0.00000E+00                 
+         29       9.98949E-01      1.02005E+00      8.55697E-03      6.07409E+00      0.00000E+00      0.00000E+00                 
+         30       1.01552E+00      1.01960E+00      7.65136E-03      6.11006E+00      0.00000E+00      0.00000E+00                 
+         31       1.01522E+00      1.01920E+00      6.77763E-03      6.12667E+00      0.00000E+00      0.00000E+00                 
+         32       1.02471E+00      1.01966E+00      6.05239E-03      6.07852E+00      0.00000E+00      0.00000E+00                 
+         33       1.00001E+00      1.01815E+00      5.52871E-03      6.06436E+00      0.00000E+00      0.00000E+00                 
+         34       1.00713E+00      1.01736E+00      5.41287E-03      6.14587E+00      0.00000E+00      0.00000E+00                 
+         35       9.94864E-01      1.01586E+00      5.52168E-03      6.10238E+00      0.00000E+00      0.00000E+00                 
+         36       1.02653E+00      1.01653E+00      4.92096E-03      6.07167E+00      0.00000E+00      0.00000E+00                 
+         37       1.02309E+00      1.01691E+00      4.68111E-03      6.11508E+00      0.00000E+00      0.00000E+00                 
+         38       9.74827E-01      1.01457E+00      4.82977E-03      6.12548E+00      0.00000E+00      0.00000E+00                 
+         39       1.02285E+00      1.01501E+00      4.14029E-03      6.09908E+00      0.00000E+00      0.00000E+00                 
+         40       1.01413E+00      1.01497E+00      3.91659E-03      6.11508E+00      0.00000E+00      0.00000E+00                 
+         41       1.01004E+00      1.01473E+00      3.72376E-03      6.08464E+00      0.00000E+00      0.00000E+00                 
+         42       1.02925E+00      1.01539E+00      3.60900E-03      6.03586E+00      0.00000E+00      0.00000E+00                 
+         43       1.03690E+00      1.01633E+00      3.84054E-03      6.05594E+00      0.00000E+00      0.00000E+00                 
+         44       1.00312E+00      1.01578E+00      3.46644E-03      6.10398E+00      0.00000E+00      0.00000E+00                 
+         45       9.76604E-01      1.01421E+00      4.02464E-03      6.09259E+00      0.00000E+00      0.00000E+00                 
+         46       9.82615E-01      1.01299E+00      4.57731E-03      6.07754E+00      0.00000E+00      0.00000E+00                 
+         47       1.02823E+00      1.01356E+00      4.25256E-03      6.11790E+00      0.00000E+00      0.00000E+00                 
+         48       1.01579E+00      1.01364E+00      4.09963E-03      6.11191E+00      0.00000E+00      0.00000E+00                 
+         49       9.83987E-01      1.01262E+00      4.06201E-03      6.10874E+00      0.00000E+00      0.00000E+00                 
+         50       9.80569E-01      1.01155E+00      4.36647E-03      6.20412E+00      0.00000E+00      0.00000E+00                 
+         51       1.00185E+00      1.01123E+00      4.31291E-03      6.13854E+00      0.00000E+00      0.00000E+00                 
+         52       1.00748E+00      1.01112E+00      4.17699E-03      6.07950E+00      0.00000E+00      0.00000E+00                 
+         53       9.57961E-01      1.00951E+00      7.47707E-03      6.13240E+00      0.00000E+00      0.00000E+00                 
+         54       9.95459E-01      1.00909E+00      7.96040E-03      6.16788E+00      0.00000E+00      0.00000E+00                 
+         55       9.91201E-01      1.00858E+00      7.96527E-03      6.17307E+00      0.00000E+00      0.00000E+00                 
+         56       9.89864E-01      1.00806E+00      8.05666E-03      6.15991E+00      0.00000E+00      0.00000E+00                 
+         57       1.00365E+00      1.00794E+00      7.86553E-03      6.12977E+00      0.00000E+00      0.00000E+00                 
+         58       1.00237E+00      1.00780E+00      7.71928E-03      6.08470E+00      0.00000E+00      0.00000E+00                 
+         59       9.78561E-01      1.00705E+00      8.74906E-03      6.14364E+00      0.00000E+00      0.00000E+00                 
+         60       1.01057E+00      1.00714E+00      8.34517E-03      6.13525E+00      0.00000E+00      0.00000E+00                 
+         61       1.00548E+00      1.00709E+00      8.09051E-03      6.14081E+00      0.00000E+00      0.00000E+00                 
+         62       9.90407E-01      1.00670E+00      8.46292E-03      6.11187E+00      0.00000E+00      0.00000E+00                 
+         63       1.02163E+00      1.00704E+00      7.22255E-03      6.12553E+00      0.00000E+00      0.00000E+00                 
+         64       9.89827E-01      1.00665E+00      7.11688E-03      6.02086E+00      0.00000E+00      0.00000E+00                 
+         65       1.00297E+00      1.00657E+00      6.94679E-03      6.19650E+00      0.00000E+00      0.00000E+00                 
+         66       1.00541E+00      1.00655E+00      6.75851E-03      6.11507E+00      0.00000E+00      0.00000E+00                 
+         67       9.94109E-01      1.00628E+00      6.63585E-03      6.15382E+00      0.00000E+00      0.00000E+00                 
+         68       9.97284E-01      1.00609E+00      6.51068E-03      6.13600E+00      0.00000E+00      0.00000E+00                 
+         69       1.02474E+00      1.00647E+00      6.33063E-03      6.11381E+00      0.00000E+00      0.00000E+00                 
+         70       9.94542E-01      1.00624E+00      6.18620E-03      6.09845E+00      0.00000E+00      0.00000E+00                 
+         71       1.01888E+00      1.00648E+00      5.99026E-03      6.13440E+00      0.00000E+00      0.00000E+00                 
+         72       9.87440E-01      1.00612E+00      5.83620E-03      6.12703E+00      0.00000E+00      0.00000E+00                 
+         73       1.01315E+00      1.00625E+00      5.67543E-03      6.10968E+00      0.00000E+00      0.00000E+00                 
+         74       1.02493E+00      1.00660E+00      5.58384E-03      6.13356E+00      0.00000E+00      0.00000E+00                 
+         75       1.01789E+00      1.00680E+00      5.47394E-03      6.07610E+00      0.00000E+00      0.00000E+00                 
+         76       9.58288E-01      1.00594E+00      4.70272E-03      6.14808E+00      0.00000E+00      0.00000E+00                 
+         77       1.00912E+00      1.00599E+00      4.60310E-03      6.17641E+00      0.00000E+00      0.00000E+00                 
+         78       1.01154E+00      1.00609E+00      4.52685E-03      6.17125E+00      0.00000E+00      0.00000E+00                 
+         79       1.01263E+00      1.00620E+00      4.44157E-03      6.10035E+00      0.00000E+00      0.00000E+00                 
+         80       9.80662E-01      1.00577E+00      4.39059E-03      6.11102E+00      0.00000E+00      0.00000E+00                 
+         81       9.81192E-01      1.00537E+00      4.42434E-03      6.10071E+00      0.00000E+00      0.00000E+00                 
+         82       1.02589E+00      1.00570E+00      4.27881E-03      6.05847E+00      0.00000E+00      0.00000E+00                 
+         83       1.02305E+00      1.00598E+00      4.23354E-03      5.98808E+00      0.00000E+00      0.00000E+00                 
+         84       1.04262E+00      1.00655E+00      4.16526E-03      6.01718E+00      0.00000E+00      0.00000E+00                 
+         85       1.00304E+00      1.00649E+00      4.08961E-03      6.08765E+00      0.00000E+00      0.00000E+00                 
+         86       9.75840E-01      1.00603E+00      2.75452E-03      6.11807E+00      0.00000E+00      0.00000E+00                 
+         87       9.87601E-01      1.00575E+00      2.77510E-03      6.16331E+00      0.00000E+00      0.00000E+00                 
+         88       9.90167E-01      1.00553E+00      2.76650E-03      6.16747E+00      0.00000E+00      0.00000E+00                 
+         89       1.03325E+00      1.00593E+00      2.72149E-03      6.13405E+00      0.00000E+00      0.00000E+00                 
+         90       1.02718E+00      1.00623E+00      2.74755E-03      6.14077E+00      0.00000E+00      0.00000E+00                 
+         91       9.97392E-01      1.00611E+00      2.69526E-03      6.09788E+00      0.00000E+00      0.00000E+00                 
+         92       1.01771E+00      1.00627E+00      2.65401E-03      6.11027E+00      0.00000E+00      0.00000E+00                 
+         93       1.02392E+00      1.00651E+00      2.64433E-03      6.11684E+00      0.00000E+00      0.00000E+00                 
+         94       1.03434E+00      1.00689E+00      2.67290E-03      6.07800E+00      0.00000E+00      0.00000E+00                 
+         95       9.77736E-01      1.00650E+00      2.60659E-03      6.14645E+00      0.00000E+00      0.00000E+00                 
+         96       1.03942E+00      1.00693E+00      2.54132E-03      6.11130E+00      0.00000E+00      0.00000E+00                 
+         97       9.94266E-01      1.00677E+00      2.48239E-03      6.12039E+00      0.00000E+00      0.00000E+00                 
+         98       9.91066E-01      1.00656E+00      2.47186E-03      6.12102E+00      0.00000E+00      0.00000E+00                 
+         99       9.89212E-01      1.00634E+00      2.46834E-03      6.02310E+00      0.00000E+00      0.00000E+00                 
+        100       1.04072E+00      1.00677E+00      2.43652E-03      6.10708E+00      0.00000E+00      0.00000E+00                 
+        101       1.01391E+00      1.00686E+00      2.42381E-03      6.11578E+00      0.00000E+00      0.00000E+00                 
+        102       9.91412E-01      1.00667E+00      2.39340E-03      6.10123E+00      0.00000E+00      0.00000E+00                 
+        103       9.99994E-01      1.00659E+00      2.37164E-03      6.04288E+00      0.00000E+00      0.00000E+00                 
+        104       9.99631E-01      1.00651E+00      2.34687E-03      6.09659E+00      0.00000E+00      0.00000E+00                 
+        105       9.85478E-01      1.00626E+00      2.34090E-03      6.16735E+00      0.00000E+00      0.00000E+00                 
+        106       1.01134E+00      1.00632E+00      2.30712E-03      6.11940E+00      0.00000E+00      0.00000E+00                 
+        107       1.02056E+00      1.00649E+00      2.29070E-03      6.07148E+00      0.00000E+00      0.00000E+00                 
+        108       9.73010E-01      1.00611E+00      2.26779E-03      6.14216E+00      0.00000E+00      0.00000E+00                 
+        109       9.66131E-01      1.00566E+00      2.36420E-03      6.17630E+00      0.00000E+00      0.00000E+00                 
+        110       9.84160E-01      1.00542E+00      2.39675E-03      6.10232E+00      0.00000E+00      0.00000E+00                 
+        111       9.77865E-01      1.00511E+00      2.42067E-03      6.18327E+00      0.00000E+00      0.00000E+00                 
+        112       1.04556E+00      1.00555E+00      2.37838E-03      6.10438E+00      0.00000E+00      0.00000E+00                 
+        113       9.98229E-01      1.00548E+00      2.33790E-03      6.07381E+00      0.00000E+00      0.00000E+00                 
+        114       1.01564E+00      1.00558E+00      2.31130E-03      6.09947E+00      0.00000E+00      0.00000E+00                 
+        115       9.87864E-01      1.00540E+00      2.28471E-03      6.09286E+00      0.00000E+00      0.00000E+00                 
+        116       1.02288E+00      1.00558E+00      2.25252E-03      6.04957E+00      0.00000E+00      0.00000E+00                 
+        117       1.02314E+00      1.00576E+00      2.25195E-03      6.10551E+00      0.00000E+00      0.00000E+00                 
+        118       9.90732E-01      1.00561E+00      2.22059E-03      6.06909E+00      0.00000E+00      0.00000E+00                 
+        119       1.01775E+00      1.00573E+00      2.19241E-03      6.12482E+00      0.00000E+00      0.00000E+00                 
+        120       9.90908E-01      1.00558E+00      2.16621E-03      6.19399E+00      0.00000E+00      0.00000E+00                 
+        121       9.92850E-01      1.00546E+00      2.15689E-03      6.18909E+00      0.00000E+00      0.00000E+00                 
+        122       1.01056E+00      1.00551E+00      2.13281E-03      6.08734E+00      0.00000E+00      0.00000E+00                 
+        123       9.78074E-01      1.00524E+00      2.12203E-03      6.13239E+00      0.00000E+00      0.00000E+00                 
+        124       9.85394E-01      1.00505E+00      2.13471E-03      6.08409E+00      0.00000E+00      0.00000E+00                 
+        125       1.01349E+00      1.00513E+00      2.10803E-03      6.14036E+00      0.00000E+00      0.00000E+00                 
+        126       9.85479E-01      1.00494E+00      2.08850E-03      6.06435E+00      0.00000E+00      0.00000E+00                 
+        127       1.04723E+00      1.00534E+00      2.07151E-03      6.07702E+00      0.00000E+00      0.00000E+00                 
+        128       1.02361E+00      1.00551E+00      2.09277E-03      6.03966E+00      0.00000E+00      0.00000E+00                 
+        129       1.03783E+00      1.00580E+00      2.12013E-03      6.08258E+00      0.00000E+00      0.00000E+00                 
+        130       1.00076E+00      1.00576E+00      2.09412E-03      6.14052E+00      0.00000E+00      0.00000E+00                 
+        131       9.97326E-01      1.00568E+00      2.07789E-03      6.08147E+00      0.00000E+00      0.00000E+00                 
+        132       9.63075E-01      1.00530E+00      2.10877E-03      6.14024E+00      0.00000E+00      0.00000E+00                 
+        133       9.70705E-01      1.00500E+00      2.16880E-03      6.14615E+00      0.00000E+00      0.00000E+00                 
+        134       9.90025E-01      1.00486E+00      2.17258E-03      6.07758E+00      0.00000E+00      0.00000E+00                 
+        135       9.83456E-01      1.00468E+00      2.17302E-03      6.10538E+00      0.00000E+00      0.00000E+00                 
+        136       9.87809E-01      1.00453E+00      2.17171E-03      6.07678E+00      0.00000E+00      0.00000E+00                 
+        137       9.97627E-01      1.00447E+00      2.15761E-03      6.07799E+00      0.00000E+00      0.00000E+00                 
+        138       1.00233E+00      1.00446E+00      2.13949E-03      6.07534E+00      0.00000E+00      0.00000E+00                 
+        139       9.58974E-01      1.00407E+00      2.62061E-03      6.09028E+00      0.00000E+00      0.00000E+00                 
+        140       1.00472E+00      1.00408E+00      2.59470E-03      6.11130E+00      0.00000E+00      0.00000E+00                 
+        141       9.89795E-01      1.00396E+00      2.61800E-03      6.09966E+00      0.00000E+00      0.00000E+00                 
+        142       9.79745E-01      1.00376E+00      2.64376E-03      6.13501E+00      0.00000E+00      0.00000E+00                 
+        143       1.01419E+00      1.00385E+00      2.59058E-03      6.13981E+00      0.00000E+00      0.00000E+00                 
+        144       9.80098E-01      1.00366E+00      2.61928E-03      6.14213E+00      0.00000E+00      0.00000E+00                 
+        145       1.00664E+00      1.00368E+00      2.59118E-03      6.11088E+00      0.00000E+00      0.00000E+00                 
+        146       1.00122E+00      1.00366E+00      2.57619E-03      6.15399E+00      0.00000E+00      0.00000E+00                 
+        147       1.01565E+00      1.00375E+00      2.54893E-03      6.09749E+00      0.00000E+00      0.00000E+00                 
+        148       1.03797E+00      1.00402E+00      2.50745E-03      6.10218E+00      0.00000E+00      0.00000E+00                 
+        149       9.91223E-01      1.00392E+00      2.48368E-03      6.06411E+00      0.00000E+00      0.00000E+00                 
+        150       9.87732E-01      1.00380E+00      2.46155E-03      6.11982E+00      0.00000E+00      0.00000E+00                 
+ 
+  keno message number k5-123          execution terminated due to completion of the specified number of generations.
+1                                                godiva bare sphere - keno-v.a multigroup                                        
+
+ lifetime =  6.23389E-09 + or -  1.75513E-11             generation time =  5.69318E-09 + or -  2.05241E-11
+ nu bar   =  2.59920E+00 + or -  5.16435E-04       average fission group =  2.59433E+01 + or -  3.14356E-02
+                      energy(ev) of the average lethargy causing fission =  8.22011E+05 + or -  2.54737E+03
+                                              system mean free path (cm) =  2.56119E+00 + or -  1.13668E-03
+
+ no. of initial                                                                                                          deviation of
+  generations      average                         67 per cent           95 per cent           99 per cent      number of   variance
+    skipped      k-effective      deviation    confidence interval   confidence interval   confidence interval  histories  (per cent)
+
+      20          1.00380   + or - 0.00246     1.00134 to 1.00626    0.99887 to 1.00872    0.99641 to 1.01118     130000       5.5209
+
+      21          1.00353   + or - 0.00235     1.00118 to 1.00588    0.99882 to 1.00824    0.99647 to 1.01059     129000       6.0716
+
+      22          1.00330   + or - 0.00198     1.00132 to 1.00527    0.99935 to 1.00725    0.99737 to 1.00922     128000       8.7309
+
+      23          1.00322   + or - 0.00199     1.00123 to 1.00520    0.99925 to 1.00719    0.99726 to 1.00917     127000       8.7684
+
+      24          1.00312   + or - 0.00200     1.00112 to 1.00512    0.99911 to 1.00712    0.99711 to 1.00913     126000       8.7494
+
+      25          1.00319   + or - 0.00231     1.00089 to 1.00550    0.99858 to 1.00781    0.99627 to 1.01012     125000       6.6861
+
+      26          1.00311   + or - 0.00202     1.00109 to 1.00514    0.99907 to 1.00716    0.99704 to 1.00918     124000       8.8252
+
+      27          1.00282   + or - 0.00198     1.00084 to 1.00479    0.99886 to 1.00677    0.99688 to 1.00875     123000       9.2637
+
+      28          1.00256   + or - 0.00198     1.00058 to 1.00454    0.99860 to 1.00652    0.99662 to 1.00850     122000       9.3408
+
+      29          1.00259   + or - 0.00200     1.00059 to 1.00459    0.99859 to 1.00659    0.99659 to 1.00858     121000       9.2998
+
+      34          1.00216   + or - 0.00206     1.00010 to 1.00422    0.99805 to 1.00628    0.99599 to 1.00833     116000       9.5106
+
+      39          1.00188   + or - 0.00213     0.99975 to 1.00401    0.99762 to 1.00614    0.99549 to 1.00827     111000       9.6836
+
+      44          1.00109   + or - 0.00213     0.99896 to 1.00321    0.99683 to 1.00534    0.99471 to 1.00746     106000      10.5275
+
+      49          1.00127   + or - 0.00225     0.99901 to 1.00352    0.99676 to 1.00577    0.99451 to 1.00803     101000      10.2734
+
+      54          1.00192   + or - 0.00229     0.99963 to 1.00421    0.99734 to 1.00650    0.99505 to 1.00879      96000      10.3635
+
+      59          1.00241   + or - 0.00241     1.00000 to 1.00482    0.99759 to 1.00723    0.99518 to 1.00964      91000      10.2612
+
+      64          1.00234   + or - 0.00256     0.99978 to 1.00490    0.99722 to 1.00745    0.99466 to 1.01001      86000      10.1190
+
+      69          1.00218   + or - 0.00271     0.99947 to 1.00489    0.99676 to 1.00760    0.99405 to 1.01031      81000      10.0526
+
+      74          1.00181   + or - 0.00291     0.99890 to 1.00472    0.99599 to 1.00763    0.99308 to 1.01054      76000       9.8892
+
+      79          1.00180   + or - 0.00316     0.99864 to 1.00497    0.99548 to 1.00813    0.99231 to 1.01129      71000       9.0414
+
+      84          1.00113   + or - 0.00325     0.99788 to 1.00438    0.99463 to 1.00763    0.99139 to 1.01088      66000       9.7083
+
+      89          1.00139   + or - 0.00341     0.99797 to 1.00480    0.99456 to 1.00822    0.99115 to 1.01163      61000      10.0458
+
+      94          0.99972   + or - 0.00340     0.99632 to 1.00311    0.99292 to 1.00651    0.98953 to 1.00991      56000      12.3273
+
+      99          0.99985   + or - 0.00387     0.99599 to 1.00372    0.99212 to 1.00759    0.98825 to 1.01145      51000      10.9314
+
+     104          0.99884   + or - 0.00417     0.99467 to 1.00302    0.99050 to 1.00719    0.98632 to 1.01137      46000      11.0726
+
+     109          0.99976   + or - 0.00463     0.99514 to 1.00439    0.99051 to 1.00902    0.98588 to 1.01365      41000      10.9080
+1                                                godiva bare sphere - keno-v.a multigroup                                        
+
+ no. of initial                                                                                                          deviation of
+  generations      average                         67 per cent           95 per cent           99 per cent      number of   variance
+    skipped      k-effective      deviation    confidence interval   confidence interval   confidence interval  histories  (per cent)
+
+     114          0.99913   + or - 0.00527     0.99387 to 1.00440    0.98860 to 1.00967    0.98333 to 1.01494      36000       9.8297
+
+     119          0.99763   + or - 0.00594     0.99168 to 1.00357    0.98574 to 1.00952    0.97980 to 1.01546      31000      10.7610
+
+     124          0.99880   + or - 0.00737     0.99142 to 1.00617    0.98405 to 1.01354    0.97668 to 1.02092      26000       9.6256
+
+     129          0.99338   + or - 0.00744     0.98594 to 1.00082    0.97850 to 1.00826    0.97106 to 1.01570      21000      10.3202
+
+     134          0.99620   + or - 0.00694     0.98926 to 1.00314    0.98231 to 1.01009    0.97537 to 1.01703      16000      18.7955
+
+     139          1.00082   + or - 0.00586     0.99496 to 1.00667    0.98910 to 1.01253    0.98325 to 1.01839      11000      38.5268
+
+     144          1.00674   + or - 0.01220     0.99454 to 1.01894    0.98233 to 1.03115    0.97013 to 1.04335       6000      25.1419
+1                          godiva bare sphere - keno-v.a multigroup                                        
+
+                       plot of average k-effective by generation run.
+      the line represents k-eff = 1.0053 + or - 0.0020 which occurs for 127 generations run.
+
+                               1.0037                   1.0211                   1.0385
+         |-------------------------|------------------------|------------------------|------------------------
+         |
+         |                           |                                       I   *   I                         
+         |                           |             I                  *                  I                     
+         |                          I|                           *                             I               
+      25 +                    I      |                  *                          I                           
+         |                         I |                 *                   I                                   
+         |                           |     I               *                I                                  
+         |                           |         I              *              I                                 
+         |                           |        I           *           I                                        
+      30 +                           |        I          *          I                                          
+         |                           |         I         *         I                                           
+         |                           |           I       *        I                                            
+         |                           |         I       *       I                                               
+         |                           |        I       *       I                                                
+      35 +                           |      I       *       I                                                  
+         |                           |        I      *      I                                                  
+         |                           |         I      *     I                                                  
+         |                           |     I      *      I                                                     
+         |                           |       I     *     I                                                     
+      40 +                           |       I     *    I                                                      
+         |                           |       I    *     I                                                      
+         |                           |        I    *     I                                                     
+         |                           |         I     *    I                                                    
+         |                           |         I    *    I                                                     
+      45 +                           |      I     *    I                                                       
+         |                           |   I      *     I                                                        
+         |                           |     I     *     I                                                       
+         |                           |     I     *     I                                                       
+         |                           |    I    *     I                                                         
+      50 +                           |  I     *     I                                                          
+         |                           | I     *      I                                                          
+         |                           | I     *     I                                                           
+         |                      I    |     *          I                                                        
+         |                     I     |    *           I                                                        
+      55 +                    I      |    *          I                                                         
+         |                   I       |   *          I                                                          
+         |                   I       |   *          I                                                          
+         |                   I       |  *           I                                                          
+         |                 I         | *            I                                                          
+      60 +                  I        | *           I                                                           
+         |                  I        | *           I                                                           
+         |                 I         | *           I                                                           
+         |                   I       | *          I                                                            
+         |                   I       | *         I                                                             
+      65 +                   I       | *         I                                                             
+         |                   I       | *        I                                                              
+         |                   I       |*         I                                                              
+         |                   I       |*        I                                                               
+         |                   I       | *        I                                                              
+      70 +                   I       |*        I                                                               
+         |                    I      | *       I                                                               
+         |                    I      |*       I                                                                
+         |                    I      |*       I                                                                
+         |                     I     | *       I                                                               
+      75 +                     I     | *       I                                                               
+         |                     I     |*      I                                                                 
+         |                     I     |*     I                                                                  
+         |                     I     |*     I                                                                  
+         |                      I    |*      I                                                                 
+      80 +                     I     |*     I                                                                  
+         |                     I     *     I                                                                   
+         |                     I     *      I                                                                  
+         |                      I    |*     I                                                                  
+         |                       I   | *     I                                                                 
+      85 +                       I   | *    I                                                                  
+         |                        I  |*   I                                                                    
+         |                        I  |*  I                                                                     
+         |                       I   *   I                                                                     
+         |                        I  |*   I                                                                    
+      90 +                        I  |*   I                                                                    
+         |                        I  |*   I                                                                    
+         |                        I  |*   I                                                                    
+         |                         I | *  I                                                                    
+         |                         I | *   I                                                                   
+      95 +                         I | *  I                                                                    
+         |                          I| *   I                                                                   
+         |                         I | *   I                                                                   
+         |                         I | *  I                                                                    
+         |                         I |*   I                                                                    
+     100 +                         I | *  I                                                                    
+         |                          I| *   I                                                                   
+         |                         I | *  I                                                                    
+         |                         I | *  I                                                                    
+         |                         I | *  I                                                                    
+     105 +                         I |*   I                                                                    
+         |                         I |*   I                                                                    
+         |                         I | *  I                                                                    
+         |                         I |*  I                                                                     
+         |                        I  *   I                                                                     
+     110 +                        I  *  I                                                                      
+         |                       I   *  I                                                                      
+         |                        I  *   I                                                                     
+         |                        I  *  I                                                                      
+         |                        I  *   I                                                                     
+     115 +                        I  *  I                                                                      
+         |                        I  *  I                                                                      
+         |                        I  |*  I                                                                     
+         |                        I  *  I                                                                      
+         |                        I  *   I                                                                     
+     120 +                        I  *  I                                                                      
+         |                        I  *  I                                                                      
+         |                        I  *  I                                                                      
+         |                        I  *  I                                                                      
+         |                       I  *|  I                                                                      
+     125 +                        I  *  I                                                                      
+         |                       I  *| I                                                                       
+         |                        I  *  I                                                                      
+         |                        I  *  I                                                                      
+         |                         I |*  I                                                                     
+     130 +                         I |*  I                                                                     
+         |                        I  *  I                                                                      
+         |                        I  *  I                                                                      
+         |                       I  *|  I                                                                      
+         |                       I  *| I                                                                       
+     135 +                       I  *| I                                                                       
+         |                       I  *| I                                                                       
+         |                       I  *| I                                                                       
+         |                       I  *| I                                                                       
+         |                     I   * | I                                                                       
+     140 +                     I   * | I                                                                       
+         |                     I   * | I                                                                       
+         |                     I   * |I                                                                        
+         |                     I   * |I                                                                        
+         |                     I   * |I                                                                        
+     145 +                     I   * |I                                                                        
+         |                     I   * |I                                                                        
+         |                     I   * |I                                                                        
+         |                     I   * | I                                                                       
+         |                     I   * |I                                                                        
+     150 +                     I   * |I                                                                        
+1                          godiva bare sphere - keno-v.a multigroup                                        
+
+                       plot of average k-effective by generation skipped.
+      the line represents k-eff = 1.003 + or - 0.001 which occurs for 22 generations skipped.
+
+                               0.9895                   0.9988                   1.0081
+         |-------------------------|------------------------|------------------------|------------------------
+         |
+      20 +                                                        I     |*     I                               
+         |                                                        I     *     I                                
+         |                                                        I     *    I                                 
+         |                                                        I    *|    I                                 
+         |                                                        I    *|   I                                  
+      25 +                                                       I     *|    I                                 
+         |                                                        I    *|   I                                  
+         |                                                       I    * |   I                                  
+         |                                                      I     * |  I                                   
+         |                                                      I     * |  I                                   
+      30 +                                                      I    *  |  I                                   
+         |                                                      I    *  | I                                    
+         |                                                     I     *  | I                                    
+         |                                                     I     *  | I                                    
+         |                                                     I    *   | I                                    
+      35 +                                                     I     *  | I                                    
+         |                                                     I    *   | I                                    
+         |                                                    I     *   |I                                     
+         |                                                     I    *   | I                                    
+         |                                                    I     *   |I                                     
+      40 +                                                    I    *    |I                                     
+         |                                                   I     *    |I                                     
+         |                                                   I     *    I                                      
+         |                                                  I     *    I|                                      
+         |                                                  I     *    I|                                      
+      45 +                                                  I     *     I                                      
+         |                                                   I     *    |I                                     
+         |                                                  I     *     I                                      
+         |                                                  I     *     I                                      
+         |                                                  I     *     I                                      
+      50 +                                                   I     *    |I                                     
+         |                                                  I      *    |I                                     
+         |                                                  I     *     |I                                     
+         |                                                    I     *   | I                                    
+         |                                                    I     *   | I                                    
+      55 +                                                    I     *   | I                                    
+         |                                                    I     *   |  I                                   
+         |                                                    I     *   |  I                                   
+         |                                                    I     *   |  I                                   
+         |                                                     I     *  |   I                                  
+      60 +                                                    I      *  |  I                                   
+         |                                                    I      *  |  I                                   
+         |                                                    I      *  |   I                                  
+         |                                                    I      *  |  I                                   
+         |                                                    I      *  |   I                                  
+      65 +                                                    I      *  |   I                                  
+         |                                                    I      *  |   I                                  
+         |                                                    I      *  |   I                                  
+         |                                                    I      *  |   I                                  
+         |                                                   I       *  |   I                                  
+      70 +                                                   I       *  |   I                                  
+         |                                                   I      *   |   I                                  
+         |                                                   I       *  |   I                                  
+         |                                                   I      *   |   I                                  
+         |                                                  I       *   |  I                                   
+      75 +                                                 I       *    |  I                                   
+         |                                                  I        *  |    I                                 
+         |                                                  I       *   |   I                                  
+         |                                                  I       *   |   I                                  
+         |                                                 I        *   |   I                                  
+      80 +                                                  I       *   |    I                                 
+         |                                                  I        *  |     I                                
+         |                                                  I       *   |    I                                 
+         |                                                 I       *    |   I                                  
+         |                                               I        *     | I                                    
+      85 +                                               I        *     | I                                    
+         |                                                I        *    |   I                                  
+         |                                                I        *    |   I                                  
+         |                                                I         *   |    I                                 
+         |                                               I        *     |   I                                  
+      90 +                                              I        *      | I                                    
+         |                                              I        *      |  I                                   
+         |                                             I         *      | I                                    
+         |                                            I         *       |I                                     
+         |                                           I        *        I|                                      
+      95 +                                            I        *        I                                      
+         |                                         I         *         I|                                      
+         |                                          I        *         I|                                      
+         |                                          I         *         I                                      
+         |                                          I         *         |I                                     
+     100 +                                        I         *         I |                                      
+         |                                       I         *          I |                                      
+         |                                       I          *         I |                                      
+         |                                       I          *          I|                                      
+         |                                      I           *          I|                                      
+     105 +                                       I          *           I                                      
+         |                                      I           *           I                                      
+         |                                    I           *            I|                                      
+         |                                      I           *           I                                      
+         |                                        I           *         | I                                    
+     110 +                                        I            *        |   I                                  
+         |                                         I             *      |     I                                
+         |                                      I            *          |  I                                   
+         |                                      I             *         |   I                                  
+         |                                    I             *           | I                                    
+     115 +                                    I              *          |   I                                  
+         |                                   I             *            | I                                    
+         |                                 I             *              I                                      
+         |                                 I              *             |I                                     
+         |                              I               *               I                                      
+     120 +                              I                *              |I                                     
+         |                              I                *              | I                                    
+         |                             I                *               |I                                     
+         |                              I                 *             |   I                                  
+         |                              I                  *            |      I                               
+     125 +                             I                  *             |    I                                 
+         |                           I                     *            |        I                             
+         |                        I                   *                 |I                                     
+         |                         I              *               I     |                                      
+         |               I                   *                   I      |                                      
+     130 +            I                     *                     I     |                                      
+         |         I                       *                        I   |                                      
+         |                    I                 *                 I     |                                      
+         |                        I                 *                I  |                                      
+         |                        I                  *                 I|                                      
+     135 +                         I                   *                |  I                                   
+         |                          I                    *              |     I                                
+         |                       I                       *              |       I                              
+         |                   I                          *               |         I                            
+         |                                       I               *      |        I                             
+     140 +                                    I                 *       |        I                             
+         |                                      I                  *    |             I                        
+         |                                            I                 | *                    I               
+         |                              I                              *|                            I         
+         |                                      I                       |        *                             
+     145 +                         I                                    |        *                             
+         |                                                              |            *                         
+         |                                                              |     *                                
+
+   k-effective satisfies the chi**2 test for normality at the 95 % level
+
+ elapsed time   0.02733 minutes
+1                            godiva bare sphere - keno-v.a multigroup                                        
+                                                                                                         skipping 20 generations
+
+ group  fission  unit   region    fissions     percent       absorptions    percent         leakage      percent
+       fraction                               deviation                    deviation                    deviation
+
+    1    0.0000                 0.00000E+00     0.0000       0.00000E+00     0.0000       0.00000E+00     0.0000
+    2    0.0000                 3.53520E-05    73.2008       7.43101E-06    73.2008       1.06921E-05    70.9770
+    3    0.0001                 5.89226E-05    51.3340       1.29427E-05    51.3340       1.53846E-05    70.4361
+    4    0.0000                 3.54951E-05    57.2857       8.04131E-06    57.2857       2.89383E-05    49.7204
+    5    0.0002                 2.27210E-04    27.4992       5.29893E-05    27.4992       7.74332E-05    29.9712
+    6    0.0019                 1.85979E-03     8.7150       4.63673E-04     8.7150       6.77209E-04     9.2745
+    7    0.0056                 5.63084E-03     5.5067       1.53484E-03     5.5067       1.61529E-03     5.5105
+    8    0.0164                 1.64287E-02     2.6822       4.80452E-03     2.6822       6.49908E-03     3.1964
+    9    0.0299                 2.99948E-02     1.6669       9.61889E-03     1.6669       1.84130E-02     1.7512
+   10    0.0167                 1.68083E-02     2.1033       5.68979E-03     2.1033       9.92949E-03     2.4950
+   11    0.0801                 8.04349E-02     0.8567       2.87880E-02     0.8567       4.83453E-02     1.0519
+   12    0.0565                 5.67644E-02     0.9625       2.13429E-02     0.9625       3.24703E-02     1.3973
+   13    0.0167                 1.67353E-02     2.1044       6.41794E-03     2.1044       9.31160E-03     2.4019
+   14    0.0804                 8.07456E-02     0.9691       3.16740E-02     0.9691       4.57740E-02     1.1605
+   15    0.0706                 7.08211E-02     0.9797       2.87431E-02     0.9797       4.17938E-02     1.3142
+   16    0.0232                 2.32612E-02     1.4452       9.63443E-03     1.4452       1.37078E-02     1.8068
+   17    0.0104                 1.04509E-02     2.3784       4.35907E-03     2.3784       6.14425E-03     3.2076
+   18    0.0088                 8.85740E-03     2.6999       3.70988E-03     2.6999       5.88234E-03     3.2215
+   19    0.0170                 1.70568E-02     1.8645       7.18278E-03     1.8645       1.05113E-02     2.3888
+   20    0.0132                 1.32321E-02     1.9452       5.60535E-03     1.9452       8.37352E-03     2.8617
+   21    0.0273                 2.73987E-02     1.4204       1.16925E-02     1.4204       1.74889E-02     1.6452
+   22    0.0273                 2.74274E-02     1.5918       1.18120E-02     1.5918       1.68772E-02     2.0080
+   23    0.0281                 2.81592E-02     1.3666       1.22401E-02     1.3666       1.83959E-02     1.8209
+   24    0.0065                 6.56491E-03     2.6999       2.87772E-03     2.6999       4.20772E-03     3.6379
+   25    0.0085                 8.50294E-03     2.4983       3.73829E-03     2.4983       5.53440E-03     3.2857
+   26    0.0047                 4.73277E-03     2.9206       2.08513E-03     2.9206       3.27546E-03     4.1398
+   27    0.0142                 1.42175E-02     1.7659       6.28289E-03     1.7659       9.62411E-03     2.4652
+   28    0.0251                 2.52243E-02     1.5046       1.12179E-02     1.5046       1.72830E-02     1.9103
+   29    0.0275                 2.76281E-02     1.4667       1.23993E-02     1.4667       1.91443E-02     1.9088
+   30    0.0037                 3.70881E-03     3.3258       1.67408E-03     3.3258       2.38465E-03     4.7065
+   31    0.0299                 2.99819E-02     1.3675       1.36103E-02     1.3675       2.00627E-02     1.5839
+   32    0.0120                 1.20903E-02     1.8899       5.52322E-03     1.8899       8.18549E-03     2.4753
+   33    0.0108                 1.08071E-02     1.9397       4.95341E-03     1.9397       7.29033E-03     2.3654
+   34    0.0245                 2.45888E-02     1.6197       1.13371E-02     1.6197       1.61286E-02     1.7586
+   35    0.0152                 1.52922E-02     1.8552       7.09726E-03     1.8552       9.59592E-03     2.4150
+   36    0.0158                 1.58992E-02     1.6882       7.40792E-03     1.6882       9.89748E-03     2.0657
+   37    0.0114                 1.14161E-02     1.8539       5.33849E-03     1.8539       6.77196E-03     2.6991
+   38    0.0115                 1.15397E-02     2.1197       5.41636E-03     2.1197       6.59919E-03     2.6970
+   39    0.0416                 4.17392E-02     1.1150       1.97697E-02     1.1150       2.42523E-02     1.3928
+   40    0.0381                 3.82768E-02     1.1929       1.84004E-02     1.1929       2.11037E-02     1.4535
+   41    0.0478                 4.79656E-02     1.1744       2.35265E-02     1.1744       2.35250E-02     1.3518
+   42    0.0360                 3.61144E-02     1.3653       1.81326E-02     1.3653       1.52717E-02     1.6369
+   43    0.0156                 1.56773E-02     2.2612       8.01019E-03     2.2612       6.32607E-03     2.6955
+   44    0.0197                 1.97713E-02     1.7812       1.02755E-02     1.7812       7.54905E-03     2.0775
+   45    0.0101                 1.01529E-02     2.2948       5.35833E-03     2.2948       3.53277E-03     3.2328
+   46    0.0023                 2.34501E-03     4.3502       1.24843E-03     4.3502       7.19153E-04     6.5877
+   47    0.0045                 4.47291E-03     3.8505       2.39343E-03     3.8505       1.46589E-03     5.1703
+   48    0.0013                 1.32421E-03     6.1601       7.17561E-04     6.1601       4.30584E-04     9.6846
+   49    0.0078                 7.78920E-03     2.7067       4.19891E-03     2.7067       2.43447E-03     4.0446
+   50    0.0044                 4.43614E-03     4.3269       2.41498E-03     4.3269       1.44369E-03     5.7653
+   51    0.0012                 1.16822E-03     6.3036       6.29189E-04     6.3036       3.14992E-04    10.6964
+   52    0.0024                 2.41021E-03     4.8589       1.31212E-03     4.8589       6.47373E-04     7.4551
+   53    0.0071                 7.13488E-03     3.5753       3.94061E-03     3.5753       2.01284E-03     5.1516
+   54    0.0020                 2.05242E-03     5.5322       1.14226E-03     5.5322       4.97816E-04     8.0453
+   55    0.0028                 2.79350E-03     5.6278       1.56876E-03     5.6278       6.65830E-04     7.2812
+   56    0.0013                 1.28060E-03     8.4822       7.20667E-04     8.4822       2.22548E-04    13.4826
+1                            godiva bare sphere - keno-v.a multigroup                                        
+                                                                                                         skipping 20 generations
+
+ group  fission  unit   region    fissions     percent       absorptions    percent         leakage      percent
+       fraction                               deviation                    deviation                    deviation
+
+   57    0.0010                 9.73935E-04     9.3021       5.48197E-04     9.3021       1.35783E-04    16.9908
+   58    0.0004                 4.16510E-04    14.2019       2.34420E-04    14.2019       4.16430E-05    25.4469
+   59    0.0002                 2.36044E-04    20.4161       1.32993E-04    20.4161       7.42524E-05    24.9630
+   60    0.0003                 3.12458E-04    17.2005       1.76155E-04    17.2005       4.00300E-05    26.8327
+   61    0.0000                 2.86178E-05    46.5170       1.61183E-05    46.5170       4.34943E-06   100.0000
+   62    0.0001                 1.12321E-04    27.2054       6.34521E-05    27.2054       1.34257E-05    52.7801
+   63    0.0001                 1.03057E-04    34.7613       5.81657E-05    34.7613       1.66407E-05    50.0071
+   64    0.0000                 1.73705E-05    54.2278       9.81256E-06    54.2278       2.49907E-06   100.0000
+   65    0.0000                 1.49809E-05    74.2429       1.03374E-05    74.2429       0.00000E+00     0.0000
+   66    0.0000                 2.10382E-05    57.8895       1.42977E-05    57.8895       2.73084E-06   100.0000
+   67    0.0000                 0.00000E+00     0.0000       0.00000E+00     0.0000       0.00000E+00     0.0000
+   68    0.0000                 0.00000E+00     0.0000       0.00000E+00     0.0000       0.00000E+00     0.0000
+   69    0.0000                 6.97559E-06   100.0000       4.21342E-06   100.0000       0.00000E+00     0.0000
+   70    0.0000                 9.52734E-06    87.0280       6.42202E-06    87.0280       0.00000E+00     0.0000
+   71    0.0000                 4.41092E-06   100.0000       2.78710E-06   100.0000       0.00000E+00     0.0000
+   72    0.0000                 0.00000E+00     0.0000       0.00000E+00     0.0000       0.00000E+00     0.0000
+   73    0.0000                 0.00000E+00     0.0000       0.00000E+00     0.0000       0.00000E+00     0.0000
+   74    0.0000                 1.64347E-05    90.5782       9.63369E-06    90.5782       3.84615E-06   100.0000
+   75    0.0000                 0.00000E+00     0.0000       0.00000E+00     0.0000       0.00000E+00     0.0000
+   76    0.0000                 0.00000E+00     0.0000       0.00000E+00     0.0000       0.00000E+00     0.0000
+   77    0.0000                 0.00000E+00     0.0000       0.00000E+00     0.0000       0.00000E+00     0.0000
+   78    0.0000                 0.00000E+00     0.0000       0.00000E+00     0.0000       0.00000E+00     0.0000
+   79    0.0000                 0.00000E+00     0.0000       0.00000E+00     0.0000       0.00000E+00     0.0000
+   80    0.0000                 0.00000E+00     0.0000       0.00000E+00     0.0000       0.00000E+00     0.0000
+   81    0.0000                 0.00000E+00     0.0000       0.00000E+00     0.0000       0.00000E+00     0.0000
+   82    0.0000                 0.00000E+00     0.0000       0.00000E+00     0.0000       0.00000E+00     0.0000
+   83    0.0000                 0.00000E+00     0.0000       0.00000E+00     0.0000       0.00000E+00     0.0000
+   84    0.0000                 0.00000E+00     0.0000       0.00000E+00     0.0000       0.00000E+00     0.0000
+   85    0.0000                 0.00000E+00     0.0000       0.00000E+00     0.0000       0.00000E+00     0.0000
+   86    0.0000                 0.00000E+00     0.0000       0.00000E+00     0.0000       0.00000E+00     0.0000
+   87    0.0000                 0.00000E+00     0.0000       0.00000E+00     0.0000       0.00000E+00     0.0000
+   88    0.0000                 0.00000E+00     0.0000       0.00000E+00     0.0000       0.00000E+00     0.0000
+   89    0.0000                 0.00000E+00     0.0000       0.00000E+00     0.0000       0.00000E+00     0.0000
+   90    0.0000                 0.00000E+00     0.0000       0.00000E+00     0.0000       0.00000E+00     0.0000
+   91    0.0000                 0.00000E+00     0.0000       0.00000E+00     0.0000       0.00000E+00     0.0000
+   92    0.0000                 0.00000E+00     0.0000       0.00000E+00     0.0000       0.00000E+00     0.0000
+   93    0.0000                 0.00000E+00     0.0000       0.00000E+00     0.0000       0.00000E+00     0.0000
+   94    0.0000                 0.00000E+00     0.0000       0.00000E+00     0.0000       0.00000E+00     0.0000
+   95    0.0000                 0.00000E+00     0.0000       0.00000E+00     0.0000       0.00000E+00     0.0000
+   96    0.0000                 0.00000E+00     0.0000       0.00000E+00     0.0000       0.00000E+00     0.0000
+   97    0.0000                 0.00000E+00     0.0000       0.00000E+00     0.0000       0.00000E+00     0.0000
+   98    0.0000                 0.00000E+00     0.0000       0.00000E+00     0.0000       0.00000E+00     0.0000
+   99    0.0000                 0.00000E+00     0.0000       0.00000E+00     0.0000       0.00000E+00     0.0000
+  100    0.0000                 0.00000E+00     0.0000       0.00000E+00     0.0000       0.00000E+00     0.0000
+  101    0.0000                 0.00000E+00     0.0000       0.00000E+00     0.0000       0.00000E+00     0.0000
+  102    0.0000                 0.00000E+00     0.0000       0.00000E+00     0.0000       0.00000E+00     0.0000
+  103    0.0000                 0.00000E+00     0.0000       0.00000E+00     0.0000       0.00000E+00     0.0000
+  104    0.0000                 0.00000E+00     0.0000       0.00000E+00     0.0000       0.00000E+00     0.0000
+  105    0.0000                 0.00000E+00     0.0000       0.00000E+00     0.0000       0.00000E+00     0.0000
+  106    0.0000                 0.00000E+00     0.0000       0.00000E+00     0.0000       0.00000E+00     0.0000
+  107    0.0000                 0.00000E+00     0.0000       0.00000E+00     0.0000       0.00000E+00     0.0000
+  108    0.0000                 0.00000E+00     0.0000       0.00000E+00     0.0000       0.00000E+00     0.0000
+  109    0.0000                 0.00000E+00     0.0000       0.00000E+00     0.0000       0.00000E+00     0.0000
+  110    0.0000                 0.00000E+00     0.0000       0.00000E+00     0.0000       0.00000E+00     0.0000
+  111    0.0000                 0.00000E+00     0.0000       0.00000E+00     0.0000       0.00000E+00     0.0000
+  112    0.0000                 0.00000E+00     0.0000       0.00000E+00     0.0000       0.00000E+00     0.0000
+1                            godiva bare sphere - keno-v.a multigroup                                        
+                                                                                                         skipping 20 generations
+
+ group  fission  unit   region    fissions     percent       absorptions    percent         leakage      percent
+       fraction                               deviation                    deviation                    deviation
+
+  113    0.0000                 0.00000E+00     0.0000       0.00000E+00     0.0000       0.00000E+00     0.0000
+  114    0.0000                 0.00000E+00     0.0000       0.00000E+00     0.0000       0.00000E+00     0.0000
+  115    0.0000                 0.00000E+00     0.0000       0.00000E+00     0.0000       0.00000E+00     0.0000
+  116    0.0000                 0.00000E+00     0.0000       0.00000E+00     0.0000       0.00000E+00     0.0000
+  117    0.0000                 0.00000E+00     0.0000       0.00000E+00     0.0000       0.00000E+00     0.0000
+  118    0.0000                 0.00000E+00     0.0000       0.00000E+00     0.0000       0.00000E+00     0.0000
+  119    0.0000                 0.00000E+00     0.0000       0.00000E+00     0.0000       0.00000E+00     0.0000
+  120    0.0000                 0.00000E+00     0.0000       0.00000E+00     0.0000       0.00000E+00     0.0000
+  121    0.0000                 0.00000E+00     0.0000       0.00000E+00     0.0000       0.00000E+00     0.0000
+  122    0.0000                 0.00000E+00     0.0000       0.00000E+00     0.0000       0.00000E+00     0.0000
+  123    0.0000                 0.00000E+00     0.0000       0.00000E+00     0.0000       0.00000E+00     0.0000
+  124    0.0000                 0.00000E+00     0.0000       0.00000E+00     0.0000       0.00000E+00     0.0000
+  125    0.0000                 0.00000E+00     0.0000       0.00000E+00     0.0000       0.00000E+00     0.0000
+  126    0.0000                 0.00000E+00     0.0000       0.00000E+00     0.0000       0.00000E+00     0.0000
+  127    0.0000                 0.00000E+00     0.0000       0.00000E+00     0.0000       0.00000E+00     0.0000
+  128    0.0000                 0.00000E+00     0.0000       0.00000E+00     0.0000       0.00000E+00     0.0000
+  129    0.0000                 0.00000E+00     0.0000       0.00000E+00     0.0000       0.00000E+00     0.0000
+  130    0.0000                 0.00000E+00     0.0000       0.00000E+00     0.0000       0.00000E+00     0.0000
+  131    0.0000                 0.00000E+00     0.0000       0.00000E+00     0.0000       0.00000E+00     0.0000
+  132    0.0000                 0.00000E+00     0.0000       0.00000E+00     0.0000       0.00000E+00     0.0000
+  133    0.0000                 0.00000E+00     0.0000       0.00000E+00     0.0000       0.00000E+00     0.0000
+  134    0.0000                 0.00000E+00     0.0000       0.00000E+00     0.0000       0.00000E+00     0.0000
+  135    0.0000                 0.00000E+00     0.0000       0.00000E+00     0.0000       0.00000E+00     0.0000
+  136    0.0000                 0.00000E+00     0.0000       0.00000E+00     0.0000       0.00000E+00     0.0000
+  137    0.0000                 0.00000E+00     0.0000       0.00000E+00     0.0000       0.00000E+00     0.0000
+  138    0.0000                 0.00000E+00     0.0000       0.00000E+00     0.0000       0.00000E+00     0.0000
+  139    0.0000                 0.00000E+00     0.0000       0.00000E+00     0.0000       0.00000E+00     0.0000
+  140    0.0000                 0.00000E+00     0.0000       0.00000E+00     0.0000       0.00000E+00     0.0000
+  141    0.0000                 0.00000E+00     0.0000       0.00000E+00     0.0000       0.00000E+00     0.0000
+  142    0.0000                 0.00000E+00     0.0000       0.00000E+00     0.0000       0.00000E+00     0.0000
+  143    0.0000                 0.00000E+00     0.0000       0.00000E+00     0.0000       0.00000E+00     0.0000
+  144    0.0000                 0.00000E+00     0.0000       0.00000E+00     0.0000       0.00000E+00     0.0000
+  145    0.0000                 0.00000E+00     0.0000       0.00000E+00     0.0000       0.00000E+00     0.0000
+  146    0.0000                 0.00000E+00     0.0000       0.00000E+00     0.0000       0.00000E+00     0.0000
+  147    0.0000                 0.00000E+00     0.0000       0.00000E+00     0.0000       0.00000E+00     0.0000
+  148    0.0000                 0.00000E+00     0.0000       0.00000E+00     0.0000       0.00000E+00     0.0000
+  149    0.0000                 0.00000E+00     0.0000       0.00000E+00     0.0000       0.00000E+00     0.0000
+  150    0.0000                 0.00000E+00     0.0000       0.00000E+00     0.0000       0.00000E+00     0.0000
+  151    0.0000                 0.00000E+00     0.0000       0.00000E+00     0.0000       0.00000E+00     0.0000
+  152    0.0000                 0.00000E+00     0.0000       0.00000E+00     0.0000       0.00000E+00     0.0000
+  153    0.0000                 0.00000E+00     0.0000       0.00000E+00     0.0000       0.00000E+00     0.0000
+  154    0.0000                 0.00000E+00     0.0000       0.00000E+00     0.0000       0.00000E+00     0.0000
+  155    0.0000                 0.00000E+00     0.0000       0.00000E+00     0.0000       0.00000E+00     0.0000
+  156    0.0000                 0.00000E+00     0.0000       0.00000E+00     0.0000       0.00000E+00     0.0000
+  157    0.0000                 0.00000E+00     0.0000       0.00000E+00     0.0000       0.00000E+00     0.0000
+  158    0.0000                 0.00000E+00     0.0000       0.00000E+00     0.0000       0.00000E+00     0.0000
+  159    0.0000                 0.00000E+00     0.0000       0.00000E+00     0.0000       0.00000E+00     0.0000
+  160    0.0000                 0.00000E+00     0.0000       0.00000E+00     0.0000       0.00000E+00     0.0000
+  161    0.0000                 0.00000E+00     0.0000       0.00000E+00     0.0000       0.00000E+00     0.0000
+  162    0.0000                 0.00000E+00     0.0000       0.00000E+00     0.0000       0.00000E+00     0.0000
+  163    0.0000                 0.00000E+00     0.0000       0.00000E+00     0.0000       0.00000E+00     0.0000
+  164    0.0000                 0.00000E+00     0.0000       0.00000E+00     0.0000       0.00000E+00     0.0000
+  165    0.0000                 0.00000E+00     0.0000       0.00000E+00     0.0000       0.00000E+00     0.0000
+  166    0.0000                 0.00000E+00     0.0000       0.00000E+00     0.0000       0.00000E+00     0.0000
+  167    0.0000                 0.00000E+00     0.0000       0.00000E+00     0.0000       0.00000E+00     0.0000
+  168    0.0000                 0.00000E+00     0.0000       0.00000E+00     0.0000       0.00000E+00     0.0000
+1                            godiva bare sphere - keno-v.a multigroup                                        
+                                                                                                         skipping 20 generations
+
+ group  fission  unit   region    fissions     percent       absorptions    percent         leakage      percent
+       fraction                               deviation                    deviation                    deviation
+
+  169    0.0000                 0.00000E+00     0.0000       0.00000E+00     0.0000       0.00000E+00     0.0000
+  170    0.0000                 0.00000E+00     0.0000       0.00000E+00     0.0000       0.00000E+00     0.0000
+  171    0.0000                 0.00000E+00     0.0000       0.00000E+00     0.0000       0.00000E+00     0.0000
+  172    0.0000                 0.00000E+00     0.0000       0.00000E+00     0.0000       0.00000E+00     0.0000
+  173    0.0000                 0.00000E+00     0.0000       0.00000E+00     0.0000       0.00000E+00     0.0000
+  174    0.0000                 0.00000E+00     0.0000       0.00000E+00     0.0000       0.00000E+00     0.0000
+  175    0.0000                 0.00000E+00     0.0000       0.00000E+00     0.0000       0.00000E+00     0.0000
+  176    0.0000                 0.00000E+00     0.0000       0.00000E+00     0.0000       0.00000E+00     0.0000
+  177    0.0000                 0.00000E+00     0.0000       0.00000E+00     0.0000       0.00000E+00     0.0000
+  178    0.0000                 0.00000E+00     0.0000       0.00000E+00     0.0000       0.00000E+00     0.0000
+  179    0.0000                 0.00000E+00     0.0000       0.00000E+00     0.0000       0.00000E+00     0.0000
+  180    0.0000                 0.00000E+00     0.0000       0.00000E+00     0.0000       0.00000E+00     0.0000
+  181    0.0000                 0.00000E+00     0.0000       0.00000E+00     0.0000       0.00000E+00     0.0000
+  182    0.0000                 0.00000E+00     0.0000       0.00000E+00     0.0000       0.00000E+00     0.0000
+  183    0.0000                 0.00000E+00     0.0000       0.00000E+00     0.0000       0.00000E+00     0.0000
+  184    0.0000                 0.00000E+00     0.0000       0.00000E+00     0.0000       0.00000E+00     0.0000
+  185    0.0000                 0.00000E+00     0.0000       0.00000E+00     0.0000       0.00000E+00     0.0000
+  186    0.0000                 0.00000E+00     0.0000       0.00000E+00     0.0000       0.00000E+00     0.0000
+  187    0.0000                 0.00000E+00     0.0000       0.00000E+00     0.0000       0.00000E+00     0.0000
+  188    0.0000                 0.00000E+00     0.0000       0.00000E+00     0.0000       0.00000E+00     0.0000
+  189    0.0000                 0.00000E+00     0.0000       0.00000E+00     0.0000       0.00000E+00     0.0000
+  190    0.0000                 0.00000E+00     0.0000       0.00000E+00     0.0000       0.00000E+00     0.0000
+  191    0.0000                 0.00000E+00     0.0000       0.00000E+00     0.0000       0.00000E+00     0.0000
+  192    0.0000                 0.00000E+00     0.0000       0.00000E+00     0.0000       0.00000E+00     0.0000
+  193    0.0000                 0.00000E+00     0.0000       0.00000E+00     0.0000       0.00000E+00     0.0000
+  194    0.0000                 0.00000E+00     0.0000       0.00000E+00     0.0000       0.00000E+00     0.0000
+  195    0.0000                 0.00000E+00     0.0000       0.00000E+00     0.0000       0.00000E+00     0.0000
+  196    0.0000                 0.00000E+00     0.0000       0.00000E+00     0.0000       0.00000E+00     0.0000
+  197    0.0000                 0.00000E+00     0.0000       0.00000E+00     0.0000       0.00000E+00     0.0000
+  198    0.0000                 0.00000E+00     0.0000       0.00000E+00     0.0000       0.00000E+00     0.0000
+  199    0.0000                 0.00000E+00     0.0000       0.00000E+00     0.0000       0.00000E+00     0.0000
+  200    0.0000                 0.00000E+00     0.0000       0.00000E+00     0.0000       0.00000E+00     0.0000
+  201    0.0000                 0.00000E+00     0.0000       0.00000E+00     0.0000       0.00000E+00     0.0000
+  202    0.0000                 0.00000E+00     0.0000       0.00000E+00     0.0000       0.00000E+00     0.0000
+  203    0.0000                 0.00000E+00     0.0000       0.00000E+00     0.0000       0.00000E+00     0.0000
+  204    0.0000                 0.00000E+00     0.0000       0.00000E+00     0.0000       0.00000E+00     0.0000
+  205    0.0000                 0.00000E+00     0.0000       0.00000E+00     0.0000       0.00000E+00     0.0000
+  206    0.0000                 0.00000E+00     0.0000       0.00000E+00     0.0000       0.00000E+00     0.0000
+  207    0.0000                 0.00000E+00     0.0000       0.00000E+00     0.0000       0.00000E+00     0.0000
+  208    0.0000                 0.00000E+00     0.0000       0.00000E+00     0.0000       0.00000E+00     0.0000
+  209    0.0000                 0.00000E+00     0.0000       0.00000E+00     0.0000       0.00000E+00     0.0000
+  210    0.0000                 0.00000E+00     0.0000       0.00000E+00     0.0000       0.00000E+00     0.0000
+  211    0.0000                 0.00000E+00     0.0000       0.00000E+00     0.0000       0.00000E+00     0.0000
+  212    0.0000                 0.00000E+00     0.0000       0.00000E+00     0.0000       0.00000E+00     0.0000
+  213    0.0000                 0.00000E+00     0.0000       0.00000E+00     0.0000       0.00000E+00     0.0000
+  214    0.0000                 0.00000E+00     0.0000       0.00000E+00     0.0000       0.00000E+00     0.0000
+  215    0.0000                 0.00000E+00     0.0000       0.00000E+00     0.0000       0.00000E+00     0.0000
+  216    0.0000                 0.00000E+00     0.0000       0.00000E+00     0.0000       0.00000E+00     0.0000
+  217    0.0000                 0.00000E+00     0.0000       0.00000E+00     0.0000       0.00000E+00     0.0000
+  218    0.0000                 0.00000E+00     0.0000       0.00000E+00     0.0000       0.00000E+00     0.0000
+  219    0.0000                 0.00000E+00     0.0000       0.00000E+00     0.0000       0.00000E+00     0.0000
+  220    0.0000                 0.00000E+00     0.0000       0.00000E+00     0.0000       0.00000E+00     0.0000
+  221    0.0000                 0.00000E+00     0.0000       0.00000E+00     0.0000       0.00000E+00     0.0000
+  222    0.0000                 0.00000E+00     0.0000       0.00000E+00     0.0000       0.00000E+00     0.0000
+  223    0.0000                 0.00000E+00     0.0000       0.00000E+00     0.0000       0.00000E+00     0.0000
+  224    0.0000                 0.00000E+00     0.0000       0.00000E+00     0.0000       0.00000E+00     0.0000
+1                            godiva bare sphere - keno-v.a multigroup                                        
+                                                                                                         skipping 20 generations
+
+ group  fission  unit   region    fissions     percent       absorptions    percent         leakage      percent
+       fraction                               deviation                    deviation                    deviation
+
+  225    0.0000                 0.00000E+00     0.0000       0.00000E+00     0.0000       0.00000E+00     0.0000
+  226    0.0000                 0.00000E+00     0.0000       0.00000E+00     0.0000       0.00000E+00     0.0000
+  227    0.0000                 0.00000E+00     0.0000       0.00000E+00     0.0000       0.00000E+00     0.0000
+  228    0.0000                 0.00000E+00     0.0000       0.00000E+00     0.0000       0.00000E+00     0.0000
+  229    0.0000                 0.00000E+00     0.0000       0.00000E+00     0.0000       0.00000E+00     0.0000
+  230    0.0000                 0.00000E+00     0.0000       0.00000E+00     0.0000       0.00000E+00     0.0000
+  231    0.0000                 0.00000E+00     0.0000       0.00000E+00     0.0000       0.00000E+00     0.0000
+  232    0.0000                 0.00000E+00     0.0000       0.00000E+00     0.0000       0.00000E+00     0.0000
+  233    0.0000                 0.00000E+00     0.0000       0.00000E+00     0.0000       0.00000E+00     0.0000
+  234    0.0000                 0.00000E+00     0.0000       0.00000E+00     0.0000       0.00000E+00     0.0000
+  235    0.0000                 0.00000E+00     0.0000       0.00000E+00     0.0000       0.00000E+00     0.0000
+  236    0.0000                 0.00000E+00     0.0000       0.00000E+00     0.0000       0.00000E+00     0.0000
+  237    0.0000                 0.00000E+00     0.0000       0.00000E+00     0.0000       0.00000E+00     0.0000
+  238    0.0000                 0.00000E+00     0.0000       0.00000E+00     0.0000       0.00000E+00     0.0000
+
+ system total =                 1.00380E+00     0.1781       4.31402E-01     0.1851       5.71079E-01     0.1432
+
+ elapsed time   0.02767 minutes
+
+ random number=   9A76C94B40BF70D3
+
+
+ ************************************************************************************************************************************
+
+                                                  ***** Shannon entropy tests *****
+
+ ************************************************************************************************************************************
+
+
+ --------------------------------------------------------------------------------------------|----------------
+  Test 1: Is the final fission source converged?                                             | Test 1: failed
+ --------------------------------------------------------------------------------------------|----------------
+
+
+ Test 1 details:
+
+ Is the mean square posterior relative entropy <  the center mean square Shannon entropy?
+
+  ( msq(D) < cmsq(H(S)) )
+
+ generations skipped     msq         cmsq
+                  20  1.06121E-02  1.35074E-03
+                  26  1.05097E-02  1.31309E-03
+                  32  1.04710E-02  1.34914E-03
+                  38  1.04635E-02  1.40497E-03
+                  44  1.04822E-02  1.45331E-03
+                  50  1.04933E-02  1.39279E-03
+                  56  1.03837E-02  1.38617E-03
+                  62  1.02782E-02  1.39794E-03
+                  68  1.02278E-02  1.32276E-03
+                  74  1.02175E-02  1.26833E-03
+                  80  9.98099E-03  1.34405E-03
+                  86  1.00871E-02  1.31513E-03
+                  92  1.01000E-02  9.26715E-04
+                  98  1.00283E-02  9.79076E-04
+                 104  9.75884E-03  9.47528E-04
+                 110  9.65515E-03  7.73637E-04
+                 116  9.98782E-03  7.07627E-04
+                 122  9.57142E-03  7.38234E-04
+                 128  9.01436E-03  6.61057E-04
+                 134  7.96756E-03  8.51306E-04
+
+
+ --------------------------------------------------------------------------------------------|----------------
+  Test 2: Are all the active generations within epsilon of the average?                      | Test 2: failed
+ --------------------------------------------------------------------------------------------|----------------
+
+
+ Test 2 details:
+
+ Does the Shannon entropy of each active generation vary from the average Shannon entropy of the system?
+
+  ( |D(S||T)-[H(T-H(S))]| < 0.1 )
+
+   1 active generations failed the test.
+
+  The maximum value for the test is 1.05987E-01 which occurred for active generation 64.
+
+
+ --------------------------------------------------------------------------------------------|----------------
+  Test 3: Are there adequate active generations after the source is converged?               | Test 3: failed
+ --------------------------------------------------------------------------------------------|----------------
+
+
+ Test 3 details:
+
+ Does the Shannon entropy for the last half of the active generations vary from the Shannon entropy of all active generations?
+
+  ( |H(T) - Hb| < 0.1 )
+
+    |H(T) - Hb| =  1.02202E-01
+
+ ************************************************************************************************************************************
+
+1                          godiva bare sphere - keno-v.a multigroup                                        
+
+                                           plot of Shannon Entropy by generation
+
+                               2.0000                   4.0000                   6.0000                   8.0000
+         |-------------------------|------------------------|------------------------|------------------------
+       0 +
+         |                                                                               *                     
+         |                                                                             *                       
+         |                                                                             *                       
+         |                                                                            *                        
+       5 +                                                                            *                        
+         |                                                                           *                         
+         |                                                                           *                         
+         |                                                                            *                        
+         |                                                                             *                       
+      10 +                                                                            *                        
+         |                                                                             *                       
+         |                                                                            *                        
+         |                                                                           *                         
+         |                                                                            *                        
+      15 +                                                                            *                        
+         |                                                                            *                        
+         |                                                                            *                        
+         |                                                                            *                        
+         |                                                                            *                        
+      20 +                                                                            *                        
+         |                                                                            *                        
+         |                                                                             *                       
+         |                                                                            *                        
+         |                                                                            *                        
+      25 +                                                                            *                        
+         |                                                                            *                        
+         |                                                                            *                        
+         |                                                                            *                        
+         |                                                                           *                         
+      30 +                                                                            *                        
+         |                                                                            *                        
+         |                                                                           *                         
+         |                                                                           *                         
+         |                                                                            *                        
+      35 +                                                                            *                        
+         |                                                                           *                         
+         |                                                                            *                        
+         |                                                                            *                        
+         |                                                                            *                        
+      40 +                                                                            *                        
+         |                                                                            *                        
+         |                                                                           *                         
+         |                                                                           *                         
+         |                                                                            *                        
+      45 +                                                                            *                        
+         |                                                                           *                         
+         |                                                                            *                        
+         |                                                                            *                        
+         |                                                                            *                        
+      50 +                                                                             *                       
+         |                                                                            *                        
+         |                                                                           *                         
+         |                                                                            *                        
+         |                                                                             *                       
+      55 +                                                                             *                       
+         |                                                                            *                        
+         |                                                                            *                        
+         |                                                                            *                        
+         |                                                                            *                        
+      60 +                                                                            *                        
+         |                                                                            *                        
+         |                                                                            *                        
+         |                                                                            *                        
+         |                                                                           *                         
+      65 +                                                                             *                       
+         |                                                                            *                        
+         |                                                                            *                        
+         |                                                                            *                        
+         |                                                                            *                        
+      70 +                                                                            *                        
+         |                                                                            *                        
+         |                                                                            *                        
+         |                                                                            *                        
+         |                                                                            *                        
+      75 +                                                                           *                         
+         |                                                                            *                        
+         |                                                                             *                       
+         |                                                                             *                       
+         |                                                                            *                        
+      80 +                                                                            *                        
+         |                                                                            *                        
+         |                                                                           *                         
+         |                                                                          *                          
+         |                                                                           *                         
+      85 +                                                                            *                        
+         |                                                                            *                        
+         |                                                                             *                       
+         |                                                                             *                       
+         |                                                                            *                        
+      90 +                                                                            *                        
+         |                                                                            *                        
+         |                                                                            *                        
+         |                                                                            *                        
+         |                                                                           *                         
+      95 +                                                                            *                        
+         |                                                                            *                        
+         |                                                                            *                        
+         |                                                                            *                        
+         |                                                                           *                         
+     100 +                                                                            *                        
+         |                                                                            *                        
+         |                                                                            *                        
+         |                                                                           *                         
+         |                                                                            *                        
+     105 +                                                                             *                       
+         |                                                                            *                        
+         |                                                                           *                         
+         |                                                                            *                        
+         |                                                                             *                       
+     110 +                                                                            *                        
+         |                                                                             *                       
+         |                                                                            *                        
+         |                                                                           *                         
+         |                                                                            *                        
+     115 +                                                                            *                        
+         |                                                                           *                         
+         |                                                                            *                        
+         |                                                                           *                         
+         |                                                                            *                        
+     120 +                                                                             *                       
+         |                                                                             *                       
+         |                                                                            *                        
+         |                                                                            *                        
+         |                                                                            *                        
+     125 +                                                                            *                        
+         |                                                                           *                         
+         |                                                                           *                         
+         |                                                                           *                         
+         |                                                                            *                        
+     130 +                                                                            *                        
+         |                                                                            *                        
+         |                                                                            *                        
+         |                                                                            *                        
+         |                                                                           *                         
+     135 +                                                                            *                        
+         |                                                                           *                         
+         |                                                                           *                         
+         |                                                                           *                         
+         |                                                                            *                        
+     140 +                                                                            *                        
+         |                                                                            *                        
+         |                                                                            *                        
+         |                                                                            *                        
+         |                                                                            *                        
+     145 +                                                                            *                        
+         |                                                                            *                        
+         |                                                                            *                        
+         |                                                                            *                        
+         |                                                                           *                         
+     150 +                                                                            *                        
+1                                                godiva bare sphere - keno-v.a multigroup                                        
+
+                                                     **** fission densities ****
+
+
+                                production   percent         total             fission     percent         total
+              unit      region   density     deviation    productions          density     deviation      fissions
+
+       global unit
+
+                 1          1    3.588E-04     0.178       1.004E+00           1.381E-04     0.179        3.862E-01
+1godiva bare sphere - keno-v.a multigroup                                        
+
+                                frequency for generations      21 to     150 each asterisk represents   1.0000 generations
+ 0.9464 to 0.9590     ***
+ 0.9590 to 0.9717     ***
+ 0.9717 to 0.9843     *****************
+ 0.9843 to 0.9970     ****************************
+ 0.9970 to 1.0096     *************************
+ 1.0096 to 1.0223     *************************
+ 1.0223 to 1.0349     *******************
+ 1.0349 to 1.0476     **********
+
+                                frequency for generations      54 to     150 each asterisk represents   1.0000 generations
+ 0.9464 to 0.9590     **
+ 0.9590 to 0.9717     ***
+ 0.9717 to 0.9843     ************
+ 0.9843 to 0.9970     **************************
+ 0.9970 to 1.0096     *******************
+ 1.0096 to 1.0223     *****************
+ 1.0223 to 1.0349     ***********
+ 1.0349 to 1.0476     *******
+
+                                frequency for generations      86 to     150 each asterisk represents   1.0000 generations
+ 0.9464 to 0.9590     *
+ 0.9590 to 0.9717     ***
+ 0.9717 to 0.9843     *********
+ 0.9843 to 0.9970     ******************
+ 0.9970 to 1.0096     ***********
+ 1.0096 to 1.0223     **********
+ 1.0223 to 1.0349     *******
+ 1.0349 to 1.0476     ******
+
+                                frequency for generations     118 to     150 each asterisk represents   1.0000 generations
+ 0.9464 to 0.9590     *
+ 0.9590 to 0.9717     **
+ 0.9717 to 0.9843     ****
+ 0.9843 to 0.9970     **********
+ 0.9970 to 1.0096     *******
+ 1.0096 to 1.0223     *****
+ 1.0223 to 1.0349     *
+ 1.0349 to 1.0476     ***
+
+1       ********************************************************************************************************************
+        ***                                                                                                              ***
+        ***   godiva bare sphere - keno-v.a multigroup                                                                   ***
+        ***                                                                                                              ***
+        ********************************************************************************************************************
+        ***                                                                                                              ***
+        ***                                  ******      final results table      ******                                 ***
+        ***                                                                                                              ***
+        ***        best estimate system k-eff                                  1.0032 + or - 0.0019                      ***
+        ***                                                                                                              ***
+        ***        Energy of average lethargy of Fission (eV)                  8.22011E+05 + or -  2.54737E+03           ***
+        ***                                                                                                              ***
+        ***        system nu bar                                               2.59920E+00 + or -  5.16435E-04           ***
+        ***                                                                                                              ***
+        ***        system mean free path (cm)                                  2.56119E+00 + or -  1.13668E-03           ***
+        ***                                                                                                              ***
+        ***        number of warning messages                                  3                                         ***
+        ***                                                                                                              ***
+        ***        number of error messages                                    0                                         ***
+        ***                                                                                                              ***
+        ***        k-effective satisfies the chi**2 test for normality at the 95 % level                                 ***
+        ***                                                                                                              ***
+        ***                                                                                                              ***
+        ********************************************************************************************************************
+        ********************************************************************************************************************
+        ***                                                                                                              ***
+        ***        there are      125   source meshes                                                                    ***
+        ***                                                                                                              ***
+        ***        source convergence tests failed                                                                       ***
+        ***                                                                                                              ***
+        ***                                                                                                              ***
+        ********************************************************************************************************************
+        ********************************************************************************************************************
+
+
+
+ **********************************************************************************************************************************
+
+           Congratulations!  You have successfully traversed the perilous path through KENO-V.a in     0.02633 minutes
+
+ **********************************************************************************************************************************
+
+    SCALE is finished on Thu Oct 15 11:47:42 2026.
+-------------------------- Summary --------------------------
+csas5 finished. used 6.77 seconds.
+SCALE driver required a maximum of 749.2 MiB of RAM.
+------------------------ End Summary ------------------------
+
+ok_csas5_mg.html copied to /work/ok_csas5_mg/ok_csas5_mg.html.

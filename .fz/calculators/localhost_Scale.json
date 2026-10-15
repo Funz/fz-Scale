@@ -1,9 +1,9 @@
 {
     "uri": "sh://",
     "models": {
-        "Scale-keno": "bash .fz/calculators/Scale-keno.sh",
-        "Scale-shift": "bash .fz/calculators/Scale-shift.sh",
-        "Scale-tsunami": "bash .fz/calculators/Scale-tsunami.sh",
-        "Scale-xsdrnpm": "bash .fz/calculators/Scale-xsdrnpm.sh"
+        "Scale-keno": "bash .fz/calculators/Scale.sh",
+        "Scale-shift": "bash .fz/calculators/Scale.sh",
+        "Scale-tsunami": "bash .fz/calculators/Scale.sh",
+        "Scale-xsdrnpm": "bash .fz/calculators/Scale.sh"
     }
 }

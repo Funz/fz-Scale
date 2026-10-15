@@ -1,0 +1,25 @@
+' Godiva (HEU-MET-FAST-001): 1-D discrete-ordinates eigenvalue (T-XSDRN / XSDRNPM)
+' r = &(r~8.741) cm
+=t-xsdrn
+godiva bare HEU sphere
+v7-238
+read composition
+ uranium 1 den=18.742 1 293 92234 1.0202 92235 93.7112 92238 5.2686 end
+end composition
+read model
+godiva sphere
+read parm
+  sn=16
+end parm
+read materials
+  mix=1 com='godiva' end
+end materials
+read geom
+  geom=sphere
+  rightBC=vacuum
+  zoneIDs 1 end zoneids
+  zoneDimensions &(r) end zoneDimensions
+  zoneIntervals 40 end zoneIntervals
+end geom
+end model
+end

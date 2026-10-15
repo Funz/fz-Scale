@@ -1,0 +1,36 @@
+' Hypothesis: H23 (SCALE-skill v0.2) an 'array' record whose number has no 'ara=' definition crashes (glibc abort) instead of giving cs-159
+=csas6
+2x2 lattice of UO2 rods in water, array record refers to an undefined array
+v7-238
+read comp
+  uo2   1 den=10.2 1.0 293 92235 3.5 92238 96.5 end
+  zirc2 2 1.0 293 end
+  h2o   3 1.0 293 end
+end comp
+read celldata
+  latticecell squarepitch pitch=1.4 3 fueld=0.9 1 cladd=1.0 2 end
+end celldata
+read param
+  gen=110 npg=500 nsk=10
+end param
+read geometry
+  unit 7
+    cylinder 1 0.45 40.0 0.0
+    cylinder 2 0.5 40.0 0.0
+    cuboid   3 4p0.7 40.0 0.0
+    media 1 1 1
+    media 2 1 2 -1
+    media 3 1 3 -2
+    boundary 3
+  global unit 8
+    cuboid 4 4p1.4 40.0 0.0
+    cuboid 5 4p10.0 50.0 -10.0
+    array 3 4 place 1 1 1 -0.7 -0.7 0.0
+    media 3 1 5 -4
+    boundary 5
+end geometry
+read array
+  ara=2 nux=2 nuy=2 nuz=1 fill 4*7 end fill
+end array
+end data
+end

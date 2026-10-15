@@ -1,0 +1,16 @@
+' Hypothesis: H8 tsunami-1d output (deterministic, no sigma on k-eff)
+' Expected: lambda / k-eff from XSDRNPM + sensitivity table
+=tsunami-1d
+godiva - TSUNAMI-1D
+v7-238
+read composition
+ uranium 1 den=18.742 1 293 92234 1.0202 92235 93.7112 92238 5.2686 end
+end composition
+read parameter
+  isn=8
+end parameter
+read geometry
+  spherical vacuum reflected end
+  1  8.741
+end geometry
+end
