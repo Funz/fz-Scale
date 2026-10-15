@@ -29,7 +29,7 @@ def parse(case_dir, model, tmp_path, eol="lf"):
     shutil.copytree(case_dir, work)
     if eol == "crlf":
         for f in list(work.glob("*.out")) + list(work.glob("*.msg")):
-            f.write_bytes(f.read_bytes().replace(b"\n", b"\r\n"))
+            f.write_bytes(f.read_bytes().replace(b"\r\n", b"\n").replace(b"\n", b"\r\n"))
     return fz.fzo(str(work), model).iloc[0].to_dict()
 
 
